@@ -1,6 +1,7 @@
-# Team Name
+# Climate Change Disability
 
 ### Team Members
+1. Anna Beck
 
 ### Final Proposal
 1. Persona/Scenario
