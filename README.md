@@ -2,6 +2,7 @@
 
 ### Team Members
 1. Anna Beck
+2. Vignesh Ramachandran
 
 ### Final Proposal
 1. Persona/Scenario
