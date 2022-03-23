@@ -16,8 +16,6 @@
     Jake is a disability rights activist who is trying to convince legislators about the risks and dangers that disabled people face because of climate change. He knows that disabled people are on the frontlines of climate disasters, along with incarcerated people, since both face systemic governmental neglect and are often excluded from disaster evacuation plans. In order to show these risks to legislators, Jake wants to share case studies of disasters when disabled people were disproportionately impacted by climate change and quantify these impacts at different scales. He wants to compare and rank the regionally differential impacts of climate change on disabled and incarcerated communities to discover patterns and trends at various governmental scales. 
 
     (Scenario) When he arrives at the map Jake cycles through a series of narratives of disasters that disproportionately impacted disabled and incarcerated peoples, orienting him to the map and detailing how disabled and incarcerated people are on the frontlines of climate change. Once he clicks through the stories, he is able to explore the map at various scales. Since he is trying to convince a legislator from Racine, WI, he searches for Racine on the map to assess whether there are any prisons or mental institutions that would be disproprotionately impacted by climate change. 
-
-
     
 2. Requirements Document
 
