@@ -7,7 +7,7 @@
 
 ## Final Proposal
 
-### Personas & Scenarios
+### User Personas & Use-Case Scenarios
 
 #### User Profile / Persona 1
 
