@@ -50,7 +50,8 @@ Sally is a visually impaired environmental justice advocate working in Louisiana
 6. Basemap Toggle: Switch between basemaps
 7. Text size change: Change text size in sidebar—on tools, retrieve, and legend.
 8. Color scheme change: Change between light mode and dark mode.
-9. Retrieve in sidebar: Click on or search for a facility for more details on county, incarceration and total population, historical and projected heat indexes, and wildfire risk for selected institution (point), all located on side panel
+9. Retrieve in sidebar: Click on or search for a facility for more details on county, incarceration and total population, historical and projected heat indexes, and wildfire risk for selected institution (point), all located on side panel.
+10. Toggle between home, stories, and explore in story view
 
 ## Wireframe
 
