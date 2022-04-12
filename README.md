@@ -52,8 +52,13 @@ Sally is a visually impaired environmental justice advocate working in Louisiana
 8. Color scheme change: Change between light mode and dark mode.
 9. Retrieve in sidebar: Click on or search for a facility for more details on county, incarceration and total population, historical and projected heat indexes, and wildfire risk for selected institution (point), all located on side panel.
 10. Toggle between home, stories, and explore in story view
+11. Map button on home page that brings you to the map (in side panel) and click on map in home page to enter map
 
 ## Wireframe
+1. 575 wireframe actual home: This is the landing page of the map. It serves to decribe what the map is visualizing and provide the opportunity to choose font size and color scheme
+2. 575 wureframe story: shows the stories of this map to aid in learning the map and its function
+3. 575 wireframe home is the zoomed out view of the map in explore mode
+4. 575 wireframe zoomed in is the zoomed in view of the map in explore mode
 
 
 
