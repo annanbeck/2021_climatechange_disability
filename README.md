@@ -56,10 +56,13 @@ Sally is a visually impaired environmental justice advocate working in Louisiana
 
 ## Wireframe
 1. **575 wireframe actual home:** This is the landing page of the map. It serves to decribe what the map is visualizing and provide the opportunity to choose font size and color scheme.
-    ![575 wireframe actual home, landing page for the wireframe](img/575%20wireframe%20actual%20home.png)
-2. 575 wireframe story: shows the stories of this map to aid in learning the map and its function
-3. 575 wireframe explore is the zoomed out view of the map in explore mode
-4. 575 wireframe zoomed in is the zoomed in view of the map in explore mode
+    ![575 wireframe actual home, landing page for the geovisualization](img/575%20wireframe%20actual%20home.png)
+2. **575 wireframe story:** shows the stories of this map to aid in learning the map and its function
+    ![575 wireframe story, shows what a learning material at story could be](img/575%20wireframe%20story%20final.png )
+3. **575 wireframe explore:** shows the zoomed out view of the map in explore mode
+    ![575 wireframe explore, shows the zoomed out view of the map in explore mode](img/575%20wireframe%20explore%20final.png)
+4. **575 wireframe zoomed in:** is the zoomed in view of the map in explore mode
+    ![575 wireframe zoomed in, shows the zoomed in view of the map in explore mode](img/575%20wireframe%20zoomed%20in.png)
 
 
 
