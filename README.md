@@ -2,8 +2,8 @@
 
 ## Team Members
 
-1. Anna Beck
-2. Vignesh Ramachandran
+1. Anna Beck: Data formatting, designer, co-coder
+2. Vignesh Ramachandran: Data retrieval, learning materials writer, co-coder
 
 ## Final Proposal
 
