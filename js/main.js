@@ -10,4 +10,16 @@ function createMap() {
 
 }
 
+//visualize point data
+//1. fetch data
+//2. join data (VR - learn how to do this)
+//3. pointToLayer (should be easy?)
+//4. proportionalize circles
+
+//add filters
+//1. add filters for each type of jail to remove points
+
+//add overlays
+//1. add overlays to visualize each attribute data
+
 document.addEventListener('DOMContentLoaded', createMap);
