@@ -1,7 +1,9 @@
 
+var map
+
 function createMap() {
 
-   var map = L.map('map').setView([30, -105], 1);
+    map = L.map('map').setView([30, -105], 1);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
@@ -15,7 +17,7 @@ function createMap() {
     //1.1  visualize State data
     //1.2  visualize point data
 //3. pointToLayer (should be easy?)
-    //3.1 set up onEachFeature + Zoom
+    //3.1 set up onEachFeature + Zoom (Zoom to bounding box)
 //4. proportionalize circles
 
 
