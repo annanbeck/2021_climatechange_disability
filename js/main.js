@@ -34,10 +34,25 @@ function createMap() {
     getStateData();
     getShapefileData();
     getPunishmentData();
+    getPsychData();
 
     var joinedStateData = joinPunishmentShapefile(stateLayer, shapefileLayer);
 
 }
+
+//make color range
+/*function getColor(d, min = 1219, max = 248764, startColor = '#fee5d9', endColor = '#a50f15') {
+    const scale = chroma.scale([startColor, endColor]).domain([min, max]);
+    return scale(d).hex();
+};
+console.log(getColor)*/
+
+function getColor(d) {
+    return d > 10000  ? '#d7301f' :
+           d > 50000   ? '#fc8d59' :
+           d > 100000   ? '#fdcc8a' :
+                           '#fef0d9' ;
+    };
 
 //make state data into a layer
 function statePointToLayer(feature, latlng) {
@@ -81,7 +96,6 @@ function calcPropRadius(attValue) {
     return radius;
 };
 
-
 function createStatePropSymbols(data) {
     //creating the geojson layer for the state data
     stateLayer = L.geoJson(data, {
@@ -116,7 +130,7 @@ var borderStyle = {
 };
 
 function onEachShapefileFeature(feature, layer) {
-    layer.on("click", function () {
+    layer.on("dblclick", function () {
         var bounds = layer.getBounds();
         map.fitBounds(bounds);
     })
@@ -208,6 +222,60 @@ function getPunishmentData() {
             createPunishmentPropSymbols(json);
         })
 }
+
+function psychPointToLayer(feature, latlng) {
+    //Determine which attribute to visualize with proportional symbols
+    var attribute = "psych_2014"
+
+    var geojsonMarkerOptions = {
+        radius: 8,
+        fillColor: "#ff7800",
+        color: "#000",
+        weight: 1,
+        opacity: 1,
+        fillOpacity: 0.8
+    };
+
+    //For each feature, determine its value for the selected attribute
+    var attValue = Number(feature.properties[attribute]);
+
+    //Give each feature's circle marker a radius based on its attribute value
+    geojsonMarkerOptions.radius = calcLocalPropRadius(attValue);
+
+    //create circle marker layer
+    var psychLayer = L.circleMarker(latlng, geojsonMarkerOptions);
+
+    //build popup content string
+    var popupContent = "<p><b>State: </b> " + feature.properties.STATE + "</p><p><b> Number of psychiatric inpatients: </b> " + feature.properties[attribute] + "</p>";
+
+    //bind the popup to the circle marker
+    psychLayer.bindPopup(popupContent);
+
+    //return the circle marker to the L.geoJson pointToLayer option
+    return psychLayer;
+};
+
+function createPsychPropSymbols(data) {
+    //creating the geojson layer for the state data
+    psychLayer = L.geoJson(data, {
+        pointToLayer: psychPointToLayer
+    });
+}
+
+//fetch the punishment dataset
+function getPsychData() {
+    fetch("data/states-data-heat-wildfire-incarcerated-psych.geojson")
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (json) {
+
+            //project the punishment dataset
+            createPsychPropSymbols(json);
+        })
+}
+
+
 
 //trying to shapefile and state point data to be able to get data when we click on shapefile
 function joinPunishmentShapefile() {

@@ -12,3 +12,8 @@
     float: left;
     left: 0;
 }
+
+.leaflet-popup-content p {
+    margin: 0;
+    font: 11px Verdana, sans-serif;
+}
