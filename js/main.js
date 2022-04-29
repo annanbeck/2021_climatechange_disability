@@ -147,9 +147,36 @@ var borderStyle = {
 function onEachShapefileFeature(feature, layer) {
     attribute = "incarcerated_20"
    
-    layer.on("dblclick", function () {
+    layer.on("click", function () {
         var bounds = layer.getBounds();
         map.fitBounds(bounds);
+
+        punishmentLayer.setStyle(style)
+
+        function fillFilter(punishmentFeature){
+            if (punishmentFeature.properties.state == feature.properties.STUSPS){
+                return 1;
+            }
+            else{
+                return 0;
+            }
+        }
+
+        function interactivity(punishmentFeature){
+            if (punishmentFeature.properties.state == feature.properties.STUSPS) {
+                return true;
+            } else{
+                return false
+            }
+        }
+
+        function style(punishmentFeature){
+            return {
+                fillOpacity:fillFilter(punishmentFeature),
+                opacity:fillFilter(punishmentFeature),
+                interactive:interactivity(punishmentFeature)
+            }
+        }
     })
 
     //build popup content string
@@ -157,10 +184,6 @@ function onEachShapefileFeature(feature, layer) {
 
     //bind the popup to the circle marker
     layer.bindPopup(popupContent);
-}
-
-function shapefilePointToLayer(feature, layer) {
-
 }
 
 function getShapefileData() {
@@ -174,8 +197,7 @@ function getShapefileData() {
                 style: function (feature) {
                     return L.polyline(feature, borderStyle)
                 },
-                onEachFeature: onEachShapefileFeature,
-                pointToLayer: shapefilePointToLayer
+                onEachFeature: onEachShapefileFeature
             }).addTo(map);
             createStatePropSymbols(stateDataLayer);
         })
@@ -225,12 +247,8 @@ function punishmentPointToLayer(feature, latlng) {
 function createPunishmentPropSymbols(data) {
     //creating the geojson layer for the state data
     punishmentLayer = L.geoJson(data, {
-        pointToLayer: punishmentPointToLayer,
-        filter: function (feature) {
-            if (feature.properties.state == "AL") {
-                return true;
-            }
-        }
+        pointToLayer: punishmentPointToLayer
+        
     });
 }
 
