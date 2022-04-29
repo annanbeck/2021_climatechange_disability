@@ -1,1 +1,1382 @@
-{"type":"FeatureCollection","features":[{"type":"Feature","properties":{"OID_":1,"NRI_ID":"S01","STATE":"Alabama","STATEABBRV":"AL","STATEFIPS":1,"WFIR_EALT":4440310.009,"WFIR_EALS":18.35154292,"WFIR_EALR":"Relatively Low","Latitude":32.688053,"historical_90":" 81 ","slow_90":112,"no_90":152," rapid_90 ":120,"incarcerated_20":39749,"psych_2014":3223},"geometry":{"type":"Point","coordinates":[-86.810585,4779736]}},{"type":"Feature","properties":{"OID_":2,"NRI_ID":"S02","STATE":"Alaska","STATEABBRV":"AK","STATEFIPS":2,"WFIR_EALT":"","WFIR_EALS":"","WFIR_EALR":"Insufficient Data","Latitude":64.724809,"historical_90":" 76 ","slow_90":"","no_90":""," rapid_90 ":"","incarcerated_20":4833,"psych_2014":861},"geometry":{"type":"Point","coordinates":[-153.629618,710231]}},{"type":"Feature","properties":{"OID_":3,"NRI_ID":"S04","STATE":"Arizona","STATEABBRV":"AZ","STATEFIPS":4,"WFIR_EALT":103197040.7,"WFIR_EALS":52.75842356,"WFIR_EALR":"Relatively High","Latitude":34.255149,"historical_90":" 52 ","slow_90":97,"no_90":125," rapid_90 ":90,"incarcerated_20":64154,"psych_2014":3278},"geometry":{"type":"Point","coordinates":[-111.62621,6392017]}},{"type":"Feature","properties":{"OID_":4,"NRI_ID":"S05","STATE":"Arkansas","STATEABBRV":"AR","STATEFIPS":5,"WFIR_EALT":3028756.982,"WFIR_EALS":16.12933067,"WFIR_EALR":"Relatively Low","Latitude":34.755883,"historical_90":" 40 ","slow_90":119,"no_90":144," rapid_90 ":113,"incarcerated_20":27079,"psych_2014":2636},"geometry":{"type":"Point","coordinates":[-92.640559,2915918]}},{"type":"Feature","properties":{"OID_":5,"NRI_ID":"S06","STATE":"California","STATEABBRV":"CA","STATEFIPS":6,"WFIR_EALT":698812619.1,"WFIR_EALS":100,"WFIR_EALR":"Very High","Latitude":36.531544,"historical_90":" 7 ","slow_90":58,"no_90":82," rapid_90 ":51,"incarcerated_20":201570,"psych_2014":14553},"geometry":{"type":"Point","coordinates":[-119.586168,37253956]}},{"type":"Feature","properties":{"OID_":6,"NRI_ID":"S08","STATE":"Colorado","STATEABBRV":"CO","STATEFIPS":8,"WFIR_EALT":45171154.44,"WFIR_EALS":40.00773397,"WFIR_EALR":"Relatively Moderate","Latitude":38.996664,"historical_90":" 10 ","slow_90":24,"no_90":44," rapid_90 ":21,"incarcerated_20":32220,"psych_2014":2292},"geometry":{"type":"Point","coordinates":[-105.547822,5029196]}},{"type":"Feature","properties":{"OID_":7,"NRI_ID":"S09","STATE":"Connecticut","STATEABBRV":"CT","STATEFIPS":9,"WFIR_EALT":71257.90903,"WFIR_EALS":4.472622671,"WFIR_EALR":"Very Low","Latitude":41.580163,"historical_90":" 39 ","slow_90":39,"no_90":70," rapid_90 ":33,"incarcerated_20":13581,"psych_2014":2657},"geometry":{"type":"Point","coordinates":[-72.756629,3574097]}},{"type":"Feature","properties":{"OID_":8,"NRI_ID":"S10","STATE":"Delaware","STATEABBRV":"DE","STATEFIPS":10,"WFIR_EALT":421780.4203,"WFIR_EALS":8.259660124,"WFIR_EALR":"Very Low","Latitude":38.978849,"historical_90":" 31 ","slow_90":74,"no_90":103," rapid_90 ":67,"incarcerated_20":4801,"psych_2014":560},"geometry":{"type":"Point","coordinates":[-75.46014,897934]}},{"type":"Feature","properties":{"OID_":9,"NRI_ID":"S11","STATE":"District of Columbia","STATEABBRV":"DC","STATEFIPS":11,"WFIR_EALT":6.535083668,"WFIR_EALS":0.002111237,"WFIR_EALR":"Very Low","Latitude":38.912097,"historical_90":" 125 ","slow_90":83,"no_90":111," rapid_90 ":77,"incarcerated_20":2278,"psych_2014":739},"geometry":{"type":"Point","coordinates":[-77.014683,601723]}},{"type":"Feature","properties":{"OID_":10,"NRI_ID":"S12","STATE":"Florida","STATEABBRV":"FL","STATEFIPS":12,"WFIR_EALT":183968999,"WFIR_EALS":64.01558898,"WFIR_EALR":"Relatively High","Latitude":27.97762,"historical_90":" 79 ","slow_90":164,"no_90":184," rapid_90 ":158,"incarcerated_20":149333,"psych_2014":10921},"geometry":{"type":"Point","coordinates":[-81.769611,18801310]}},{"type":"Feature","properties":{"OID_":11,"NRI_ID":"S13","STATE":"Georgia","STATEABBRV":"GA","STATEFIPS":13,"WFIR_EALT":28858461.3,"WFIR_EALS":34.42830579,"WFIR_EALR":"Relatively Moderate","Latitude":32.53951,"historical_90":" 22 ","slow_90":124,"no_90":151," rapid_90 ":118,"incarcerated_20":91932,"psych_2014":3149},"geometry":{"type":"Point","coordinates":[-83.380775,9687653]}},{"type":"Feature","properties":{"OID_":12,"NRI_ID":"S15","STATE":"Hawaii","STATEABBRV":"HI","STATEFIPS":15,"WFIR_EALT":"","WFIR_EALS":"","WFIR_EALR":"Insufficient Data","Latitude":19.647634,"historical_90":" 3 ","slow_90":"","no_90":""," rapid_90 ":"","incarcerated_20":3752,"psych_2014":1130},"geometry":{"type":"Point","coordinates":[-155.533256,1360301]}},{"type":"Feature","properties":{"OID_":13,"NRI_ID":"S16","STATE":"Idaho","STATEABBRV":"ID","STATEFIPS":16,"WFIR_EALT":37503805.66,"WFIR_EALS":37.58981396,"WFIR_EALR":"Relatively Moderate","Latitude":43.764877,"historical_90":" 34 ","slow_90":23,"no_90":46," rapid_90 ":18,"incarcerated_20":10931,"psych_2014":955},"geometry":{"type":"Point","coordinates":[-114.964267,1567582]}},{"type":"Feature","properties":{"OID_":14,"NRI_ID":"S17","STATE":"Illinois","STATEABBRV":"IL","STATEFIPS":17,"WFIR_EALT":37033.03705,"WFIR_EALS":3.554987838,"WFIR_EALR":"Very Low","Latitude":40.265028,"historical_90":" 26 ","slow_90":82,"no_90":109," rapid_90 ":76,"incarcerated_20":59075,"psych_2014":6576},"geometry":{"type":"Point","coordinates":[-89.191575,12830632]}},{"type":"Feature","properties":{"OID_":15,"NRI_ID":"S18","STATE":"Indiana","STATEABBRV":"IN","STATEFIPS":18,"WFIR_EALT":16845.6193,"WFIR_EALS":2.685767345,"WFIR_EALR":"Very Low","Latitude":39.904493,"historical_90":" 50 ","slow_90":74,"no_90":103," rapid_90 ":67,"incarcerated_20":41962,"psych_2014":4974},"geometry":{"type":"Point","coordinates":[-86.250281,6483802]}},{"type":"Feature","properties":{"OID_":16,"NRI_ID":"S19","STATE":"Iowa","STATEABBRV":"IA","STATEFIPS":19,"WFIR_EALT":854539.4125,"WFIR_EALS":10.50693485,"WFIR_EALR":"Very Low","Latitude":42.039943,"historical_90":" 41 ","slow_90":65,"no_90":93," rapid_90 ":58,"incarcerated_20":13064,"psych_2014":2031},"geometry":{"type":"Point","coordinates":[-93.500069,3046355]}},{"type":"Feature","properties":{"OID_":17,"NRI_ID":"S20","STATE":"Kansas","STATEABBRV":"KS","STATEFIPS":20,"WFIR_EALT":8265072.716,"WFIR_EALS":22.62253929,"WFIR_EALR":"Relatively Low","Latitude":38.500327,"historical_90":" 108 ","slow_90":91,"no_90":117," rapid_90 ":86,"incarcerated_20":18204,"psych_2014":3877},"geometry":{"type":"Point","coordinates":[-98.380429,2853118]}},{"type":"Feature","properties":{"OID_":18,"NRI_ID":"S21","STATE":"Kentucky","STATEABBRV":"KY","STATEFIPS":21,"WFIR_EALT":13334382.76,"WFIR_EALS":26.56894879,"WFIR_EALR":"Relatively Low","Latitude":37.696825,"historical_90":" 7 ","slow_90":90,"no_90":120," rapid_90 ":83,"incarcerated_20":38346,"psych_2014":2825},"geometry":{"type":"Point","coordinates":[-84.924095,4339367]}},{"type":"Feature","properties":{"OID_":19,"NRI_ID":"S22","STATE":"Louisiana","STATEABBRV":"LA","STATEFIPS":22,"WFIR_EALT":5771077.348,"WFIR_EALS":20.04629477,"WFIR_EALR":"Relatively Low","Latitude":30.542601,"historical_90":" 30 ","slow_90":149,"no_90":171," rapid_90 ":143,"incarcerated_20":51241,"psych_2014":2330},"geometry":{"type":"Point","coordinates":[-92.51441,4533372]}},{"type":"Feature","properties":{"OID_":20,"NRI_ID":"S23","STATE":"Maine","STATEABBRV":"ME","STATEFIPS":23,"WFIR_EALT":124723.8583,"WFIR_EALS":5.433030437,"WFIR_EALR":"Very Low","Latitude":45.243327,"historical_90":" 1 ","slow_90":17,"no_90":42," rapid_90 ":13,"incarcerated_20":3360,"psych_2014":1218},"geometry":{"type":"Point","coordinates":[-69.171071,1328361]}},{"type":"Feature","properties":{"OID_":21,"NRI_ID":"S24","STATE":"Maryland","STATEABBRV":"MD","STATEFIPS":24,"WFIR_EALT":2647044.254,"WFIR_EALS":15.41191938,"WFIR_EALR":"Very Low","Latitude":39.038828,"historical_90":" 8 ","slow_90":75,"no_90":104," rapid_90 ":68,"incarcerated_20":27040,"psych_2014":4010},"geometry":{"type":"Point","coordinates":[-76.346717,5773552]}},{"type":"Feature","properties":{"OID_":22,"NRI_ID":"S25","STATE":"Massachusetts","STATEABBRV":"MA","STATEFIPS":25,"WFIR_EALT":1015025.523,"WFIR_EALS":11.13967209,"WFIR_EALR":"Very Low","Latitude":42.358752,"historical_90":" 8 ","slow_90":30,"no_90":59," rapid_90 ":25,"incarcerated_20":17969,"psych_2014":4887},"geometry":{"type":"Point","coordinates":[-71.531484,6547629]}},{"type":"Feature","properties":{"OID_":23,"NRI_ID":"S26","STATE":"Michigan","STATEABBRV":"MI","STATEFIPS":26,"WFIR_EALT":1746474.429,"WFIR_EALS":13.38999715,"WFIR_EALR":"Very Low","Latitude":43.924812,"historical_90":" 46 ","slow_90":36,"no_90":65," rapid_90 ":29,"incarcerated_20":54748,"psych_2014":4152},"geometry":{"type":"Point","coordinates":[-84.633107,9883640]}},{"type":"Feature","properties":{"OID_":24,"NRI_ID":"S27","STATE":"Minnesota","STATEABBRV":"MN","STATEFIPS":27,"WFIR_EALT":17641481.7,"WFIR_EALS":29.18766332,"WFIR_EALR":"Relatively Low","Latitude":46.63636,"historical_90":" 92 ","slow_90":41,"no_90":68," rapid_90 ":35,"incarcerated_20":16672,"psych_2014":2917},"geometry":{"type":"Point","coordinates":[-94.579641,5303925]}},{"type":"Feature","properties":{"OID_":25,"NRI_ID":"S28","STATE":"Mississippi","STATEABBRV":"MS","STATEFIPS":28,"WFIR_EALT":12378585.35,"WFIR_EALS":25.91321508,"WFIR_EALR":"Relatively Low","Latitude":32.921921,"historical_90":" 6 ","slow_90":135,"no_90":158," rapid_90 ":128,"incarcerated_20":30745,"psych_2014":2787},"geometry":{"type":"Point","coordinates":[-89.687118,2967297]}},{"type":"Feature","properties":{"OID_":26,"NRI_ID":"S29","STATE":"Missouri","STATEABBRV":"MO","STATEFIPS":29,"WFIR_EALT":3310695.168,"WFIR_EALS":16.6213293,"WFIR_EALR":"Relatively Low","Latitude":38.353141,"historical_90":" 47 ","slow_90":91,"no_90":118," rapid_90 ":86,"incarcerated_20":37079,"psych_2014":5389},"geometry":{"type":"Point","coordinates":[-92.747022,5988927]}},{"type":"Feature","properties":{"OID_":27,"NRI_ID":"S30","STATE":"Montana","STATEABBRV":"MT","STATEFIPS":30,"WFIR_EALT":12267918.48,"WFIR_EALS":25.83513607,"WFIR_EALR":"Relatively Low","Latitude":47.001265,"historical_90":" 9 ","slow_90":24,"no_90":44," rapid_90 ":19,"incarcerated_20":5774,"psych_2014":1057},"geometry":{"type":"Point","coordinates":[-109.645406,989415]}},{"type":"Feature","properties":{"OID_":28,"NRI_ID":"S31","STATE":"Nebraska","STATEABBRV":"NE","STATEFIPS":31,"WFIR_EALT":1333467.24,"WFIR_EALS":12.22030614,"WFIR_EALR":"Very Low","Latitude":41.499671,"historical_90":" 23 ","slow_90":66,"no_90":94," rapid_90 ":60,"incarcerated_20":8998,"psych_2014":1410},"geometry":{"type":"Point","coordinates":[-99.810075,1826341]}},{"type":"Feature","properties":{"OID_":29,"NRI_ID":"S32","STATE":"Nevada","STATEABBRV":"NV","STATEFIPS":32,"WFIR_EALT":41781150,"WFIR_EALS":38.97539941,"WFIR_EALR":"Relatively Moderate","Latitude":39.440688,"historical_90":" 3 ","slow_90":39,"no_90":67," rapid_90 ":32,"incarcerated_20":19575,"psych_2014":739},"geometry":{"type":"Point","coordinates":[-116.598569,2700551]}},{"type":"Feature","properties":{"OID_":30,"NRI_ID":"S33","STATE":"New Hampshire","STATEABBRV":"NH","STATEFIPS":33,"WFIR_EALT":520937.6742,"WFIR_EALS":8.877177097,"WFIR_EALR":"Very Low","Latitude":43.644386,"historical_90":" 22 ","slow_90":25,"no_90":53," rapid_90 ":20,"incarcerated_20":4395,"psych_2014":1022},"geometry":{"type":"Point","coordinates":[-71.586283,1316470]}},{"type":"Feature","properties":{"OID_":31,"NRI_ID":"S34","STATE":"New Jersey","STATEABBRV":"NJ","STATEFIPS":34,"WFIR_EALT":10242210.49,"WFIR_EALS":24.31459948,"WFIR_EALR":"Relatively Low","Latitude":39.66502,"historical_90":" 17 ","slow_90":59,"no_90":89," rapid_90 ":53,"incarcerated_20":36851,"psych_2014":5412},"geometry":{"type":"Point","coordinates":[-74.738208,8791894]}},{"type":"Feature","properties":{"OID_":32,"NRI_ID":"S35","STATE":"New Mexico","STATEABBRV":"NM","STATEFIPS":35,"WFIR_EALT":38020801.01,"WFIR_EALS":37.76270933,"WFIR_EALR":"Relatively Moderate","Latitude":34.498624,"historical_90":" 12 ","slow_90":51,"no_90":86," rapid_90 ":46,"incarcerated_20":14807,"psych_2014":1312},"geometry":{"type":"Point","coordinates":[-106.108278,2059179]}},{"type":"Feature","properties":{"OID_":33,"NRI_ID":"S36","STATE":"New York","STATEABBRV":"NY","STATEFIPS":36,"WFIR_EALT":523188.4215,"WFIR_EALS":8.890244133,"WFIR_EALR":"Very Low","Latitude":43.408777,"historical_90":" 4 ","slow_90":32,"no_90":64," rapid_90 ":26,"incarcerated_20":62707,"psych_2014":17908},"geometry":{"type":"Point","coordinates":[-74.871618,19378102]}},{"type":"Feature","properties":{"OID_":34,"NRI_ID":"S37","STATE":"North Carolina","STATEABBRV":"NC","STATEFIPS":37,"WFIR_EALT":14313808.12,"WFIR_EALS":27.20914503,"WFIR_EALR":"Relatively Low","Latitude":35.387362,"historical_90":" 17 ","slow_90":91,"no_90":120," rapid_90 ":84,"incarcerated_20":59099,"psych_2014":4195},"geometry":{"type":"Point","coordinates":[-78.455056,9535483]}},{"type":"Feature","properties":{"OID_":35,"NRI_ID":"S38","STATE":"North Dakota","STATEABBRV":"ND","STATEFIPS":38,"WFIR_EALT":1835481.204,"WFIR_EALS":13.61719866,"WFIR_EALR":"Very Low","Latitude":47.471495,"historical_90":" 75 ","slow_90":34,"no_90":58," rapid_90 ":28,"incarcerated_20":2571,"psych_2014":353},"geometry":{"type":"Point","coordinates":[-100.469096,672591]}},{"type":"Feature","properties":{"OID_":36,"NRI_ID":"S39","STATE":"Ohio","STATEABBRV":"OH","STATEFIPS":39,"WFIR_EALT":486920.9812,"WFIR_EALS":8.674936064,"WFIR_EALR":"Very Low","Latitude":40.262259,"historical_90":" 4 ","slow_90":60,"no_90":93," rapid_90 ":53,"incarcerated_20":67080,"psych_2014":5340},"geometry":{"type":"Point","coordinates":[-82.883453,11536504]}},{"type":"Feature","properties":{"OID_":37,"NRI_ID":"S40","STATE":"Oklahoma","STATEABBRV":"OK","STATEFIPS":40,"WFIR_EALT":49504538.55,"WFIR_EALS":41.25470232,"WFIR_EALR":"Relatively Moderate","Latitude":35.455622,"historical_90":" 8 ","slow_90":117,"no_90":142," rapid_90 ":111,"incarcerated_20":38455,"psych_2014":2588},"geometry":{"type":"Point","coordinates":[-97.508021,3751351]}},{"type":"Feature","properties":{"OID_":38,"NRI_ID":"S41","STATE":"Oregon","STATEABBRV":"OR","STATEFIPS":41,"WFIR_EALT":17934994.01,"WFIR_EALS":29.3497977,"WFIR_EALR":"Relatively Low","Latitude":43.854178,"historical_90":" 9 ","slow_90":19,"no_90":40," rapid_90 ":15,"incarcerated_20":20434,"psych_2014":2717},"geometry":{"type":"Point","coordinates":[-120.526709,3831074]}},{"type":"Feature","properties":{"OID_":39,"NRI_ID":"S42","STATE":"Pennsylvania","STATEABBRV":"PA","STATEFIPS":42,"WFIR_EALT":203828.8513,"WFIR_EALS":6.436703215,"WFIR_EALR":"Very Low","Latitude":40.860198,"historical_90":" 70 ","slow_90":41,"no_90":74," rapid_90 ":35,"incarcerated_20":81297,"psych_2014":8940},"geometry":{"type":"Point","coordinates":[-77.838617,12702379]}},{"type":"Feature","properties":{"OID_":40,"NRI_ID":"S44","STATE":"Rhode Island","STATEABBRV":"RI","STATEFIPS":44,"WFIR_EALT":46875.12093,"WFIR_EALS":3.862608482,"WFIR_EALR":"Very Low","Latitude":41.587536,"historical_90":" 19 ","slow_90":36,"no_90":66," rapid_90 ":30,"incarcerated_20":3082,"psych_2014":895},"geometry":{"type":"Point","coordinates":[-71.514739,1052567]}},{"type":"Feature","properties":{"OID_":41,"NRI_ID":"S45","STATE":"South Carolina","STATEABBRV":"SC","STATEFIPS":45,"WFIR_EALT":13276003.42,"WFIR_EALS":26.5298127,"WFIR_EALR":"Relatively Low","Latitude":33.702857,"historical_90":" 51 ","slow_90":119,"no_90":146," rapid_90 ":113,"incarcerated_20":31693,"psych_2014":2356},"geometry":{"type":"Point","coordinates":[-80.627523,4625364]}},{"type":"Feature","properties":{"OID_":42,"NRI_ID":"S46","STATE":"South Dakota","STATEABBRV":"SD","STATEFIPS":46,"WFIR_EALT":11044763.84,"WFIR_EALS":24.93909734,"WFIR_EALR":"Relatively Low","Latitude":44.470716,"historical_90":" 90 ","slow_90":52,"no_90":78," rapid_90 ":47,"incarcerated_20":6470,"psych_2014":684},"geometry":{"type":"Point","coordinates":[-100.229958,814180]}},{"type":"Feature","properties":{"OID_":43,"NRI_ID":"S47","STATE":"Tennessee","STATEABBRV":"TN","STATEFIPS":47,"WFIR_EALT":1214368.854,"WFIR_EALS":11.83866717,"WFIR_EALR":"Very Low","Latitude":35.820245,"historical_90":" 10 ","slow_90":98,"no_90":127," rapid_90 ":92,"incarcerated_20":47728,"psych_2014":4112},"geometry":{"type":"Point","coordinates":[-86.343764,6346105]}},{"type":"Feature","properties":{"OID_":44,"NRI_ID":"S48","STATE":"Texas","STATEABBRV":"TX","STATEFIPS":48,"WFIR_EALT":103187503.9,"WFIR_EALS":52.75679187,"WFIR_EALR":"Relatively High","Latitude":31.030974,"historical_90":" 31 ","slow_90":136,"no_90":161," rapid_90 ":131,"incarcerated_20":248764,"psych_2014":9387},"geometry":{"type":"Point","coordinates":[-98.326329,25145561]}},{"type":"Feature","properties":{"OID_":45,"NRI_ID":"S49","STATE":"Utah","STATEABBRV":"UT","STATEFIPS":49,"WFIR_EALT":43803870.09,"WFIR_EALS":39.59779641,"WFIR_EALR":"Relatively Moderate","Latitude":39.098999,"historical_90":" 2 ","slow_90":30,"no_90":54," rapid_90 ":25,"incarcerated_20":10680,"psych_2014":2309},"geometry":{"type":"Point","coordinates":[-111.878816,2763885]}},{"type":"Feature","properties":{"OID_":46,"NRI_ID":"S50","STATE":"Vermont","STATEABBRV":"VT","STATEFIPS":50,"WFIR_EALT":51539.86182,"WFIR_EALS":3.993422063,"WFIR_EALR":"Very Low","Latitude":44.211857,"historical_90":" 4 ","slow_90":18,"no_90":44," rapid_90 ":13,"incarcerated_20":1219,"psych_2014":737},"geometry":{"type":"Point","coordinates":[-72.681238,625741]}},{"type":"Feature","properties":{"OID_":47,"NRI_ID":"S51","STATE":"Virginia","STATEABBRV":"VA","STATEFIPS":51,"WFIR_EALT":6294556.251,"WFIR_EALS":20.64109237,"WFIR_EALR":"Relatively Low","Latitude":37.73086,"historical_90":" 9 ","slow_90":78,"no_90":109," rapid_90 ":71,"incarcerated_20":57014,"psych_2014":4220},"geometry":{"type":"Point","coordinates":[-78.376655,8001024]}},{"type":"Feature","properties":{"OID_":48,"NRI_ID":"S53","STATE":"Washington","STATEABBRV":"WA","STATEFIPS":53,"WFIR_EALT":17755884.27,"WFIR_EALS":29.25107091,"WFIR_EALR":"Relatively Low","Latitude":38.82652,"historical_90":" 13 ","slow_90":17,"no_90":35," rapid_90 ":14,"incarcerated_20":26677,"psych_2014":3114},"geometry":{"type":"Point","coordinates":[-77.01712,6724540]}},{"type":"Feature","properties":{"OID_":49,"NRI_ID":"S54","STATE":"West Virginia","STATEABBRV":"WV","STATEFIPS":54,"WFIR_EALT":4029264.7,"WFIR_EALS":17.76017625,"WFIR_EALR":"Relatively Low","Latitude":38.720281,"historical_90":" 2 ","slow_90":56,"no_90":91," rapid_90 ":49,"incarcerated_20":19669,"psych_2014":1524},"geometry":{"type":"Point","coordinates":[-80.649428,1852994]}},{"type":"Feature","properties":{"OID_":50,"NRI_ID":"S55","STATE":"Wisconsin","STATEABBRV":"WI","STATEFIPS":55,"WFIR_EALT":1101018.585,"WFIR_EALS":11.45151207,"WFIR_EALR":"Very Low","Latitude":44.356004,"historical_90":"","slow_90":39,"no_90":68," rapid_90 ":32,"incarcerated_20":32853,"psych_2014":2812},"geometry":{"type":"Point","coordinates":[-89.466198,5686986]}},{"type":"Feature","properties":{"OID_":51,"NRI_ID":"S56","STATE":"Wyoming","STATEABBRV":"WY","STATEFIPS":56,"WFIR_EALT":8486154.447,"WFIR_EALS":22.82432375,"WFIR_EALR":"Relatively Low","Latitude":43.001645,"historical_90":"","slow_90":19,"no_90":42," rapid_90 ":16,"incarcerated_20":3352,"psych_2014":523},"geometry":{"type":"Point","coordinates":[-107.55153,563626]}}]}
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 1,
+                "NRI_ID": "S01",
+                "STATE": "Alabama",
+                "STATEABBRV": "AL",
+                "STATEFIPS": 1,
+                "WFIR_EALT": 4440310.009,
+                "WFIR_EALS": 18.35154292,
+                "WFIR_EALR": "Relatively Low",
+                "Latitude": 32.688053,
+                "historical_90": " 81 ",
+                "slow_90": 112,
+                "no_90": 152,
+                " rapid_90 ": 120,
+                "incarcerated_20": 39749,
+                "psych_2014": 3223
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -86.810585,
+                    4779736
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 2,
+                "NRI_ID": "S02",
+                "STATE": "Alaska",
+                "STATEABBRV": "AK",
+                "STATEFIPS": 2,
+                "WFIR_EALT": "",
+                "WFIR_EALS": "",
+                "WFIR_EALR": "Insufficient Data",
+                "Latitude": 64.724809,
+                "historical_90": " 76 ",
+                "slow_90": "",
+                "no_90": "",
+                " rapid_90 ": "",
+                "incarcerated_20": 4833,
+                "psych_2014": 861
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -153.629618,
+                    710231
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 3,
+                "NRI_ID": "S04",
+                "STATE": "Arizona",
+                "STATEABBRV": "AZ",
+                "STATEFIPS": 4,
+                "WFIR_EALT": 103197040.7,
+                "WFIR_EALS": 52.75842356,
+                "WFIR_EALR": "Relatively High",
+                "Latitude": 34.255149,
+                "historical_90": " 52 ",
+                "slow_90": 97,
+                "no_90": 125,
+                " rapid_90 ": 90,
+                "incarcerated_20": 64154,
+                "psych_2014": 3278
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -111.62621,
+                    6392017
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 4,
+                "NRI_ID": "S05",
+                "STATE": "Arkansas",
+                "STATEABBRV": "AR",
+                "STATEFIPS": 5,
+                "WFIR_EALT": 3028756.982,
+                "WFIR_EALS": 16.12933067,
+                "WFIR_EALR": "Relatively Low",
+                "Latitude": 34.755883,
+                "historical_90": " 40 ",
+                "slow_90": 119,
+                "no_90": 144,
+                " rapid_90 ": 113,
+                "incarcerated_20": 27079,
+                "psych_2014": 2636
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.640559,
+                    2915918
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 5,
+                "NRI_ID": "S06",
+                "STATE": "California",
+                "STATEABBRV": "CA",
+                "STATEFIPS": 6,
+                "WFIR_EALT": 698812619.1,
+                "WFIR_EALS": 100,
+                "WFIR_EALR": "Very High",
+                "Latitude": 36.531544,
+                "historical_90": " 7 ",
+                "slow_90": 58,
+                "no_90": 82,
+                " rapid_90 ": 51,
+                "incarcerated_20": 201570,
+                "psych_2014": 14553
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -119.586168,
+                    37253956
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 6,
+                "NRI_ID": "S08",
+                "STATE": "Colorado",
+                "STATEABBRV": "CO",
+                "STATEFIPS": 8,
+                "WFIR_EALT": 45171154.44,
+                "WFIR_EALS": 40.00773397,
+                "WFIR_EALR": "Relatively Moderate",
+                "Latitude": 38.996664,
+                "historical_90": " 10 ",
+                "slow_90": 24,
+                "no_90": 44,
+                " rapid_90 ": 21,
+                "incarcerated_20": 32220,
+                "psych_2014": 2292
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -105.547822,
+                    5029196
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 7,
+                "NRI_ID": "S09",
+                "STATE": "Connecticut",
+                "STATEABBRV": "CT",
+                "STATEFIPS": 9,
+                "WFIR_EALT": 71257.90903,
+                "WFIR_EALS": 4.472622671,
+                "WFIR_EALR": "Very Low",
+                "Latitude": 41.580163,
+                "historical_90": " 39 ",
+                "slow_90": 39,
+                "no_90": 70,
+                " rapid_90 ": 33,
+                "incarcerated_20": 13581,
+                "psych_2014": 2657
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.756629,
+                    3574097
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 8,
+                "NRI_ID": "S10",
+                "STATE": "Delaware",
+                "STATEABBRV": "DE",
+                "STATEFIPS": 10,
+                "WFIR_EALT": 421780.4203,
+                "WFIR_EALS": 8.259660124,
+                "WFIR_EALR": "Very Low",
+                "Latitude": 38.978849,
+                "historical_90": " 31 ",
+                "slow_90": 74,
+                "no_90": 103,
+                " rapid_90 ": 67,
+                "incarcerated_20": 4801,
+                "psych_2014": 560
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -75.46014,
+                    897934
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 9,
+                "NRI_ID": "S11",
+                "STATE": "District of Columbia",
+                "STATEABBRV": "DC",
+                "STATEFIPS": 11,
+                "WFIR_EALT": 6.535083668,
+                "WFIR_EALS": 0.002111237,
+                "WFIR_EALR": "Very Low",
+                "Latitude": 38.912097,
+                "historical_90": " 125 ",
+                "slow_90": 83,
+                "no_90": 111,
+                " rapid_90 ": 77,
+                "incarcerated_20": 2278,
+                "psych_2014": 739
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.014683,
+                    601723
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 10,
+                "NRI_ID": "S12",
+                "STATE": "Florida",
+                "STATEABBRV": "FL",
+                "STATEFIPS": 12,
+                "WFIR_EALT": 183968999,
+                "WFIR_EALS": 64.01558898,
+                "WFIR_EALR": "Relatively High",
+                "Latitude": 27.97762,
+                "historical_90": " 79 ",
+                "slow_90": 164,
+                "no_90": 184,
+                " rapid_90 ": 158,
+                "incarcerated_20": 149333,
+                "psych_2014": 10921
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.769611,
+                    18801310
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 11,
+                "NRI_ID": "S13",
+                "STATE": "Georgia",
+                "STATEABBRV": "GA",
+                "STATEFIPS": 13,
+                "WFIR_EALT": 28858461.3,
+                "WFIR_EALS": 34.42830579,
+                "WFIR_EALR": "Relatively Moderate",
+                "Latitude": 32.53951,
+                "historical_90": " 22 ",
+                "slow_90": 124,
+                "no_90": 151,
+                " rapid_90 ": 118,
+                "incarcerated_20": 91932,
+                "psych_2014": 3149
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.380775,
+                    9687653
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 12,
+                "NRI_ID": "S15",
+                "STATE": "Hawaii",
+                "STATEABBRV": "HI",
+                "STATEFIPS": 15,
+                "WFIR_EALT": "",
+                "WFIR_EALS": "",
+                "WFIR_EALR": "Insufficient Data",
+                "Latitude": 19.647634,
+                "historical_90": " 3 ",
+                "slow_90": "",
+                "no_90": "",
+                " rapid_90 ": "",
+                "incarcerated_20": 3752,
+                "psych_2014": 1130
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -155.533256,
+                    1360301
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 13,
+                "NRI_ID": "S16",
+                "STATE": "Idaho",
+                "STATEABBRV": "ID",
+                "STATEFIPS": 16,
+                "WFIR_EALT": 37503805.66,
+                "WFIR_EALS": 37.58981396,
+                "WFIR_EALR": "Relatively Moderate",
+                "Latitude": 43.764877,
+                "historical_90": " 34 ",
+                "slow_90": 23,
+                "no_90": 46,
+                " rapid_90 ": 18,
+                "incarcerated_20": 10931,
+                "psych_2014": 955
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -114.964267,
+                    1567582
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 14,
+                "NRI_ID": "S17",
+                "STATE": "Illinois",
+                "STATEABBRV": "IL",
+                "STATEFIPS": 17,
+                "WFIR_EALT": 37033.03705,
+                "WFIR_EALS": 3.554987838,
+                "WFIR_EALR": "Very Low",
+                "Latitude": 40.265028,
+                "historical_90": " 26 ",
+                "slow_90": 82,
+                "no_90": 109,
+                " rapid_90 ": 76,
+                "incarcerated_20": 59075,
+                "psych_2014": 6576
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -89.191575,
+                    12830632
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 15,
+                "NRI_ID": "S18",
+                "STATE": "Indiana",
+                "STATEABBRV": "IN",
+                "STATEFIPS": 18,
+                "WFIR_EALT": 16845.6193,
+                "WFIR_EALS": 2.685767345,
+                "WFIR_EALR": "Very Low",
+                "Latitude": 39.904493,
+                "historical_90": " 50 ",
+                "slow_90": 74,
+                "no_90": 103,
+                " rapid_90 ": 67,
+                "incarcerated_20": 41962,
+                "psych_2014": 4974
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -86.250281,
+                    6483802
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 16,
+                "NRI_ID": "S19",
+                "STATE": "Iowa",
+                "STATEABBRV": "IA",
+                "STATEFIPS": 19,
+                "WFIR_EALT": 854539.4125,
+                "WFIR_EALS": 10.50693485,
+                "WFIR_EALR": "Very Low",
+                "Latitude": 42.039943,
+                "historical_90": " 41 ",
+                "slow_90": 65,
+                "no_90": 93,
+                " rapid_90 ": 58,
+                "incarcerated_20": 13064,
+                "psych_2014": 2031
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -93.500069,
+                    3046355
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 17,
+                "NRI_ID": "S20",
+                "STATE": "Kansas",
+                "STATEABBRV": "KS",
+                "STATEFIPS": 20,
+                "WFIR_EALT": 8265072.716,
+                "WFIR_EALS": 22.62253929,
+                "WFIR_EALR": "Relatively Low",
+                "Latitude": 38.500327,
+                "historical_90": " 108 ",
+                "slow_90": 91,
+                "no_90": 117,
+                " rapid_90 ": 86,
+                "incarcerated_20": 18204,
+                "psych_2014": 3877
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -98.380429,
+                    2853118
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 18,
+                "NRI_ID": "S21",
+                "STATE": "Kentucky",
+                "STATEABBRV": "KY",
+                "STATEFIPS": 21,
+                "WFIR_EALT": 13334382.76,
+                "WFIR_EALS": 26.56894879,
+                "WFIR_EALR": "Relatively Low",
+                "Latitude": 37.696825,
+                "historical_90": " 7 ",
+                "slow_90": 90,
+                "no_90": 120,
+                " rapid_90 ": 83,
+                "incarcerated_20": 38346,
+                "psych_2014": 2825
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.924095,
+                    4339367
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 19,
+                "NRI_ID": "S22",
+                "STATE": "Louisiana",
+                "STATEABBRV": "LA",
+                "STATEFIPS": 22,
+                "WFIR_EALT": 5771077.348,
+                "WFIR_EALS": 20.04629477,
+                "WFIR_EALR": "Relatively Low",
+                "Latitude": 30.542601,
+                "historical_90": " 30 ",
+                "slow_90": 149,
+                "no_90": 171,
+                " rapid_90 ": 143,
+                "incarcerated_20": 51241,
+                "psych_2014": 2330
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.51441,
+                    4533372
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 20,
+                "NRI_ID": "S23",
+                "STATE": "Maine",
+                "STATEABBRV": "ME",
+                "STATEFIPS": 23,
+                "WFIR_EALT": 124723.8583,
+                "WFIR_EALS": 5.433030437,
+                "WFIR_EALR": "Very Low",
+                "Latitude": 45.243327,
+                "historical_90": " 1 ",
+                "slow_90": 17,
+                "no_90": 42,
+                " rapid_90 ": 13,
+                "incarcerated_20": 3360,
+                "psych_2014": 1218
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -69.171071,
+                    1328361
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 21,
+                "NRI_ID": "S24",
+                "STATE": "Maryland",
+                "STATEABBRV": "MD",
+                "STATEFIPS": 24,
+                "WFIR_EALT": 2647044.254,
+                "WFIR_EALS": 15.41191938,
+                "WFIR_EALR": "Very Low",
+                "Latitude": 39.038828,
+                "historical_90": " 8 ",
+                "slow_90": 75,
+                "no_90": 104,
+                " rapid_90 ": 68,
+                "incarcerated_20": 27040,
+                "psych_2014": 4010
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -76.346717,
+                    5773552
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 22,
+                "NRI_ID": "S25",
+                "STATE": "Massachusetts",
+                "STATEABBRV": "MA",
+                "STATEFIPS": 25,
+                "WFIR_EALT": 1015025.523,
+                "WFIR_EALS": 11.13967209,
+                "WFIR_EALR": "Very Low",
+                "Latitude": 42.358752,
+                "historical_90": " 8 ",
+                "slow_90": 30,
+                "no_90": 59,
+                " rapid_90 ": 25,
+                "incarcerated_20": 17969,
+                "psych_2014": 4887
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.531484,
+                    6547629
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 23,
+                "NRI_ID": "S26",
+                "STATE": "Michigan",
+                "STATEABBRV": "MI",
+                "STATEFIPS": 26,
+                "WFIR_EALT": 1746474.429,
+                "WFIR_EALS": 13.38999715,
+                "WFIR_EALR": "Very Low",
+                "Latitude": 43.924812,
+                "historical_90": " 46 ",
+                "slow_90": 36,
+                "no_90": 65,
+                " rapid_90 ": 29,
+                "incarcerated_20": 54748,
+                "psych_2014": 4152
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.633107,
+                    9883640
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 24,
+                "NRI_ID": "S27",
+                "STATE": "Minnesota",
+                "STATEABBRV": "MN",
+                "STATEFIPS": 27,
+                "WFIR_EALT": 17641481.7,
+                "WFIR_EALS": 29.18766332,
+                "WFIR_EALR": "Relatively Low",
+                "Latitude": 46.63636,
+                "historical_90": " 92 ",
+                "slow_90": 41,
+                "no_90": 68,
+                " rapid_90 ": 35,
+                "incarcerated_20": 16672,
+                "psych_2014": 2917
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.579641,
+                    5303925
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 25,
+                "NRI_ID": "S28",
+                "STATE": "Mississippi",
+                "STATEABBRV": "MS",
+                "STATEFIPS": 28,
+                "WFIR_EALT": 12378585.35,
+                "WFIR_EALS": 25.91321508,
+                "WFIR_EALR": "Relatively Low",
+                "Latitude": 32.921921,
+                "historical_90": " 6 ",
+                "slow_90": 135,
+                "no_90": 158,
+                " rapid_90 ": 128,
+                "incarcerated_20": 30745,
+                "psych_2014": 2787
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -89.687118,
+                    2967297
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 26,
+                "NRI_ID": "S29",
+                "STATE": "Missouri",
+                "STATEABBRV": "MO",
+                "STATEFIPS": 29,
+                "WFIR_EALT": 3310695.168,
+                "WFIR_EALS": 16.6213293,
+                "WFIR_EALR": "Relatively Low",
+                "Latitude": 38.353141,
+                "historical_90": " 47 ",
+                "slow_90": 91,
+                "no_90": 118,
+                " rapid_90 ": 86,
+                "incarcerated_20": 37079,
+                "psych_2014": 5389
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.747022,
+                    5988927
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 27,
+                "NRI_ID": "S30",
+                "STATE": "Montana",
+                "STATEABBRV": "MT",
+                "STATEFIPS": 30,
+                "WFIR_EALT": 12267918.48,
+                "WFIR_EALS": 25.83513607,
+                "WFIR_EALR": "Relatively Low",
+                "Latitude": 47.001265,
+                "historical_90": " 9 ",
+                "slow_90": 24,
+                "no_90": 44,
+                " rapid_90 ": 19,
+                "incarcerated_20": 5774,
+                "psych_2014": 1057
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -109.645406,
+                    989415
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 28,
+                "NRI_ID": "S31",
+                "STATE": "Nebraska",
+                "STATEABBRV": "NE",
+                "STATEFIPS": 31,
+                "WFIR_EALT": 1333467.24,
+                "WFIR_EALS": 12.22030614,
+                "WFIR_EALR": "Very Low",
+                "Latitude": 41.499671,
+                "historical_90": " 23 ",
+                "slow_90": 66,
+                "no_90": 94,
+                " rapid_90 ": 60,
+                "incarcerated_20": 8998,
+                "psych_2014": 1410
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -99.810075,
+                    1826341
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 29,
+                "NRI_ID": "S32",
+                "STATE": "Nevada",
+                "STATEABBRV": "NV",
+                "STATEFIPS": 32,
+                "WFIR_EALT": 41781150,
+                "WFIR_EALS": 38.97539941,
+                "WFIR_EALR": "Relatively Moderate",
+                "Latitude": 39.440688,
+                "historical_90": " 3 ",
+                "slow_90": 39,
+                "no_90": 67,
+                " rapid_90 ": 32,
+                "incarcerated_20": 19575,
+                "psych_2014": 739
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -116.598569,
+                    2700551
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 30,
+                "NRI_ID": "S33",
+                "STATE": "New Hampshire",
+                "STATEABBRV": "NH",
+                "STATEFIPS": 33,
+                "WFIR_EALT": 520937.6742,
+                "WFIR_EALS": 8.877177097,
+                "WFIR_EALR": "Very Low",
+                "Latitude": 43.644386,
+                "historical_90": " 22 ",
+                "slow_90": 25,
+                "no_90": 53,
+                " rapid_90 ": 20,
+                "incarcerated_20": 4395,
+                "psych_2014": 1022
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.586283,
+                    1316470
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 31,
+                "NRI_ID": "S34",
+                "STATE": "New Jersey",
+                "STATEABBRV": "NJ",
+                "STATEFIPS": 34,
+                "WFIR_EALT": 10242210.49,
+                "WFIR_EALS": 24.31459948,
+                "WFIR_EALR": "Relatively Low",
+                "Latitude": 39.66502,
+                "historical_90": " 17 ",
+                "slow_90": 59,
+                "no_90": 89,
+                " rapid_90 ": 53,
+                "incarcerated_20": 36851,
+                "psych_2014": 5412
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -74.738208,
+                    8791894
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 32,
+                "NRI_ID": "S35",
+                "STATE": "New Mexico",
+                "STATEABBRV": "NM",
+                "STATEFIPS": 35,
+                "WFIR_EALT": 38020801.01,
+                "WFIR_EALS": 37.76270933,
+                "WFIR_EALR": "Relatively Moderate",
+                "Latitude": 34.498624,
+                "historical_90": " 12 ",
+                "slow_90": 51,
+                "no_90": 86,
+                " rapid_90 ": 46,
+                "incarcerated_20": 14807,
+                "psych_2014": 1312
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -106.108278,
+                    2059179
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 33,
+                "NRI_ID": "S36",
+                "STATE": "New York",
+                "STATEABBRV": "NY",
+                "STATEFIPS": 36,
+                "WFIR_EALT": 523188.4215,
+                "WFIR_EALS": 8.890244133,
+                "WFIR_EALR": "Very Low",
+                "Latitude": 43.408777,
+                "historical_90": " 4 ",
+                "slow_90": 32,
+                "no_90": 64,
+                " rapid_90 ": 26,
+                "incarcerated_20": 62707,
+                "psych_2014": 17908
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -74.871618,
+                    19378102
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 34,
+                "NRI_ID": "S37",
+                "STATE": "North Carolina",
+                "STATEABBRV": "NC",
+                "STATEFIPS": 37,
+                "WFIR_EALT": 14313808.12,
+                "WFIR_EALS": 27.20914503,
+                "WFIR_EALR": "Relatively Low",
+                "Latitude": 35.387362,
+                "historical_90": " 17 ",
+                "slow_90": 91,
+                "no_90": 120,
+                " rapid_90 ": 84,
+                "incarcerated_20": 59099,
+                "psych_2014": 4195
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.455056,
+                    9535483
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 35,
+                "NRI_ID": "S38",
+                "STATE": "North Dakota",
+                "STATEABBRV": "ND",
+                "STATEFIPS": 38,
+                "WFIR_EALT": 1835481.204,
+                "WFIR_EALS": 13.61719866,
+                "WFIR_EALR": "Very Low",
+                "Latitude": 47.471495,
+                "historical_90": " 75 ",
+                "slow_90": 34,
+                "no_90": 58,
+                " rapid_90 ": 28,
+                "incarcerated_20": 2571,
+                "psych_2014": 353
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -100.469096,
+                    672591
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 36,
+                "NRI_ID": "S39",
+                "STATE": "Ohio",
+                "STATEABBRV": "OH",
+                "STATEFIPS": 39,
+                "WFIR_EALT": 486920.9812,
+                "WFIR_EALS": 8.674936064,
+                "WFIR_EALR": "Very Low",
+                "Latitude": 40.262259,
+                "historical_90": " 4 ",
+                "slow_90": 60,
+                "no_90": 93,
+                " rapid_90 ": 53,
+                "incarcerated_20": 67080,
+                "psych_2014": 5340
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.883453,
+                    11536504
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 37,
+                "NRI_ID": "S40",
+                "STATE": "Oklahoma",
+                "STATEABBRV": "OK",
+                "STATEFIPS": 40,
+                "WFIR_EALT": 49504538.55,
+                "WFIR_EALS": 41.25470232,
+                "WFIR_EALR": "Relatively Moderate",
+                "Latitude": 35.455622,
+                "historical_90": " 8 ",
+                "slow_90": 117,
+                "no_90": 142,
+                " rapid_90 ": 111,
+                "incarcerated_20": 38455,
+                "psych_2014": 2588
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -97.508021,
+                    3751351
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 38,
+                "NRI_ID": "S41",
+                "STATE": "Oregon",
+                "STATEABBRV": "OR",
+                "STATEFIPS": 41,
+                "WFIR_EALT": 17934994.01,
+                "WFIR_EALS": 29.3497977,
+                "WFIR_EALR": "Relatively Low",
+                "Latitude": 43.854178,
+                "historical_90": " 9 ",
+                "slow_90": 19,
+                "no_90": 40,
+                " rapid_90 ": 15,
+                "incarcerated_20": 20434,
+                "psych_2014": 2717
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -120.526709,
+                    3831074
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 39,
+                "NRI_ID": "S42",
+                "STATE": "Pennsylvania",
+                "STATEABBRV": "PA",
+                "STATEFIPS": 42,
+                "WFIR_EALT": 203828.8513,
+                "WFIR_EALS": 6.436703215,
+                "WFIR_EALR": "Very Low",
+                "Latitude": 40.860198,
+                "historical_90": " 70 ",
+                "slow_90": 41,
+                "no_90": 74,
+                " rapid_90 ": 35,
+                "incarcerated_20": 81297,
+                "psych_2014": 8940
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.838617,
+                    12702379
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 40,
+                "NRI_ID": "S44",
+                "STATE": "Rhode Island",
+                "STATEABBRV": "RI",
+                "STATEFIPS": 44,
+                "WFIR_EALT": 46875.12093,
+                "WFIR_EALS": 3.862608482,
+                "WFIR_EALR": "Very Low",
+                "Latitude": 41.587536,
+                "historical_90": " 19 ",
+                "slow_90": 36,
+                "no_90": 66,
+                " rapid_90 ": 30,
+                "incarcerated_20": 3082,
+                "psych_2014": 895
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.514739,
+                    1052567
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 41,
+                "NRI_ID": "S45",
+                "STATE": "South Carolina",
+                "STATEABBRV": "SC",
+                "STATEFIPS": 45,
+                "WFIR_EALT": 13276003.42,
+                "WFIR_EALS": 26.5298127,
+                "WFIR_EALR": "Relatively Low",
+                "Latitude": 33.702857,
+                "historical_90": " 51 ",
+                "slow_90": 119,
+                "no_90": 146,
+                " rapid_90 ": 113,
+                "incarcerated_20": 31693,
+                "psych_2014": 2356
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.627523,
+                    4625364
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 42,
+                "NRI_ID": "S46",
+                "STATE": "South Dakota",
+                "STATEABBRV": "SD",
+                "STATEFIPS": 46,
+                "WFIR_EALT": 11044763.84,
+                "WFIR_EALS": 24.93909734,
+                "WFIR_EALR": "Relatively Low",
+                "Latitude": 44.470716,
+                "historical_90": " 90 ",
+                "slow_90": 52,
+                "no_90": 78,
+                " rapid_90 ": 47,
+                "incarcerated_20": 6470,
+                "psych_2014": 684
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -100.229958,
+                    814180
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 43,
+                "NRI_ID": "S47",
+                "STATE": "Tennessee",
+                "STATEABBRV": "TN",
+                "STATEFIPS": 47,
+                "WFIR_EALT": 1214368.854,
+                "WFIR_EALS": 11.83866717,
+                "WFIR_EALR": "Very Low",
+                "Latitude": 35.820245,
+                "historical_90": " 10 ",
+                "slow_90": 98,
+                "no_90": 127,
+                " rapid_90 ": 92,
+                "incarcerated_20": 47728,
+                "psych_2014": 4112
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -86.343764,
+                    6346105
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 44,
+                "NRI_ID": "S48",
+                "STATE": "Texas",
+                "STATEABBRV": "TX",
+                "STATEFIPS": 48,
+                "WFIR_EALT": 103187503.9,
+                "WFIR_EALS": 52.75679187,
+                "WFIR_EALR": "Relatively High",
+                "Latitude": 31.030974,
+                "historical_90": " 31 ",
+                "slow_90": 136,
+                "no_90": 161,
+                " rapid_90 ": 131,
+                "incarcerated_20": 248764,
+                "psych_2014": 9387
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -98.326329,
+                    25145561
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 45,
+                "NRI_ID": "S49",
+                "STATE": "Utah",
+                "STATEABBRV": "UT",
+                "STATEFIPS": 49,
+                "WFIR_EALT": 43803870.09,
+                "WFIR_EALS": 39.59779641,
+                "WFIR_EALR": "Relatively Moderate",
+                "Latitude": 39.098999,
+                "historical_90": " 2 ",
+                "slow_90": 30,
+                "no_90": 54,
+                " rapid_90 ": 25,
+                "incarcerated_20": 10680,
+                "psych_2014": 2309
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -111.878816,
+                    2763885
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 46,
+                "NRI_ID": "S50",
+                "STATE": "Vermont",
+                "STATEABBRV": "VT",
+                "STATEFIPS": 50,
+                "WFIR_EALT": 51539.86182,
+                "WFIR_EALS": 3.993422063,
+                "WFIR_EALR": "Very Low",
+                "Latitude": 44.211857,
+                "historical_90": " 4 ",
+                "slow_90": 18,
+                "no_90": 44,
+                " rapid_90 ": 13,
+                "incarcerated_20": 1219,
+                "psych_2014": 737
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.681238,
+                    625741
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 47,
+                "NRI_ID": "S51",
+                "STATE": "Virginia",
+                "STATEABBRV": "VA",
+                "STATEFIPS": 51,
+                "WFIR_EALT": 6294556.251,
+                "WFIR_EALS": 20.64109237,
+                "WFIR_EALR": "Relatively Low",
+                "Latitude": 37.73086,
+                "historical_90": " 9 ",
+                "slow_90": 78,
+                "no_90": 109,
+                " rapid_90 ": 71,
+                "incarcerated_20": 57014,
+                "psych_2014": 4220
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.376655,
+                    8001024
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 48,
+                "NRI_ID": "S53",
+                "STATE": "Washington",
+                "STATEABBRV": "WA",
+                "STATEFIPS": 53,
+                "WFIR_EALT": 17755884.27,
+                "WFIR_EALS": 29.25107091,
+                "WFIR_EALR": "Relatively Low",
+                "Latitude": 38.82652,
+                "historical_90": " 13 ",
+                "slow_90": 17,
+                "no_90": 35,
+                " rapid_90 ": 14,
+                "incarcerated_20": 26677,
+                "psych_2014": 3114
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.01712,
+                    6724540
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 49,
+                "NRI_ID": "S54",
+                "STATE": "West Virginia",
+                "STATEABBRV": "WV",
+                "STATEFIPS": 54,
+                "WFIR_EALT": 4029264.7,
+                "WFIR_EALS": 17.76017625,
+                "WFIR_EALR": "Relatively Low",
+                "Latitude": 38.720281,
+                "historical_90": " 2 ",
+                "slow_90": 56,
+                "no_90": 91,
+                " rapid_90 ": 49,
+                "incarcerated_20": 19669,
+                "psych_2014": 1524
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.649428,
+                    1852994
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 50,
+                "NRI_ID": "S55",
+                "STATE": "Wisconsin",
+                "STATEABBRV": "WI",
+                "STATEFIPS": 55,
+                "WFIR_EALT": 1101018.585,
+                "WFIR_EALS": 11.45151207,
+                "WFIR_EALR": "Very Low",
+                "Latitude": 44.356004,
+                "historical_90": "",
+                "slow_90": 39,
+                "no_90": 68,
+                " rapid_90 ": 32,
+                "incarcerated_20": 32853,
+                "psych_2014": 2812
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -89.466198,
+                    5686986
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "OID_": 51,
+                "NRI_ID": "S56",
+                "STATE": "Wyoming",
+                "STATEABBRV": "WY",
+                "STATEFIPS": 56,
+                "WFIR_EALT": 8486154.447,
+                "WFIR_EALS": 22.82432375,
+                "WFIR_EALR": "Relatively Low",
+                "Latitude": 43.001645,
+                "historical_90": "",
+                "slow_90": 19,
+                "no_90": 42,
+                " rapid_90 ": 16,
+                "incarcerated_20": 3352,
+                "psych_2014": 523
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -107.55153,
+                    563626
+                ]
+            }
+        }
+    ]
+}

@@ -76,7 +76,7 @@ function statePointToLayer(feature, latlng) {
     geojsonMarkerOptions.radius = calcPropRadius(attValue);
 
     //Trying to call get color for prop symbols--BROKEN
-    geojsonMarkerOptions.fillColor = getColor(attValue);
+    // geojsonMarkerOptions.fillColor = getColor(attValue);
 
     //create circle marker layer
     var stateLayer = L.circleMarker(latlng, geojsonMarkerOptions);
@@ -244,7 +244,7 @@ function psychPointToLayer(feature, latlng) {
     var attValue = Number(feature.properties[attribute]);
 
     //Give each feature's circle marker a radius based on its attribute value
-    geojsonMarkerOptions.radius = calcLocalPropRadius(attValue);
+    geojsonMarkerOptions.radius = calcPropRadius(attValue);
 
     //create circle marker layer
     var psychLayer = L.circleMarker(latlng, geojsonMarkerOptions);
