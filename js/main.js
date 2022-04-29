@@ -47,6 +47,7 @@ function createMap() {
 };
 console.log(getColor)*/
 
+//trying to make color range
 function getColor(d) {
     return d > 10000  ? '#d7301f' :
            d > 50000   ? '#fc8d59' :
@@ -73,6 +74,9 @@ function statePointToLayer(feature, latlng) {
 
     //Give each feature's circle marker a radius based on its attribute value
     geojsonMarkerOptions.radius = calcPropRadius(attValue);
+
+    //Trying to call get color for prop symbols--BROKEN
+    geojsonMarkerOptions.fillColor = getColor(attValue);
 
     //create circle marker layer
     var stateLayer = L.circleMarker(latlng, geojsonMarkerOptions);
