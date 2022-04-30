@@ -380,7 +380,7 @@ function toggleMainLayers() {
     var radioState = document.getElementById("radioState");
     var radioPoints = document.getElementById("radioPoints");
 
-    radioState.addEventListener('click', function () {
+    radioState.addEventListener('change', function () {
         if (this.checked == true) {
             console.log("this is checked")
             map.addLayer(stateLayer)
@@ -392,7 +392,7 @@ function toggleMainLayers() {
         }
     })
 
-    radioPoints.addEventListener('click', function () {
+    radioPoints.addEventListener('change', function () {
         if (this.checked == true) {
             console.log("this is checked")
             map.removeLayer(stateLayer)
