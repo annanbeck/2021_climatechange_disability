@@ -7,12 +7,25 @@ var attrArray = ["WFIR_EALT", "WFIR_EALS", "WFIR_EALR", "historical_90", "slow_9
 
 function createMap() {
 
-    map = L.map('map').setView([40, -100], 4);
-
-    L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
+    var darkBasemap = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
         maxZoom: 20,
         attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
-    }).addTo(map);
+    }),
+        OSM = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        });
+
+    map = L.map('map', {
+        center: [40, -100],
+        zoom: 4,
+        layers: [darkBasemap, OSM]
+    });
+
+    // L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
+    //     maxZoom: 20,
+    //     attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+    // }).addTo(map);
 
 
     //at a particular zoom level, this will add the point files and remove the state level data
@@ -37,9 +50,23 @@ function createMap() {
     getPunishmentData();
     getPsychData();
 
+    toggleMainLayers();
 
+    // var baseMaps = {
+    //     "Dark Basemap": darkBasemap,
+    //     "Open Street Map": OSM
+    // }
 
+    // var overlayMaps = {
+    //     "State Data": stateDataLayer,
+    //     "Point Data": punishmentLayer
+    // }
+
+    // layerControl = new L.control.layers(baseMaps, overlayMaps);
+    // map.addControl(layerControl)
 }
+
+
 
 //make color range
 /*function getColor(d, min = 1219, max = 248764, startColor = '#fee5d9', endColor = '#a50f15') {
@@ -68,7 +95,7 @@ function statePointToLayer(feature, latlng) {
         weight: 1,
         opacity: 1,
         fillOpacity: 0.8,
-        interactive:false
+        interactive: false
     };
 
     //For each feature, determine its value for the selected attribute
@@ -146,35 +173,36 @@ var borderStyle = {
 
 function onEachShapefileFeature(feature, layer) {
     attribute = "incarcerated_20"
-   
+
     layer.on("click", function () {
         var bounds = layer.getBounds();
         map.fitBounds(bounds);
 
+
         punishmentLayer.setStyle(style)
 
-        function fillFilter(punishmentFeature){
-            if (punishmentFeature.properties.state == feature.properties.STUSPS){
+        function fillFilter(punishmentFeature) {
+            if (punishmentFeature.properties.state == feature.properties.STUSPS) {
                 return 1;
             }
-            else{
+            else {
                 return 0;
             }
         }
 
-        function interactivity(punishmentFeature){
+        function interactivity(punishmentFeature) {
             if (punishmentFeature.properties.state == feature.properties.STUSPS) {
                 return true;
-            } else{
+            } else {
                 return false
             }
         }
 
-        function style(punishmentFeature){
+        function style(punishmentFeature) {
             return {
-                fillOpacity:fillFilter(punishmentFeature),
-                opacity:fillFilter(punishmentFeature),
-                interactive:interactivity(punishmentFeature)
+                fillOpacity: fillFilter(punishmentFeature),
+                opacity: fillFilter(punishmentFeature),
+                interactive: interactivity(punishmentFeature)
             }
         }
     })
@@ -248,7 +276,7 @@ function createPunishmentPropSymbols(data) {
     //creating the geojson layer for the state data
     punishmentLayer = L.geoJson(data, {
         pointToLayer: punishmentPointToLayer
-        
+
     });
 }
 
@@ -345,6 +373,37 @@ function joinPunishmentShapefile(shapefileLayer, stateLayer) {
     };
     console.log(shapefileLayer.features)
 };
+
+
+function toggleMainLayers() {
+    // Get the checkbox
+    var radioState = document.getElementById("radioState");
+    var radioPoints = document.getElementById("radioPoints");
+
+    radioState.addEventListener('click', function () {
+        if (this.checked == true) {
+            console.log("this is checked")
+            map.addLayer(stateLayer)
+            map.addLayer(shapefileLayer)
+            if (map.hasLayer(punishmentLayer)) {
+                map.removeLayer(punishmentLayer)
+            }
+            radioPoints.checked = false
+        }
+    })
+
+    radioPoints.addEventListener('click', function () {
+        if (this.checked == true) {
+            console.log("this is checked")
+            map.removeLayer(stateLayer)
+            map.removeLayer(shapefileLayer)
+            if (!map.hasLayer(punishmentLayer)) {
+                punishmentLayer.addTo(map);
+            }
+            radioState.checked = false
+        }
+    });
+}
 
 //visualize point data
 //1. fetch data (DONE)
