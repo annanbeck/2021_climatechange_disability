@@ -21,7 +21,7 @@
 <body>
     <!--put your initial page content here-->
     <div id="map"></div>
-    <div id="sidepanel">
+    <div id="sidepanel" class="col-md-3">
         <label class="container">State Data
             <input type="checkbox" checked="checked" id="radioState">
             <span class="checkmark" id="radioState"></span>
@@ -31,19 +31,12 @@
             <input type="checkbox" id="radioPoints">
             <span class="checkmark" id="radioPoints"></span>
         </label>
+    <div id="legend">
+    </div>
 
     </div>
     
-    <div id="radioState">
-        <a href="#target1" class="panel" style="text-decoration:none;"><input type="checkbox" onclick="toggleMainLayers()" name="select1" value="link1" />Option 1</a><br/>
-        <a href="#target2" class="panel" style="text-decoration:none;"><input type="checkbox" onclick="toggleMainLayers()" name="select1" value="link2" />Option 2</a><br/>
-        <a href="#target3" class="panel" style="text-decoration:none;"><input type="checkbox" onclick="toggleMainLayers()" name="select1" value="link3" />Option 3</a><br/>
-    </div>
-    <div id="radioState">
-        <a href="#target1" class="panel" style="text-decoration:none;"><input type="checkbox" onclick="toggleMainLayers()" name="select1" value="link1" />Option 1</a><br/>
-        <a href="#target2" class="panel" style="text-decoration:none;"><input type="checkbox" onclick="toggleMainLayers()" name="select1" value="link2" />Option 2</a><br/>
-        <a href="#target3" class="panel" style="text-decoration:none;"><input type="checkbox" onclick="toggleMainLayers()" name="select1" value="link3" />Option 3</a><br/>
-    </div>
+    
 
     <!--you can also use this space for internal scripts;
         place these within <script> tags-->

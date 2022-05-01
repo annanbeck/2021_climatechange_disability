@@ -22,6 +22,34 @@ function createMap() {
         layers: [darkBasemap, OSM]
     });
 
+    /*Legend specific*/
+    var legend = L.control({ position: "bottomleft" });//how get in sidepanel??
+
+        legend.onAdd = function(map) {
+    var div = L.DomUtil.create("div", "legend");
+        div.innerHTML += "<h4>Days above 90 degrees in 2070</h4>";
+        div.innerHTML += '<i style="background: #ffffb2"></i><span>Fewer than 40</span><br>';
+        div.innerHTML += '<i style="background: #fecc5c"></i><span>40-79</span><br>';
+        div.innerHTML += '<i style="background: #fd8d3c"></i><span>80-119</span><br>';
+        div.innerHTML += '<i style="background: #f03b20"></i><span>120-159</span><br>';
+        div.innerHTML += '<i style="background: #bd0026"></i><span>More than 159</span><br>';
+        div.innerHTML += '<i style="background: #ccc"></i><span>No Data</span><br>';
+    
+    return div;
+    };
+
+legend.addTo(map);
+    //add legend
+    /*.addControl(new L.Legend({
+        'position': 'topleft',
+        'content': PunishmentData  
+    })).on('click', function (e) {
+    
+        // use reference on mapinstance
+        this.legend.setContent(new data);
+    
+    });*/ 
+
     // L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
     //     maxZoom: 20,
     //     attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
@@ -115,15 +143,15 @@ function statePointToLayer(feature, latlng) {
 };
 
 function heatIndexColorScale(feature) {
-    if (feature.properties["historical_90"] < 40) {
+    if (feature.properties["no_90"] <= 39) {
         return "#ffffb2"
-    } else if (feature.properties["historical_90"] > 40 && feature.properties["historical_90"] < 80) {
+    } else if (feature.properties["no_90"] >= 40 && feature.properties["no_90"] <= 80) {
         return "#fecc5c"
-    } else if (feature.properties["historical_90"] > 80 && feature.properties["historical_90"] < 120) {
+    } else if (feature.properties["no_90"] >= 81 && feature.properties["no_90"] <= 120) {
         return "#fd8d3c"
-    } else if (feature.properties["historical_90"] > 120 && feature.properties["historical_90"] < 160) {
+    } else if (feature.properties["no_90"] >= 121 && feature.properties["no_90"] <= 160) {
         return "#f03b20"
-    } else if (feature.properties["historical_90"] > 160) {
+    } else if (feature.properties["no_90"] >= 161) {
         return "#bd0026"
     } else return "#ccc"
 }
@@ -329,7 +357,7 @@ function createPsychPropSymbols(data) {
     //creating the geojson layer for the state data
     psychLayer = L.geoJson(data, {
         pointToLayer: psychPointToLayer
-    });
+    });console.log(psychPointToLayer);
 }
 
 //fetch the punishment dataset
