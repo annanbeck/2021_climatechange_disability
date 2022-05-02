@@ -9,6 +9,7 @@
     <!--put your external stylesheet links here-->
     <link rel="stylesheet" href="lib/leaflet/leaflet.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--[if IE<9]>
             <link rel="stylesheet" href="css/style.ie.css">
         <![endif]-->
@@ -22,6 +23,12 @@
     <!--put your initial page content here-->
     <div id="map"></div>
     <div id="sidepanel" class="col-md-3">
+        <form autocomplete="off" action="/action_page.php">
+            <div class="autocomplete" style="width:300px;">
+                <input id="search" type="text" name="incarcerationPoints" placeholder="Search">
+            </div>
+            <input type="submit">
+        </form>
         <label class="container">State Data
             <input type="radio" checked="checked" id="radioState"></input>
             <span class="checkmark" id="radioState"></span>
@@ -31,22 +38,22 @@
             <input type="radio" id="radioPoints"></input>
             <span class="checkmark" id="radioPoints"></span>
         </label>
-    <div id="legend">
+        <div id="legend">
+        </div>
+
+        <label class="container">Slow 90
+            <input type="checkbox" class="temp" id="slow_90"></input>
+            <span class="checkmark"></span>
+        </label>
+
+        <label class="container">No 90
+            <input type="checkbox" class="temp" id="no_90"></input>
+            <span class="checkmark"></span>
+        </label>
+
     </div>
 
-    <label class="container">Slow 90
-        <input type="checkbox" class="temp" id="slow_90"></input>
-        <span class="checkmark"></span>
-    </label>
 
-    <label class="container">No 90
-        <input type="checkbox" class="temp" id="no_90"></input>
-        <span class="checkmark"></span>
-    </label>
-
-    </div>
-    
-    
 
     <!--you can also use this space for internal scripts;
         place these within <script> tags-->
