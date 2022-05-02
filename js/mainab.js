@@ -341,6 +341,8 @@ function createPunishmentPropSymbols(data) {
     });
 }
 
+//lol does this work?
+
 //fetch the punishment dataset
 function getPunishmentData() {
     fetch("data/punishment-heat-wildfire-clean.geojson")
