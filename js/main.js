@@ -118,7 +118,7 @@ function statePointToLayer(feature, latlng) {
 
     var geojsonMarkerOptions = {
         radius: 8,
-        fillColor: heatIndexColorScale(feature),
+        fillColor: heatIndexColorScale(feature, "slow_90"),
         color: "#000",
         weight: 1,
         opacity: 1,
@@ -141,17 +141,17 @@ function statePointToLayer(feature, latlng) {
     //return the circle marker to the L.geoJson pointToLayer option
     return stateLayer;
 };
-
-function heatIndexColorScale(feature) {
-    if (feature.properties["no_90"] <= 39) {
+//add if attribute =no_90, etc.
+function heatIndexColorScale(feature, attribute) {
+    if (feature.properties[attribute] <= 39) {
         return "#ffffb2"
-    } else if (feature.properties["no_90"] >= 40 && feature.properties["no_90"] <= 80) {
+    } else if (feature.properties[attribute] >= 40 && feature.properties[attribute] <= 80) {
         return "#fecc5c"
-    } else if (feature.properties["no_90"] >= 81 && feature.properties["no_90"] <= 120) {
+    } else if (feature.properties[attribute] >= 81 && feature.properties[attribute] <= 120) {
         return "#fd8d3c"
-    } else if (feature.properties["no_90"] >= 121 && feature.properties["no_90"] <= 160) {
+    } else if (feature.properties[attribute] >= 121 && feature.properties[attribute] <= 160) {
         return "#f03b20"
-    } else if (feature.properties["no_90"] >= 161) {
+    } else if (feature.properties[attribute] >= 161) {
         return "#bd0026"
     } else return "#ccc"
 }
@@ -274,7 +274,7 @@ function punishmentPointToLayer(feature, latlng) {
 
     var geojsonMarkerOptions = {
         radius: 8,
-        fillColor: heatIndexColorScale(feature),
+        fillColor: heatIndexColorScale(feature, "slow_90"),
         color: "#000",
         weight: 1,
         opacity: 1,
@@ -431,7 +431,23 @@ function toggleMainLayers() {
             radioState.checked = false
         }
     });
+    //loop that goes through each radio button that has temp as category
+    document.querySelectorAll(".temp").forEach(function(radio){
+        radio.addEventListener('change', function (){
+            stateLayer.setStyle(function(feature){
+                return{
+                    fillColor: heatIndexColorScale(feature, radio.id),
+                }
+            })
+            punishmentLayer.setStyle(function(feature){
+                return{
+                    fillColor: heatIndexColorScale(feature, radio.id),
+                }
+            })
+        })
+    })
 }
+//build another one for wildfire
 
 //visualize point data
 //1. fetch data (DONE)
