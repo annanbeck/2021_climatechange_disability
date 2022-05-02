@@ -80,7 +80,7 @@ function createMap() {
     getPsychData();
 
     toggleMainLayers();
-    autocomplete(document.getElementById("search"),autocompleteArray, punishmentLayer)
+    autocomplete(document.getElementById("search"), autocompleteArray, punishmentLayer)
 
 
     // var baseMaps = {
@@ -199,7 +199,7 @@ function getStateData() {
 var borderStyle = {
     "color": "#F09511",
     "weight": 3,
-    "opacity": 0.4
+    "opacity": 0
 };
 
 function onEachShapefileFeature(feature, layer) {
@@ -294,27 +294,38 @@ function punishmentPointToLayer(feature, latlng) {
     var punishmentLayer = L.circleMarker(latlng, geojsonMarkerOptions);
 
     //build popup content string
-    var popupContent = "<p><b>Institution Name: </b> " + feature.properties.name + "</p><p><b> Incarcerated Population Capacity: </b> " + feature.properties[attribute] + "</p>";
+    var popupContent = "<p><b>Institution Name: </b> " + feature.properties.name + "</p><p><b> Incarcerated Population Capacity: </b> " + feature.properties[attribute] + "</p>" + "<p><b>Historical number of days above 90 degrees: </b>" + parseInt(feature.properties.historical_90) + "</p>" + "<p><b>Number of days above 90 degrees with NO climate action: </b>" + parseInt(feature.properties.no_90) + "</p>" + "<p><b>Number of days above 90 degrees with SLOW climate action: </b>" + parseInt(feature.properties.slow_90) + "</p>" + "<p><b>Number of days above 90 degrees with RAPID: </b>" + parseInt(feature.properties.rapid_90) + "</p>";
 
     //bind the popup to the circle marker
-    punishmentLayer.bindPopup(popupContent);
+    // punishmentLayer.bindPopup(popupContent);
 
     //return the circle marker to the L.geoJson pointToLayer option
     return punishmentLayer;
 };
 
+function onEachPunishmentFeature(feature, layer) {
+
+    //build popup content string
+    var popupContent = "<p><b>Institution Name: </b> " + feature.properties.name + "</p><p><b> Incarcerated Population Capacity: </b> " + feature.properties[attribute] + "</p>" + "<p><b>Historical number of days above 90 degrees: </b>" + parseInt(feature.properties.historical_90) + "</p>" + "<p><b>Number of days above 90 degrees with NO climate action: </b>" + parseInt(feature.properties.no_90) + "</p>" + "<p><b>Number of days above 90 degrees with SLOW climate action: </b>" + parseInt(feature.properties.slow_90) + "</p>" + "<p><b>Number of days above 90 degrees with RAPID: </b>" + parseInt(feature.properties.rapid_90) + "</p>";
+
+    layer.on({
+        click: function populate() {
+            document.getElementById("sidepanelRetrieve").innerHTML = popupContent
+        }
+    })
+}
+
 function createPunishmentPropSymbols(data) {
     //creating the geojson layer for the state data
-    
-    
-    
+
     punishmentLayer = L.geoJson(data, {
-        pointToLayer: punishmentPointToLayer
-        
-        
+        pointToLayer: punishmentPointToLayer,
+        onEachFeature: onEachPunishmentFeature
 
     });
 }
+
+
 
 //fetch the punishment dataset
 function getPunishmentData() {
@@ -326,10 +337,10 @@ function getPunishmentData() {
 
             //project the punishment dataset
             createPunishmentPropSymbols(json);
-            autocomplete(document.getElementById("search"),autocompleteArray, json)
+            autocomplete(document.getElementById("search"), autocompleteArray, json)
 
 
-            
+
         })
 }
 
@@ -369,7 +380,7 @@ function createPsychPropSymbols(data) {
     //creating the geojson layer for the state data
     psychLayer = L.geoJson(data, {
         pointToLayer: psychPointToLayer
-    }); console.log(psychPointToLayer);
+    });
 }
 
 //fetch the punishment dataset
@@ -380,7 +391,7 @@ function getPsychData() {
         })
         .then(function (json) {
 
-            //project the punishment dataset
+            //project the psych dataset
             createPsychPropSymbols(json);
         })
 }
@@ -464,12 +475,12 @@ function toggleMainLayers() {
 
 function autocomplete(inp, arr, punishmentLayer) {
 
-    for (i=0; i<punishmentLayer.features.length; i++){
+    for (i = 0; i < punishmentLayer.features.length; i++) {
         autocompleteArray.push(punishmentLayer.features[i].properties.name)
     }
 
     console.log(autocompleteArray)
- 
+
 
     /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/
