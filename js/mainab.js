@@ -3,6 +3,7 @@ var stateLayer
 var stateDataLayer
 var shapefileLayer
 var punishmentLayer
+var psychLayer
 var attrArray = ["WFIR_EALT", "WFIR_EALS", "WFIR_EALR", "historical_90", "slow_90", "no_90", "rapid_90", "incarcerated_20"]
 var autocompleteArray = []
 
@@ -64,23 +65,26 @@ function createMap() {
             map.removeLayer(shapefileLayer)
             if (!map.hasLayer(punishmentLayer))
                 punishmentLayer.addTo(map);
+            if (!map.hasLayer(psychLayer))
+                psychLayer.addTo(map);
         }
         else {
             map.addLayer(stateLayer)
             map.addLayer(shapefileLayer)
-            if (map.hasLayer(punishmentLayer)) {
-                map.removeLayer(punishmentLayer)
-            }
+            if (map.hasLayer(punishmentLayer))
+                map.removeLayer(punishmentLayer);
+            if (!map.hasLayer(psychLayer))
+                map.removeLayer(psychLayer);
         }
     });
 
-    getStateData();
-    getShapefileData();
-    getPunishmentData();
-    getPsychData();
+getStateData();
+getShapefileData();
+getPunishmentData();
+getPsychData();
 
-    toggleMainLayers();
-    autocomplete(document.getElementById("search"), autocompleteArray, punishmentLayer)
+toggleMainLayers();
+autocomplete(document.getElementById("search"), autocompleteArray, punishmentLayer)
 
 
     // var baseMaps = {
@@ -121,7 +125,7 @@ function statePointToLayer(feature, latlng) {
 
     var geojsonMarkerOptions = {
         radius: 8,
-        fillColor: heatIndexColorScale(feature, "slow_90"),
+        fillColor: heatIndexColorScale(feature, "WFIR_EALR"),
         color: "#000",
         weight: 1,
         opacity: 1,
@@ -146,17 +150,31 @@ function statePointToLayer(feature, latlng) {
 };
 //add if attribute =no_90, etc.
 function heatIndexColorScale(feature, attribute) {
-    if (feature.properties[attribute] <= 39) {
-        return "#ffffb2"
-    } else if (feature.properties[attribute] >= 40 && feature.properties[attribute] <= 80) {
-        return "#fecc5c"
-    } else if (feature.properties[attribute] >= 81 && feature.properties[attribute] <= 120) {
-        return "#fd8d3c"
-    } else if (feature.properties[attribute] >= 121 && feature.properties[attribute] <= 160) {
-        return "#f03b20"
-    } else if (feature.properties[attribute] >= 161) {
-        return "#bd0026"
-    } else return "#ccc"
+    if ([attribute] == "historical_90" || "slow_90" || "no_90" || "rapid_90") {
+        if (feature.properties[attribute] <= 39) {
+            return "#ffffb2"
+        } else if (feature.properties[attribute] >= 40 && feature.properties[attribute] <= 80) {
+            return "#fecc5c"
+        } else if (feature.properties[attribute] >= 81 && feature.properties[attribute] <= 120) {
+            return "#fd8d3c"
+        } else if (feature.properties[attribute] >= 121 && feature.properties[attribute] <= 160) {
+            return "#f03b20"
+        } else if (feature.properties[attribute] >= 161) {
+            return "#bd0026"
+        } else return "#ccc"
+    } else if ([attribute] == "WFIR_EALR") {
+        if (feature.properties[attribute] == "Very Low") {
+            return "#ffffb2"
+        } else if (feature.properties[attribute] == "Relatively Low") {
+            return "#fecc5c"
+        } else if (feature.properties[attribute] == "Relatively Moderate") {
+            return "#fd8d3c"
+        } else if (feature.properties[attribute] == "Relatively High") {
+            return "#f03b20"
+        } else if (feature.properties[attribute] == "Very High") {
+            return "#bd0026"
+        } else return "#ccc"
+    }
 }
 
 //calculate the radius of each proportional symbol
@@ -293,39 +311,33 @@ function punishmentPointToLayer(feature, latlng) {
     //create circle marker layer
     var punishmentLayer = L.circleMarker(latlng, geojsonMarkerOptions);
 
-    //build popup content string
-    var popupContent = "<p><b>Institution Name: </b> " + feature.properties.name + "</p><p><b> Incarcerated Population Capacity: </b> " + feature.properties[attribute] + "</p>" + "<p><b>Historical number of days above 90 degrees: </b>" + parseInt(feature.properties.historical_90) + "</p>" + "<p><b>Number of days above 90 degrees with NO climate action: </b>" + parseInt(feature.properties.no_90) + "</p>" + "<p><b>Number of days above 90 degrees with SLOW climate action: </b>" + parseInt(feature.properties.slow_90) + "</p>" + "<p><b>Number of days above 90 degrees with RAPID: </b>" + parseInt(feature.properties.rapid_90) + "</p>";
+  //build popup content string
+  var popupContent = "<p><b>Institution Name: </b> " + feature.properties.name + "</p><p><b> Incarcerated Population Capacity: </b> " + feature.properties[attribute] + "</p>" + "<p><b>Historical number of days above 90 degrees: </b>" + parseInt(feature.properties.historical_90) + "</p>" + "<p><b>Number of days above 90 degrees with NO climate action: </b>" + parseInt(feature.properties.no_90) + "</p>" + "<p><b>Number of days above 90 degrees with SLOW climate action: </b>" + parseInt(feature.properties.slow_90) + "</p>" + "<p><b>Number of days above 90 degrees with RAPID: </b>" + parseInt(feature.properties.rapid_90) + "</p>";
 
-    //bind the popup to the circle marker
-    // punishmentLayer.bindPopup(popupContent);
+  //bind the popup to the circle marker
+  punishmentLayer.bindPopup(popupContent);
 
-    //return the circle marker to the L.geoJson pointToLayer option
-    return punishmentLayer;
+  //return the circle marker to the L.geoJson pointToLayer option
+  return punishmentLayer;
 };
 
 function onEachPunishmentFeature(feature, layer) {
 
-    //build popup content string
-    var popupContent = "<p><b>Institution Name: </b> " + feature.properties.name + "</p><p><b> Incarcerated Population Capacity: </b> " + feature.properties[attribute] + "</p>" + "<p><b>Historical number of days above 90 degrees: </b>" + parseInt(feature.properties.historical_90) + "</p>" + "<p><b>Number of days above 90 degrees with NO climate action: </b>" + parseInt(feature.properties.no_90) + "</p>" + "<p><b>Number of days above 90 degrees with SLOW climate action: </b>" + parseInt(feature.properties.slow_90) + "</p>" + "<p><b>Number of days above 90 degrees with RAPID: </b>" + parseInt(feature.properties.rapid_90) + "</p>";
+  //build popup content string
+  var popupContent = "<p><b>Institution Name: </b> " + feature.properties.name + "</p><p><b> Incarcerated Population Capacity: </b> " + feature.properties[attribute] + "</p>" + "<p><b>Historical number of days above 90 degrees: </b>" + parseInt(feature.properties.historical_90) + "</p>" + "<p><b>Number of days above 90 degrees with NO climate action: </b>" + parseInt(feature.properties.no_90) + "</p>" + "<p><b>Number of days above 90 degrees with SLOW climate action: </b>" + parseInt(feature.properties.slow_90) + "</p>" + "<p><b>Number of days above 90 degrees with RAPID: </b>" + parseInt(feature.properties.rapid_90) + "</p>";
 
-    layer.on({
-        click: function populate() {
-            document.getElementById("sidepanelRetrieve").innerHTML = popupContent
-        }
-    })
+  layer.on({
+      click: function populate() {
+          document.getElementById("sidepanelRetrieve").innerHTML = popupContent
+      }
+  })
 }
 
 function createPunishmentPropSymbols(data) {
     //creating the geojson layer for the state data
-
-
-
     punishmentLayer = L.geoJson(data, {
         pointToLayer: punishmentPointToLayer,
         onEachFeature: onEachPunishmentFeature
-
-
-
     });
 }
 
@@ -340,16 +352,19 @@ function getPunishmentData() {
             //project the punishment dataset
             createPunishmentPropSymbols(json);
             autocomplete(document.getElementById("search"), autocompleteArray, json)
+
+
+
         })
 }
 
 function psychPointToLayer(feature, latlng) {
     //Determine which attribute to visualize with proportional symbols
-    var attribute = "psych_2014"
+    var attribute = "psych_capacity"
 
     var geojsonMarkerOptions = {
         radius: 8,
-        fillColor: "#ff7800",
+        fillColor: heatIndexColorScale(feature, "slow_90"),
         color: "#000",
         weight: 1,
         opacity: 1,
@@ -384,7 +399,7 @@ function createPsychPropSymbols(data) {
 
 //fetch the punishment dataset
 function getPsychData() {
-    fetch("data/states-data-heat-wildfire-incarcerated-psych.geojson")
+    fetch("data/psych-facilities-heat-wildfire.geojson")
         .then(function (response) {
             return response.json();
         })
@@ -453,11 +468,12 @@ function toggleMainLayers() {
     //loop that goes through each radio button that has temp as category
     document.querySelectorAll(".temp").forEach(function (radio) {
         radio.addEventListener('change', function () {
-            stateLayer.setStyle(function (feature) {
-                return {
-                    fillColor: heatIndexColorScale(feature, radio.id),
-                }
-            })
+            // if (this.checked == true)
+                stateLayer.setStyle(function (feature) {
+                    return {
+                        fillColor: heatIndexColorScale(feature, radio.id),
+                    }
+                })
             punishmentLayer.setStyle(function (feature) {
                 return {
                     fillColor: heatIndexColorScale(feature, radio.id),
@@ -576,7 +592,6 @@ function autocomplete(inp, arr, punishmentLayer) {
         closeAllLists(e.target)
         var bounds = map.getBounds(this.value)
         map.fitBounds(bounds)
-        console.log(bounds)
     });
 }
 
