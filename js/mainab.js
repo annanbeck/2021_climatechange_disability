@@ -28,16 +28,16 @@ function createMap() {
 
     /*Legend specific*/
     var legend = document.querySelector("#legend")
-    
+
     // L.control({ position: "bottomleft" });//how get in sidepanel??
 
-        legend.innerHTML += "<h4>Days above 90 degrees in 2070</h4>";
-        legend.innerHTML += '<i style="background: #ffffb2"></i><span>Fewer than 40</span><br>';
-        legend.innerHTML += '<i style="background: #fecc5c"></i><span>40-79</span><br>';
-        legend.innerHTML += '<i style="background: #fd8d3c"></i><span>80-119</span><br>';
-        legend.innerHTML += '<i style="background: #f03b20"></i><span>120-159</span><br>';
-        legend.innerHTML += '<i style="background: #bd0026"></i><span>More than 159</span><br>';
-        legend.innerHTML += '<i style="background: #ccc"></i><span>No Data</span><br>';
+    legend.innerHTML += "<h4>Days above 90 degrees in 2070</h4>";
+    legend.innerHTML += '<i style="background: #ffffb2"></i><span>Fewer than 40</span><br>';
+    legend.innerHTML += '<i style="background: #fecc5c"></i><span>40-79</span><br>';
+    legend.innerHTML += '<i style="background: #fd8d3c"></i><span>80-119</span><br>';
+    legend.innerHTML += '<i style="background: #f03b20"></i><span>120-159</span><br>';
+    legend.innerHTML += '<i style="background: #bd0026"></i><span>More than 159</span><br>';
+    legend.innerHTML += '<i style="background: #ccc"></i><span>No Data</span><br>';
 
 
     // legend.addTo(map);
@@ -244,7 +244,7 @@ function onEachShapefileFeature(feature, layer) {
 
 
         function interactivity(punishmentFeature) {
-            if (punishmentFeature.properties.state == feature.properties.STUSPS || psychFeature.properties.state == feature.properties.STUSPS) {
+            if (punishmentFeature.properties.state == feature.properties.STUSPS) {
                 return true;
             } else {
                 return false
@@ -452,6 +452,16 @@ function joinPunishmentShapefile(shapefileLayer, stateLayer) {
     };
 };
 
+function filterByFacility (feature, name, id){
+
+        if (feature.properties[name] === id){
+            return "#ccc"
+        } else {
+            return "#000"
+        }
+
+}
+
 
 function toggleMainLayers() {
     // Get the checkbox
@@ -480,7 +490,29 @@ function toggleMainLayers() {
             radioState.checked = false
         }
     });
-    //loop that goes through each radio button that has temp as category
+
+    //code for facility type checkboxes
+    var county = document.getElementById("COUNTY")
+    var state = document.getElementById("STATE")
+    var federal = document.getElementById("FEDERAL")
+    var ice = document.getElementById("ice_facility")
+
+
+    //adding event listeners to the checkboxes
+
+    state.addEventListener('change', function () {
+        if (this.checked == true) {
+             punishmentLayer.setStyle(function (feature){
+                 return{
+                     fillColor: filterByFacility(feature, this.name, this.id),
+                 }
+             })
+        }
+    })
+
+
+    //loop that goes through each radio button that has temp as category 
+    //loop for temp and wildfire attributes
     document.querySelectorAll(".temp").forEach(function (radio) {
         radio.addEventListener('change', function (e) {
             document.querySelectorAll(".temp").forEach(function (radio) {
@@ -513,9 +545,6 @@ function autocomplete(inp, arr, json) {
         autocompleteArray.push(json.features[i])
     }
 
-
-
-
     /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/
     var currentFocus;
@@ -545,7 +574,7 @@ function autocomplete(inp, arr, json) {
                 b.innerHTML += "<input type='hidden' data-geom='" + arr[i].geometry.coordinates + "' value='" + arr[i].properties.name + "'>";
                 /*execute a function when someone clicks on the item value (DIV element):*/
                 b.addEventListener("click", function (e) {
-                    var geom = this.getElementsByTagName("input")[0].dataset.geom, 
+                    var geom = this.getElementsByTagName("input")[0].dataset.geom,
                         lon = geom.split(",")[0],
                         lat = geom.split(",")[1],
                         coords = L.latLng([lat, lon])
