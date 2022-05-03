@@ -6,6 +6,7 @@ var punishmentLayer
 var psychLayer
 var attrArray = ["WFIR_EALT", "WFIR_EALS", "WFIR_EALR", "historical_90", "slow_90", "no_90", "rapid_90", "incarcerated_20"]
 var autocompleteArray = []
+var attribute
 
 function createMap() {
 
