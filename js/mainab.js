@@ -530,6 +530,11 @@ function toggleMainLayers() {
                     fillColor: heatIndexColorScale(feature, radio.id),
                 }
             })
+            psychLayer.setStyle(function (feature) {
+                return {
+                    fillColor: heatIndexColorScale(feature, radio.id),
+                }
+            })
         })
     })
 }
