@@ -25,22 +25,20 @@ function createMap() {
     });
 
     /*Legend specific*/
-    var legend = L.control({ position: "bottomleft" });//how get in sidepanel??
+    var legend = document.querySelector("#legend")
+    
+    // L.control({ position: "bottomleft" });//how get in sidepanel??
 
-    legend.onAdd = function (map) {
-        var div = L.DomUtil.create("div", "legend");
-        div.innerHTML += "<h4>Days above 90 degrees in 2070</h4>";
-        div.innerHTML += '<i style="background: #ffffb2"></i><span>Fewer than 40</span><br>';
-        div.innerHTML += '<i style="background: #fecc5c"></i><span>40-79</span><br>';
-        div.innerHTML += '<i style="background: #fd8d3c"></i><span>80-119</span><br>';
-        div.innerHTML += '<i style="background: #f03b20"></i><span>120-159</span><br>';
-        div.innerHTML += '<i style="background: #bd0026"></i><span>More than 159</span><br>';
-        div.innerHTML += '<i style="background: #ccc"></i><span>No Data</span><br>';
+        legend.innerHTML += "<h4>Days above 90 degrees in 2070</h4>";
+        legend.innerHTML += '<i style="background: #ffffb2"></i><span>Fewer than 40</span><br>';
+        legend.innerHTML += '<i style="background: #fecc5c"></i><span>40-79</span><br>';
+        legend.innerHTML += '<i style="background: #fd8d3c"></i><span>80-119</span><br>';
+        legend.innerHTML += '<i style="background: #f03b20"></i><span>120-159</span><br>';
+        legend.innerHTML += '<i style="background: #bd0026"></i><span>More than 159</span><br>';
+        legend.innerHTML += '<i style="background: #ccc"></i><span>No Data</span><br>';
 
-        return div;
-    };
 
-    legend.addTo(map);
+    // legend.addTo(map);
     //add legend
     /*.addControl(new L.Legend({
         'position': 'topleft',
@@ -78,27 +76,21 @@ function createMap() {
         }
     });
 
-getStateData();
-getShapefileData();
-getPunishmentData();
-getPsychData();
+    getStateData();
+    getShapefileData();
+    getPunishmentData();
+    getPsychData();
 
-toggleMainLayers();
-autocomplete(document.getElementById("search"), autocompleteArray, punishmentLayer)
+    toggleMainLayers();
 
 
-    // var baseMaps = {
-    //     "Dark Basemap": darkBasemap,
-    //     "Open Street Map": OSM
-    // }
+    var baseMaps = {
+        "Dark Basemap": darkBasemap,
+        "Open Street Map": OSM
+    }
 
-    // var overlayMaps = {
-    //     "State Data": stateDataLayer,
-    //     "Point Data": punishmentLayer
-    // }
-
-    // layerControl = new L.control.layers(baseMaps, overlayMaps);
-    // map.addControl(layerControl)
+    layerControl = L.control.layers(baseMaps, null);
+    map.addControl(layerControl)
 }
 
 
@@ -229,6 +221,7 @@ function onEachShapefileFeature(feature, layer) {
 
 
         punishmentLayer.setStyle(style)
+        psychLayer.setStyle(style)
 
         function fillFilter(punishmentFeature) {
             if (punishmentFeature.properties.state == feature.properties.STUSPS) {
@@ -238,20 +231,38 @@ function onEachShapefileFeature(feature, layer) {
                 return 0;
             }
         }
+        function fillFilter(psychFeature) {
+            if (psychFeature.properties.state == feature.properties.STUSPS) {
+                return 1;
+            }
+            else {
+                return 0;
+            }
+        }
+
 
         function interactivity(punishmentFeature) {
-            if (punishmentFeature.properties.state == feature.properties.STUSPS) {
+            if (punishmentFeature.properties.state == feature.properties.STUSPS || psychFeature.properties.state == feature.properties.STUSPS) {
                 return true;
             } else {
                 return false
             }
         }
 
-        function style(punishmentFeature) {
+        function interactivity(psychFeature) {
+            if (psychFeature.properties.state == feature.properties.STUSPS) {
+                return true;
+            } else {
+                return false
+            }
+        }
+
+
+        function style(punishmentFeature, psychFeature) {
             return {
-                fillOpacity: fillFilter(punishmentFeature),
-                opacity: fillFilter(punishmentFeature),
-                interactive: interactivity(punishmentFeature)
+                fillOpacity: fillFilter(punishmentFeature, psychFeature),
+                opacity: fillFilter(punishmentFeature, psychFeature),
+                interactive: interactivity(punishmentFeature, psychFeature)
             }
         }
     })
@@ -277,6 +288,7 @@ function getShapefileData() {
                 onEachFeature: onEachShapefileFeature
             }).addTo(map);
             createStatePropSymbols(stateDataLayer);
+
         })
 }
 
@@ -311,26 +323,26 @@ function punishmentPointToLayer(feature, latlng) {
     //create circle marker layer
     var punishmentLayer = L.circleMarker(latlng, geojsonMarkerOptions);
 
-  //build popup content string
-  var popupContent = "<p><b>Institution Name: </b> " + feature.properties.name + "</p><p><b> Incarcerated Population Capacity: </b> " + feature.properties[attribute] + "</p>" + "<p><b>Historical number of days above 90 degrees: </b>" + parseInt(feature.properties.historical_90) + "</p>" + "<p><b>Number of days above 90 degrees with NO climate action: </b>" + parseInt(feature.properties.no_90) + "</p>" + "<p><b>Number of days above 90 degrees with SLOW climate action: </b>" + parseInt(feature.properties.slow_90) + "</p>" + "<p><b>Number of days above 90 degrees with RAPID: </b>" + parseInt(feature.properties.rapid_90) + "</p>";
+    //build popup content string
+    var popupContent = "<p><b>Institution Name: </b> " + feature.properties.name + "</p><p><b> Incarcerated Population Capacity: </b> " + feature.properties[attribute] + "</p>" + "<p><b>Historical number of days above 90 degrees: </b>" + parseInt(feature.properties.historical_90) + "</p>" + "<p><b>Number of days above 90 degrees with NO climate action: </b>" + parseInt(feature.properties.no_90) + "</p>" + "<p><b>Number of days above 90 degrees with SLOW climate action: </b>" + parseInt(feature.properties.slow_90) + "</p>" + "<p><b>Number of days above 90 degrees with RAPID: </b>" + parseInt(feature.properties.rapid_90) + "</p>";
 
-  //bind the popup to the circle marker
-  punishmentLayer.bindPopup(popupContent);
+    //bind the popup to the circle marker
+    punishmentLayer.bindPopup(popupContent);
 
-  //return the circle marker to the L.geoJson pointToLayer option
-  return punishmentLayer;
+    //return the circle marker to the L.geoJson pointToLayer option
+    return punishmentLayer;
 };
 
 function onEachPunishmentFeature(feature, layer) {
 
-  //build popup content string
-  var popupContent = "<p><b>Institution Name: </b> " + feature.properties.name + "</p><p><b> Incarcerated Population Capacity: </b> " + feature.properties[attribute] + "</p>" + "<p><b>Historical number of days above 90 degrees: </b>" + parseInt(feature.properties.historical_90) + "</p>" + "<p><b>Number of days above 90 degrees with NO climate action: </b>" + parseInt(feature.properties.no_90) + "</p>" + "<p><b>Number of days above 90 degrees with SLOW climate action: </b>" + parseInt(feature.properties.slow_90) + "</p>" + "<p><b>Number of days above 90 degrees with RAPID: </b>" + parseInt(feature.properties.rapid_90) + "</p>";
+    //build popup content string
+    var popupContent = "<p><b>Institution Name: </b> " + feature.properties.name + "</p><p><b> Incarcerated Population Capacity: </b> " + feature.properties[attribute] + "</p>" + "<p><b>Historical number of days above 90 degrees: </b>" + parseInt(feature.properties.historical_90) + "</p>" + "<p><b>Number of days above 90 degrees with NO climate action: </b>" + parseInt(feature.properties.no_90) + "</p>" + "<p><b>Number of days above 90 degrees with SLOW climate action: </b>" + parseInt(feature.properties.slow_90) + "</p>" + "<p><b>Number of days above 90 degrees with RAPID: </b>" + parseInt(feature.properties.rapid_90) + "</p>";
 
-  layer.on({
-      click: function populate() {
-          document.getElementById("sidepanelRetrieve").innerHTML = popupContent
-      }
-  })
+    layer.on({
+        click: function populate() {
+            document.getElementById("sidepanelRetrieve").innerHTML = popupContent
+        }
+    })
 }
 
 function createPunishmentPropSymbols(data) {
@@ -354,7 +366,6 @@ function getPunishmentData() {
             //project the punishment dataset
             createPunishmentPropSymbols(json);
             autocomplete(document.getElementById("search"), autocompleteArray, json)
-
 
 
         })
@@ -469,13 +480,17 @@ function toggleMainLayers() {
     });
     //loop that goes through each radio button that has temp as category
     document.querySelectorAll(".temp").forEach(function (radio) {
-        radio.addEventListener('change', function () {
+        radio.addEventListener('change', function (e) {
+            document.querySelectorAll(".temp").forEach(function (radio) {
+                radio.checked = false
+            })
+            e.target.checked = true;
             // if (this.checked == true)
-                stateLayer.setStyle(function (feature) {
-                    return {
-                        fillColor: heatIndexColorScale(feature, radio.id),
-                    }
-                })
+            stateLayer.setStyle(function (feature) {
+                return {
+                    fillColor: heatIndexColorScale(feature, radio.id),
+                }
+            })
             punishmentLayer.setStyle(function (feature) {
                 return {
                     fillColor: heatIndexColorScale(feature, radio.id),
@@ -490,13 +505,13 @@ function toggleMainLayers() {
 
 //autocomplete search bar
 
-function autocomplete(inp, arr, punishmentLayer) {
-
-    for (i = 0; i < punishmentLayer.features.length; i++) {
-        autocompleteArray.push(punishmentLayer.features[i].properties.name)
+function autocomplete(inp, arr, json) {
+    console.log(punishmentLayer)
+    for (i = 0; i < json.features.length; i++) {
+        autocompleteArray.push(json.features[i])
     }
 
-    console.log(autocompleteArray)
+
 
 
     /*the autocomplete function takes two arguments,
@@ -518,18 +533,26 @@ function autocomplete(inp, arr, punishmentLayer) {
         /*for each item in the array...*/
         for (i = 0; i < arr.length; i++) {
             /*check if the item starts with the same letters as the text field value:*/
-            if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+            if (arr[i].properties.name.substr(0, val.length).toUpperCase() == val.toUpperCase()) {
                 /*create a DIV element for each matching element:*/
                 b = document.createElement("DIV");
                 /*make the matching letters bold:*/
-                b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
-                b.innerHTML += arr[i].substr(val.length);
+                b.innerHTML = "<strong>" + arr[i].properties.name.substr(0, val.length) + "</strong>";
+                b.innerHTML += arr[i].properties.name.substr(val.length);
                 /*insert a input field that will hold the current array item's value:*/
-                b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+                b.innerHTML += "<input type='hidden' data-geom='" + arr[i].geometry.coordinates + "' value='" + arr[i].properties.name + "'>";
                 /*execute a function when someone clicks on the item value (DIV element):*/
                 b.addEventListener("click", function (e) {
+                    var geom = this.getElementsByTagName("input")[0].dataset.geom, 
+                        lon = geom.split(",")[0],
+                        lat = geom.split(",")[1],
+                        coords = L.latLng([lat, lon])
+
+                    console.log(coords)
                     /*insert the value for the autocomplete text field:*/
                     inp.value = this.getElementsByTagName("input")[0].value;
+
+                    map.flyTo(coords, 15)
                     /*close the list of autocompleted values,
                     (or any other open lists of autocompleted values:*/
                     closeAllLists();
@@ -591,9 +614,12 @@ function autocomplete(inp, arr, punishmentLayer) {
     }
     /*execute a function when someone clicks in the document:*/
     document.addEventListener("click", function (e) {
-        closeAllLists(e.target)
-        var bounds = map.getBounds(this.value)
-        map.fitBounds(bounds)
+        if (e.target.type != "text") {
+            closeAllLists(e.target)
+            //var bounds = map.getBounds(this.value)
+            //console.log(e.target)
+            ///map.fitBounds(bounds)
+        }
     });
 }
 
