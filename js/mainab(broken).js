@@ -80,6 +80,7 @@ function createMap() {
     toggleMainLayers();
     createLegend("Historical");
     collapsible()
+    removeStyle();
 
 
 
@@ -285,27 +286,6 @@ function onEachShapefileFeature(feature, layer) {
         }
     })
 
-    function removeStyle() {
-        if (map.getZoom() > 6) {
-            psychLayer.setStyle(function () {
-                return {
-                    fillOpacity: 1,
-                    opacity: 1,
-                    interative: true
-                }
-
-            })
-            punishmentLayer.setStyle(function () {
-                return {
-                    fillOpacity: 1,
-                    opacity: 1,
-                    interative: true
-                }
-
-            })
-        }
-    }
-
     //build popup content string
     var popupContent = "<p><b>State: </b> " + feature.properties.NAME + "</p><p><b> Incarcerated Population: </b> " + feature.properties[attribute] + "</p>" + "<p><b>Historical number of days above 90 degrees: </b>" + parseInt(feature.properties.historical_90) + "</p>" + "<p><b>Number of days above 90 degrees with NO climate action: </b>" + parseInt(feature.properties.no_90) + "</p>" + "<p><b>Number of days above 90 degrees with SLOW climate action: </b>" + parseInt(feature.properties.slow_90) + "</p>" + "<p><b>Number of days above 90 degrees with RAPID: </b>" + parseInt(feature.properties.rapid_90) + "</p>";
 
@@ -317,6 +297,27 @@ function onEachShapefileFeature(feature, layer) {
                 document.getElementById("retrieve").innerHTML = popupContent
             }
     })
+}
+
+function removeStyle() {
+    if (map.getZoom() > 6) {
+        psychLayer.setStyle(function () {
+            return {
+                fillOpacity: 1,
+                opacity: 1,
+                interative: true
+            }
+
+        })
+        punishmentLayer.setStyle(function () {
+            return {
+                fillOpacity: 1,
+                opacity: 1,
+                interative: true
+            }
+
+        })
+    }
 }
 
 function getShapefileData() {
@@ -350,7 +351,7 @@ function punishmentPointToLayer(feature, latlng) {
 
     var geojsonMarkerOptions = {
         radius: 8,
-        fillColor: heatIndexColorScale(feature, "historical_90"),
+        fillColor: heatIndexColorScale(feature, "slow_90"),
         color: "#000",
         weight: 1,
         opacity: 1,
@@ -420,7 +421,7 @@ function psychPointToLayer(feature, latlng) {
 
     var geojsonMarkerOptions = {
         radius: 8,
-        fillColor: heatIndexColorScale(feature, "historical_90"),
+        fillColor: heatIndexColorScale(feature, "slow_90"),
         color: "#000",
         weight: 1,
         opacity: 1,
@@ -440,16 +441,29 @@ function psychPointToLayer(feature, latlng) {
     var popupContent = "<p><b>State: </b> " + feature.properties.STATE + "</p><p><b> Number of psychiatric inpatients: </b> " + feature.properties[attribute] + "</p>";
 
     //bind the popup to the circle marker
-    psychLayer.bindPopup(popupContent);
+    //psychLayer.bindPopup(popupContent);
 
     //return the circle marker to the L.geoJson pointToLayer option
     return psychLayer;
 };
 
+function onEachPsychFeature(feature, layer) {
+
+    //build popup content string
+    var popupContent = "<p><b>Institution Name: </b> " + feature.properties.facility + "</p><p><b> Average number of psychiatric inpatients in " + feature.properties.state + "</b> " + feature.properties.psych_capacity + "</p>" + "<p><b>Historical number of days above 90 degrees: </b>" + parseInt(feature.properties.historical_90) + "</p>" + "<p><b>Number of days above 90 degrees with NO climate action: </b>" + parseInt(feature.properties.no_90) + "</p>" + "<p><b>Number of days above 90 degrees with SLOW climate action: </b>" + parseInt(feature.properties.slow_90) + "</p>" + "<p><b>Number of days above 90 degrees with RAPID: </b>" + parseInt(feature.properties.rapid_90) + "</p>";
+
+    layer.on({
+        click: function populate() {
+            document.getElementById("retrieve").innerHTML = popupContent
+        }
+    })
+}
+
 function createPsychPropSymbols(data) {
     //creating the geojson layer for the state data
     psychLayer = L.geoJson(data, {
-        pointToLayer: psychPointToLayer
+        pointToLayer: psychPointToLayer,
+        onEachFeature: onEachPsychFeature
     });
 }
 
@@ -584,7 +598,7 @@ function toggleMainLayers() {
 
             stateLayer.setStyle(function (feature) {
                 return {
-                    fillColor: heatIndexColorScale(feature, attributeColor),
+                    fillColor: heatIndexColorScale(feature),
                 }
             })
             punishmentLayer.setStyle(function (feature) {
