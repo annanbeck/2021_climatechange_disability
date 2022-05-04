@@ -72,7 +72,7 @@ function createMap() {
     getPsychData();
 
     toggleMainLayers();
-    createLegend();
+    createLegend("Historical");
 
 
     var baseMaps = {
@@ -84,12 +84,12 @@ function createMap() {
     map.addControl(layerControl)
 }
 
-function createLegend(){
+function createLegend(legendTemp){
     var legend = document.querySelector("#legend")
 
     // L.control({ position: "bottomleft" });//how get in sidepanel??
 
-    legend.innerHTML += '<h4 class="legendTitle">Days above 90 degrees in 2100 <span class="legendTemp"> Historical</span></h4>';
+    legend.innerHTML += '<h4 class="legendTitle">Days above 90 degrees in 2100 <span class="legendTemp">'+ legendTemp + '</span></h4>';
     legend.innerHTML += '<i style="background: #ffffb2"></i><span>Fewer than 40</span><br>';
     legend.innerHTML += '<i style="background: #fecc5c"></i><span>40-79</span><br>';
     legend.innerHTML += '<i style="background: #fd8d3c"></i><span>80-119</span><br>';
@@ -101,9 +101,11 @@ function createLegend(){
 }
 
 function updateLegend(attribute){
-
+    document.querySelector("#legend").innerHTML = "";
     var legendTemp = attribute ;
-    document.querySelector("span.legendTemp").innerHTML = legendTemp;
+
+    createLegend(legendTemp)
+    //document.querySelector("span.legendTemp").innerHTML = legendTemp;
 
 }
 
@@ -155,7 +157,8 @@ function statePointToLayer(feature, latlng) {
 };
 //add if attribute =no_90, etc.
 function heatIndexColorScale(feature, attribute) {
-    if ([attribute] == "historical_90" || "slow_90" || "no_90" || "rapid_90") {
+    if (attribute == "historical_90" || attribute == "slow_90" || attribute == "no_90" || attribute == "rapid_90") {
+        console.log("othr");
         if (feature.properties[attribute] <= 39) {
             return "#ffffb2"
         } else if (feature.properties[attribute] >= 40 && feature.properties[attribute] <= 80) {
@@ -167,7 +170,8 @@ function heatIndexColorScale(feature, attribute) {
         } else if (feature.properties[attribute] >= 161) {
             return "#bd0026"
         } else return "#ccc"
-    } else if ([attribute] == "WFIR_EALR") {
+    } else if (attribute == "WFIR_EALR") {
+        console.log("wildfire")
         if (feature.properties[attribute] == "Very Low") {
             return "#ffffb2"
         } else if (feature.properties[attribute] == "Relatively Low") {
