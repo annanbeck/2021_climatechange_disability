@@ -8,6 +8,7 @@ var psychLayer
 var attrArray = ["WFIR_EALT", "WFIR_EALS", "WFIR_EALR", "historical_90", "slow_90", "no_90", "rapid_90", "incarcerated_20"]
 var autocompleteArray = []
 var attribute
+var attributeColor = "historical_90"
 
 function createMap() {
 
@@ -84,12 +85,12 @@ function createMap() {
     map.addControl(layerControl)
 }
 
-function createLegend(legendTemp){
+function createLegend(legendTemp) {
     var legend = document.querySelector("#legend")
 
     // L.control({ position: "bottomleft" });//how get in sidepanel??
 
-    legend.innerHTML += '<h4 class="legendTitle">Days above 90 degrees in 2100 <span class="legendTemp">'+ legendTemp + '</span></h4>';
+    legend.innerHTML += '<h4 class="legendTitle">Days above 90 degrees in 2100 <span class="legendTemp">' + legendTemp + '</span></h4>';
     legend.innerHTML += '<i style="background: #ffffb2"></i><span>Fewer than 40</span><br>';
     legend.innerHTML += '<i style="background: #fecc5c"></i><span>40-79</span><br>';
     legend.innerHTML += '<i style="background: #fd8d3c"></i><span>80-119</span><br>';
@@ -100,9 +101,9 @@ function createLegend(legendTemp){
 
 }
 
-function updateLegend(attribute){
+function updateLegend(attribute) {
     document.querySelector("#legend").innerHTML = "";
-    var legendTemp = attribute ;
+    var legendTemp = attribute;
 
     createLegend(legendTemp)
     //document.querySelector("span.legendTemp").innerHTML = legendTemp;
@@ -132,7 +133,7 @@ function statePointToLayer(feature, latlng) {
 
     var geojsonMarkerOptions = {
         radius: 8,
-        fillColor: heatIndexColorScale(feature, "WFIR_EALR"),
+        fillColor: heatIndexColorScale(feature, "historical_90"),
         color: "#000",
         weight: 1,
         opacity: 1,
@@ -156,31 +157,30 @@ function statePointToLayer(feature, latlng) {
     return stateLayer;
 };
 //add if attribute =no_90, etc.
-function heatIndexColorScale(feature, attribute) {
-    if (attribute == "historical_90" || attribute == "slow_90" || attribute == "no_90" || attribute == "rapid_90") {
-        console.log("othr");
-        if (feature.properties[attribute] <= 39) {
+function heatIndexColorScale(feature, attributeCurrent) {
+
+    if (attributeCurrent == "historical_90" || attributeCurrent == "slow_90" || attributeCurrent == "no_90" || attributeCurrent == "rapid_90") {
+        if (feature.properties[attributeCurrent] <= 39) {
             return "#ffffb2"
-        } else if (feature.properties[attribute] >= 40 && feature.properties[attribute] <= 80) {
+        } else if (feature.properties[attributeCurrent] >= 40 && feature.properties[attributeCurrent] <= 80) {
             return "#fecc5c"
-        } else if (feature.properties[attribute] >= 81 && feature.properties[attribute] <= 120) {
+        } else if (feature.properties[attributeCurrent] >= 81 && feature.properties[attributeCurrent] <= 120) {
             return "#fd8d3c"
-        } else if (feature.properties[attribute] >= 121 && feature.properties[attribute] <= 160) {
+        } else if (feature.properties[attributeCurrent] >= 121 && feature.properties[attributeCurrent] <= 160) {
             return "#f03b20"
-        } else if (feature.properties[attribute] >= 161) {
+        } else if (feature.properties[attributeCurrent] >= 161) {
             return "#bd0026"
         } else return "#ccc"
-    } else if (attribute == "WFIR_EALR") {
-        console.log("wildfire")
-        if (feature.properties[attribute] == "Very Low") {
+    } else if (attributeCurrent == "WFIR_EALR") {
+        if (feature.properties[attributeCurrent] == "Very Low") {
             return "#ffffb2"
-        } else if (feature.properties[attribute] == "Relatively Low") {
+        } else if (feature.properties[attributeCurrent] == "Relatively Low") {
             return "#fecc5c"
-        } else if (feature.properties[attribute] == "Relatively Moderate") {
+        } else if (feature.properties[attributeCurrent] == "Relatively Moderate") {
             return "#fd8d3c"
-        } else if (feature.properties[attribute] == "Relatively High") {
+        } else if (feature.properties[attributeCurrent] == "Relatively High") {
             return "#f03b20"
-        } else if (feature.properties[attribute] == "Very High") {
+        } else if (feature.properties[attributeCurrent] == "Very High") {
             return "#bd0026"
         } else return "#ccc"
     }
@@ -467,11 +467,22 @@ function joinPunishmentShapefile(shapefileLayer, stateLayer) {
     };
 };
 
-function filterByFacility (feature, name, id){
-        console.log(name)
-        if (feature.properties[name] != id){
-            return "rgba(0,0,0,0)"
-        } 
+function filterByFacility(feature, name, id) {
+    if (feature.properties[name] != id) {
+        return "rgba(0,0,0,0)"
+    }
+    else {
+        return heatIndexColorScale(feature, attributeColor)
+    }
+}
+
+function filterByFacilityStroke(feature, name, id) {
+    if (feature.properties[name] != id) {
+        return "rgba(0,0,0,0)"
+    }
+    else {
+        return "#000"
+    }
 }
 
 
@@ -493,7 +504,6 @@ function toggleMainLayers() {
 
     radioPoints.addEventListener('change', function () {
         if (this.checked == true) {
-            console.log("this is checked")
             map.removeLayer(stateLayer)
             map.removeLayer(shapefileLayer)
             if (!map.hasLayer(punishmentLayer)) {
@@ -503,23 +513,23 @@ function toggleMainLayers() {
         }
     });
 
-    //code for facility type checkboxes
-    var county = document.getElementById("COUNTY")
-    var state = document.getElementById("STATE")
-    var federal = document.getElementById("FEDERAL")
-    var ice = document.getElementById("ice_facility")
+    facilityFilter = ["COUNTY", "STATE", "FEDERAL", "Y"]
 
 
-    //adding event listeners to the checkboxes
+    //adding event listeners to the buttons facility type
+    // document.querySelectorAll(".facility").forEach(function(facilityFilter){
+    facilityFilter.forEach(function (item) {
+        var facility = document.getElementById(item)
+        console.log(facility)
+        facility.addEventListener('click', function (e) {
 
-    state.addEventListener('change', function (e) {
-        if (this.checked == true) {
-             punishmentLayer.setStyle(function (feature){
-                 return{
-                     fillColor: filterByFacility(feature, e.target.name, e.target.id),
-                 }
-             })
-        }
+            punishmentLayer.setStyle(function (feature) {
+                return {
+                    fillColor: filterByFacility(feature, e.target.name, e.target.id),
+                    color: filterByFacilityStroke(feature, e.target.name, e.target.id)
+                }
+            })
+        })
     })
 
 
@@ -527,6 +537,7 @@ function toggleMainLayers() {
     //loop for temp and wildfire attributes
     document.querySelectorAll(".temp").forEach(function (radio) {
         radio.addEventListener('change', function (e) {
+            attributeColor = radio.id;
             document.querySelectorAll(".temp").forEach(function (radio) {
                 radio.checked = false
             })
@@ -558,7 +569,6 @@ function toggleMainLayers() {
 //autocomplete search bar
 
 function autocomplete(inp, arr, json) {
-    console.log(punishmentLayer)
     for (i = 0; i < json.features.length; i++) {
         autocompleteArray.push(json.features[i])
     }
@@ -597,7 +607,6 @@ function autocomplete(inp, arr, json) {
                         lat = geom.split(",")[1],
                         coords = L.latLng([lat, lon])
 
-                    console.log(coords)
                     /*insert the value for the autocomplete text field:*/
                     inp.value = this.getElementsByTagName("input")[0].value;
 
