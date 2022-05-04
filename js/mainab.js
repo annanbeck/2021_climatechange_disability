@@ -57,8 +57,8 @@ function createMap() {
         if (map.getZoom() > 6) {
             map.removeLayer(stateLayer)
             map.removeLayer(shapefileLayer)
-            // if (!map.hasLayer(punishmentLayer))
-            //     punishmentLayer.addTo(map);
+            if (!map.hasLayer(punishmentLayer))
+                punishmentLayer.addTo(map);
             // if (!map.hasLayer(psychLayer))
             //     psychLayer.addTo(map);
         }
@@ -67,7 +67,7 @@ function createMap() {
             map.addLayer(shapefileLayer)
             if (map.hasLayer(punishmentLayer))
                 map.removeLayer(punishmentLayer);
-            if (!map.hasLayer(psychLayer))
+            if (map.hasLayer(psychLayer))
                 map.removeLayer(psychLayer);
         }
     });
@@ -255,11 +255,6 @@ function onEachShapefileFeature(feature, layer) {
         var bounds = layer.getBounds();
         map.fitBounds(bounds);
 
-        if (!map.hasLayer(punishmentLayer))
-            punishmentLayer.addTo(map);
-        if (!map.hasLayer(psychLayer))
-            psychLayer.addTo(map);
-
         punishmentLayer.setStyle(style)
         psychLayer.setStyle(style)
 
@@ -316,9 +311,11 @@ function onEachShapefileFeature(feature, layer) {
 
     //bind the popup to the circle marker
     layer.on({
-        click: function populate() {
-            document.getElementById("retrieve").innerHTML = popupContent
-        }
+        click:
+            function populate() {
+
+                document.getElementById("retrieve").innerHTML = popupContent
+            }
     })
 }
 
@@ -557,15 +554,20 @@ function toggleMainLayers() {
                     map.removeLayer(punishmentLayer)
                 }
             } else
-                facilityType = e.target.id
+                if (map.hasLayer(psychLayer)) {
+                    punishmentLayer.addTo(map)
+                    map.removeLayer(psychLayer)
+                }
+            facilityType = e.target.id
             facilityColumn = e.target.name
             punishmentLayer.setStyle(function (feature) {
                 return {
                     fillColor: filterByFacility(feature),
                     color: filterByFacilityStroke(feature)
                 }
+
             })
-            return facilityClicked
+
         })
     })
 
