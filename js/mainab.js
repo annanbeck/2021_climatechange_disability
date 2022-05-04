@@ -27,18 +27,6 @@ function createMap() {
     });
 
     /*Legend specific*/
-    var legend = document.querySelector("#legend")
-
-    // L.control({ position: "bottomleft" });//how get in sidepanel??
-
-    legend.innerHTML += "<h4>Days above 90 degrees in 2070</h4>";
-    legend.innerHTML += '<i style="background: #ffffb2"></i><span>Fewer than 40</span><br>';
-    legend.innerHTML += '<i style="background: #fecc5c"></i><span>40-79</span><br>';
-    legend.innerHTML += '<i style="background: #fd8d3c"></i><span>80-119</span><br>';
-    legend.innerHTML += '<i style="background: #f03b20"></i><span>120-159</span><br>';
-    legend.innerHTML += '<i style="background: #bd0026"></i><span>More than 159</span><br>';
-    legend.innerHTML += '<i style="background: #ccc"></i><span>No Data</span><br>';
-
 
     // legend.addTo(map);
     //add legend
@@ -84,6 +72,7 @@ function createMap() {
     getPsychData();
 
     toggleMainLayers();
+    createLegend();
 
 
     var baseMaps = {
@@ -95,6 +84,28 @@ function createMap() {
     map.addControl(layerControl)
 }
 
+function createLegend(){
+    var legend = document.querySelector("#legend")
+
+    // L.control({ position: "bottomleft" });//how get in sidepanel??
+
+    legend.innerHTML += '<h4 class="legendTitle">Days above 90 degrees in 2070 <span class="legendTemp"> Historical</span></h4>';
+    legend.innerHTML += '<i style="background: #ffffb2"></i><span>Fewer than 40</span><br>';
+    legend.innerHTML += '<i style="background: #fecc5c"></i><span>40-79</span><br>';
+    legend.innerHTML += '<i style="background: #fd8d3c"></i><span>80-119</span><br>';
+    legend.innerHTML += '<i style="background: #f03b20"></i><span>120-159</span><br>';
+    legend.innerHTML += '<i style="background: #bd0026"></i><span>More than 159</span><br>';
+    legend.innerHTML += '<i style="background: #ccc"></i><span>No Data</span><br>';
+
+
+}
+
+function updateLegend(attribute){
+
+    var legendTemp = attribute ;
+    document.querySelector("span.legendTemp").innerHTML = legendTemp;
+
+}
 
 
 //make color range
@@ -535,6 +546,7 @@ function toggleMainLayers() {
                     fillColor: heatIndexColorScale(feature, radio.id),
                 }
             })
+            updateLegend(radio.id)
         })
     })
 }
