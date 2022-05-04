@@ -464,13 +464,10 @@ function joinPunishmentShapefile(shapefileLayer, stateLayer) {
 };
 
 function filterByFacility (feature, name, id){
-
-        if (feature.properties[name] === id){
-            return "#ccc"
-        } else {
-            return "#000"
-        }
-
+        console.log(name)
+        if (feature.properties[name] != id){
+            return "rgba(0,0,0,0)"
+        } 
 }
 
 
@@ -511,11 +508,11 @@ function toggleMainLayers() {
 
     //adding event listeners to the checkboxes
 
-    state.addEventListener('change', function () {
+    state.addEventListener('change', function (e) {
         if (this.checked == true) {
              punishmentLayer.setStyle(function (feature){
                  return{
-                     fillColor: filterByFacility(feature, this.name, this.id),
+                     fillColor: filterByFacility(feature, e.target.name, e.target.id),
                  }
              })
         }
