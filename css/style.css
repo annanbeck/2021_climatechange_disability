@@ -1,28 +1,66 @@
-
 /*basic HTML page set up */
-        /*insert style here*/
-        #map {
-            height: 100vh;
-            width:100vw;
-            right: 0;
-            float: right;
-        }
+/*insert style here*/
+#map {
+    height: 100vh;
+    width: 100vw;
+    right: 0;
+    float: right;
+}
 
-        #sidepanel {
-            height: 100vh;
-            width: 28vw;
-            float: left;
-            position:absolute;
-            background-color:rgba(255,255,255,0.8);
-            left: 0;
-            z-index: 10000;
-        }
+#sidepanel {
+    height: 100vh;
+    width: 28vw;
+    float: left;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.8);
+    left: 0;
+    z-index: 10000;
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+}
 
+#retrieve {
+    height: 40vh;
+    width: 28vw;
+    float: right;
+    padding: 18px;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.8);
+    bottom:0;
+    right: 0;
+    z-index: 10000;
+
+}
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    position:absolute;
+    z-index:10000;
+    padding: 18px;
+    width: 28vw;
+    border: none;
+    text-align: left;
+    left:0;
+    top:0;
+    outline: none;
+    font-size: 15px;
+  }
+  
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+  .active, .collapsible:hover {
+    background-color: #ccc;
+  }
+  
 /*Leaflet popup css */
-        .leaflet-popup-content p {
-            margin: 0;
-            font: 11px Verdana, sans-serif;
-        }
+.leaflet-popup-content p {
+    margin: 0;
+    font: 11px Verdana, sans-serif;
+}
+
 /* 
 		.leaflet-container {
 			height: 400px;
@@ -31,161 +69,200 @@
 			max-height: 100%;
 		} */
 
-/*CSS for Radio Boxes*/ 
+/*CSS for Radio Boxes*/
 
-        /* Customize the label (the container) */
-        .container {
-            display: block;
-            position: relative;
-            padding-left: 35px;
-            margin-bottom: 12px;
-            cursor: pointer;
-            font-size: 22px;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        /* Hide the browser's default radio button */
-        .container input {
-            position: absolute;
-            opacity: 0;
-            cursor: pointer;
-            height: 0;
-            width: 0;
-        }
-        
-        /* Create a custom radio button */
-        .checkmark {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 25px;
-            width: 25px;
-            background-color: #eee;
-            border-radius: 50%;
-        }
-        
-        /* On mouse-over, add a grey background color */
-        .container:hover input ~ .checkmark {
-            background-color: #ccc;
-        }
-        
-        /* When the radio button is checked, add a blue background */
-        .container input:checked ~ .checkmark {
-            background-color: #2196F3;
-        }
-        
-        /* Create the indicator (the dot/circle - hidden when not checked) */
-        .checkmark:after {
-            content: "";
-            position: absolute;
-            display: none;
-        }
-        
-        /* Show the indicator (dot/circle) when checked */
-        .container input:checked ~ .checkmark:after {
-            display: block;
-        }
-        
-        /* Style the indicator (dot/circle) */
-        .container .checkmark:after {
-            top: 9px;
-            left: 9px;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: white;
-        }
+/* Customize the label (the container) */
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
 
-        /*Legend specific*/
+/* Hide the browser's default radio button */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+
+.facility {
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+
+}
+
+.facility:hover {
+    background-color: #4CAF50;
+    /* Green */
+    color: white;
+
+}
+
+
+.facility:focus{
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked~.checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked~.checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
+/*Legend specific*/
 #legend {
     padding: 6px 8px;
     font: 14px Arial, Helvetica, sans-serif;
-   
+
     /*box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);*/
     /*border-radius: 5px;*/
     line-height: 24px;
     color: #555;
-  }
-  #legend h4 {
+}
+
+#legend h4 {
     text-align: center;
     font-size: 16px;
     margin: 2px 12px 8px;
     color: #777;
-  }
-  
-  #legend span {
+}
+
+#legend span {
     position: relative;
     margin: 3em;
     bottom: 3px;
-  }
-  
-  #legend i {
+}
+
+#legend i {
     position: center;
     width: 18px;
     height: 18px;
     float: left;
     margin: 0 8px 0 0;
     opacity: 0.7;
-  }
-  
-  #legend.icon {
+}
+
+#legend.icon {
     width: 18px;
     height: 18px;
     background-size: 18px;
 
-  }
+}
 
-  /* CSS for autocomplete search bar */
+/* CSS for autocomplete search bar */
 
-            * { box-sizing: border-box; }
-            body {
-            font: 16px Arial;
-            }
-            .autocomplete {
-            /*the container must be positioned relative:*/
-            position: relative;
-            display: inline-block;
-            }
-            input {
-            border: 1px solid transparent;
-            background-color: #f1f1f1;
-            padding: 10px;
-            font-size: 16px;
-            }
-            input[type=text] {
-            background-color: #f1f1f1;
-            width: 100%;
-            }
-            input[type=submit] {
-            background-color: DodgerBlue;
-            color: #fff;
-            }
-            .autocomplete-items {
-            position: absolute;
-            border: 1px solid #d4d4d4;
-            border-bottom: none;
-            border-top: none;
-            z-index: 99;
-            /*position the autocomplete items to be the same width as the container:*/
-            top: 100%;
-            left: 0;
-            right: 0;
-            }
-            .autocomplete-items div {
-            padding: 10px;
-            cursor: pointer;
-            background-color: #fff;
-            border-bottom: 1px solid #d4d4d4;
-            }
-            .autocomplete-items div:hover {
-            /*when hovering an item:*/
-            background-color: #e9e9e9;
-            }
-            .autocomplete-active {
-            /*when navigating through the items using the arrow keys:*/
-            background-color: DodgerBlue !important;
-            color: #ffffff;
-            }
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font: 16px Arial;
+}
+
+.autocomplete {
+    /*the container must be positioned relative:*/
+    position: relative;
+    display: inline-block;
+}
+
+input {
+    border: 1px solid transparent;
+    background-color: #f1f1f1;
+    padding: 10px;
+    font-size: 16px;
+}
+
+input[type=text] {
+    background-color: #f1f1f1;
+    width: 100%;
+}
+
+input[type=submit] {
+    background-color: DodgerBlue;
+    color: #fff;
+}
+
+.autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+}
+
+.autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+}
+
+.autocomplete-items div:hover {
+    /*when hovering an item:*/
+    background-color: #e9e9e9;
+}
+
+.autocomplete-active {
+    /*when navigating through the items using the arrow keys:*/
+    background-color: DodgerBlue !important;
+    color: #ffffff;
+}

@@ -22,6 +22,7 @@
 <body>
     <!--put your initial page content here-->
     <div id="map"></div>
+    <button type="button" class="collapsible">Open Legend and Filters</button>
     <div id="sidepanel" class="col-md-3">
         <form autocomplete="off" action="/action_page.php">
             <div class="autocomplete" style="width:300px;">
@@ -41,51 +42,42 @@
 
         <div id="legend">
         </div>
-<div id="temp-buttons">
-        <label class="container">No response
-            <input type="checkbox" class="temp" id="no_90"></input>
-            <span class="checkmark"></span>
-        </label>
-        <label class="container">Slow response
-            <input type="checkbox" class="temp" id="slow_90"></input>
-            <span class="checkmark"></span>
-        </label>
-        <label class="container">Rapid response
-            <input type="checkbox" class="temp" id="rapid_90"></input>
-            <span class="checkmark"></span>
-        </label>
+        <div id="temp-buttons">
+            <label class="container">No response
+                <input type="checkbox" class="temp" id="no_90"></input>
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">Slow response
+                <input type="checkbox" class="temp" id="slow_90"></input>
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">Rapid response
+                <input type="checkbox" class="temp" id="rapid_90"></input>
+                <span class="checkmark"></span>
+            </label>
 
-        <label class="container">Historical average
-            <input type="checkbox" class="temp" id="historical_90" checked></input>
-            <span class="checkmark"></span>
-        </label>
-        <label class="container">Wildfire Risk
-            <input type="checkbox" class="temp" id="WFIR_EALR"></input>
-            <span class="checkmark"></span>
-        </label>
-    </div>
+            <label class="container">Historical average
+                <input type="checkbox" class="temp" id="historical_90" checked></input>
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">Wildfire Risk
+                <input type="checkbox" class="temp" id="WFIR_EALR"></input>
+                <span class="checkmark"></span>
+            </label>
+        </div>
 
-    <div id="facility-type">
-        <label class="container">Local/County
-            <button  class="facility" name = "type" id="COUNTY"></button>
-            <span class="checkmark"></span>
-        </label>
-        <label class="container">State
-            <button class="facility" name="type" id="STATE"></button>
-            <span class="checkmark"></span>
-        </label>
-        <label class="container">Federal
-            <button class="facility" name= "type" id="FEDERAL"></button>
-            <span class="checkmark"></span>
-        </label>
+        <div id="facility-type">
+            <span> <button class="facility" name="type" id="COUNTY">Local/County</button></span>
+            <span> <button class="facility" name="type" id="STATE">State</button></span>
 
-        <label class="container">Detention Center
-            <button class="facility" name="ice_facility" id="Y"></button>
-            <span class="checkmark"></span>
-        </label>
-       
+            <span> <button class="facility" name="type" id="FEDERAL">Federal</button></span>
 
-    </div>
+            <span></span> <button class="facility" name="ice_facility" id="Y">Detention Center</button></span>
+            <span></span> <button class="facility" name="psych_facility" id="psych_facility">Psychiatric Facility</button></span>
+
+
+
+        </div>
         <div id="sidepanelRetrieve">
 
         </div>

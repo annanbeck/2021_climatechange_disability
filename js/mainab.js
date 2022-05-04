@@ -9,6 +9,8 @@ var attrArray = ["WFIR_EALT", "WFIR_EALS", "WFIR_EALR", "historical_90", "slow_9
 var autocompleteArray = []
 var attribute
 var attributeColor = "historical_90"
+var facilityType = "everything"
+var facilityColumn = "everything"
 
 function createMap() {
 
@@ -19,12 +21,15 @@ function createMap() {
         OSM = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }),
+        Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+            attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
         });
 
     map = L.map('map', {
         center: [40, -100],
         zoom: 4,
-        layers: [darkBasemap, OSM]
+        layers: [OSM, Esri_WorldImagery, darkBasemap]
     });
 
     /*Legend specific*/
@@ -52,10 +57,10 @@ function createMap() {
         if (map.getZoom() > 6) {
             map.removeLayer(stateLayer)
             map.removeLayer(shapefileLayer)
-            if (!map.hasLayer(punishmentLayer))
-                punishmentLayer.addTo(map);
-            if (!map.hasLayer(psychLayer))
-                psychLayer.addTo(map);
+            // if (!map.hasLayer(punishmentLayer))
+            //     punishmentLayer.addTo(map);
+            // if (!map.hasLayer(psychLayer))
+            //     psychLayer.addTo(map);
         }
         else {
             map.addLayer(stateLayer)
@@ -74,15 +79,36 @@ function createMap() {
 
     toggleMainLayers();
     createLegend("Historical");
+    collapsible()
+
+
 
 
     var baseMaps = {
-        "Dark Basemap": darkBasemap,
-        "Open Street Map": OSM
+        "Open Street Map": OSM,
+        "Esri World Imagery": Esri_WorldImagery,
+        "Dark Basemap": darkBasemap
     }
 
     layerControl = L.control.layers(baseMaps, null);
     map.addControl(layerControl)
+}
+
+function collapsible() {
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    }
 }
 
 function createLegend(legendTemp) {
@@ -203,13 +229,6 @@ function createStatePropSymbols(data) {
     }).addTo(map)
 }
 
-// function onEachStateFeature(feature, layer) {
-//     layer.on("dblclick", function () {
-//         var bounds = layer.getBounds();
-//         map.fitBounds(bounds);
-//     })
-// }
-
 function getStateData() {
     fetch("data/states-data-heat-wildfire-incarcerated.geojson")
         .then(function (response) {
@@ -224,9 +243,9 @@ function getStateData() {
 };
 
 var borderStyle = {
-    "color": "#F09511",
-    "weight": 3,
-    "opacity": 0.4
+    "color": "rgba(0,0,0,0)",
+    "weight": 0,
+    "opacity": 0
 };
 
 function onEachShapefileFeature(feature, layer) {
@@ -236,6 +255,10 @@ function onEachShapefileFeature(feature, layer) {
         var bounds = layer.getBounds();
         map.fitBounds(bounds);
 
+        if (!map.hasLayer(punishmentLayer))
+            punishmentLayer.addTo(map);
+        if (!map.hasLayer(psychLayer))
+            psychLayer.addTo(map);
 
         punishmentLayer.setStyle(style)
         psychLayer.setStyle(style)
@@ -248,15 +271,6 @@ function onEachShapefileFeature(feature, layer) {
                 return 0;
             }
         }
-        function fillFilter(psychFeature) {
-            if (psychFeature.properties.state == feature.properties.STUSPS) {
-                return 1;
-            }
-            else {
-                return 0;
-            }
-        }
-
 
         function interactivity(punishmentFeature) {
             if (punishmentFeature.properties.state == feature.properties.STUSPS) {
@@ -266,29 +280,46 @@ function onEachShapefileFeature(feature, layer) {
             }
         }
 
-        function interactivity(psychFeature) {
-            if (psychFeature.properties.state == feature.properties.STUSPS) {
-                return true;
-            } else {
-                return false
-            }
-        }
 
-
-        function style(punishmentFeature, psychFeature) {
+        function style(punishmentFeature) {
             return {
-                fillOpacity: fillFilter(punishmentFeature, psychFeature),
-                opacity: fillFilter(punishmentFeature, psychFeature),
-                interactive: interactivity(punishmentFeature, psychFeature)
+                fillOpacity: fillFilter(punishmentFeature),
+                opacity: fillFilter(punishmentFeature),
+                interactive: interactivity(punishmentFeature)
             }
         }
     })
 
+    function removeStyle() {
+        if (map.getZoom() > 6) {
+            psychLayer.setStyle(function () {
+                return {
+                    fillOpacity: 1,
+                    opacity: 1,
+                    interative: true
+                }
+
+            })
+            punishmentLayer.setStyle(function () {
+                return {
+                    fillOpacity: 1,
+                    opacity: 1,
+                    interative: true
+                }
+
+            })
+        }
+    }
+
     //build popup content string
-    var popupContent = "<p><b>State: </b> " + feature.properties.NAME + "</p><p><b> Incarcerated Population: </b> " + feature.properties[attribute] + "</p>";
+    var popupContent = "<p><b>State: </b> " + feature.properties.NAME + "</p><p><b> Incarcerated Population: </b> " + feature.properties[attribute] + "</p>" + "<p><b>Historical number of days above 90 degrees: </b>" + parseInt(feature.properties.historical_90) + "</p>" + "<p><b>Number of days above 90 degrees with NO climate action: </b>" + parseInt(feature.properties.no_90) + "</p>" + "<p><b>Number of days above 90 degrees with SLOW climate action: </b>" + parseInt(feature.properties.slow_90) + "</p>" + "<p><b>Number of days above 90 degrees with RAPID: </b>" + parseInt(feature.properties.rapid_90) + "</p>";
 
     //bind the popup to the circle marker
-    layer.bindPopup(popupContent);
+    layer.on({
+        click: function populate() {
+            document.getElementById("retrieve").innerHTML = popupContent
+        }
+    })
 }
 
 function getShapefileData() {
@@ -299,9 +330,7 @@ function getShapefileData() {
         .then(function (json) {
             joinPunishmentShapefile(json, stateDataLayer);
             shapefileLayer = L.geoJSON(json, {
-                style: function (feature) {
-                    return L.polyline(feature, borderStyle)
-                },
+                style: borderStyle,
                 onEachFeature: onEachShapefileFeature
             }).addTo(map);
             createStatePropSymbols(stateDataLayer);
@@ -344,7 +373,7 @@ function punishmentPointToLayer(feature, latlng) {
     var popupContent = "<p><b>Institution Name: </b> " + feature.properties.name + "</p><p><b> Incarcerated Population Capacity: </b> " + feature.properties[attribute] + "</p>" + "<p><b>Historical number of days above 90 degrees: </b>" + parseInt(feature.properties.historical_90) + "</p>" + "<p><b>Number of days above 90 degrees with NO climate action: </b>" + parseInt(feature.properties.no_90) + "</p>" + "<p><b>Number of days above 90 degrees with SLOW climate action: </b>" + parseInt(feature.properties.slow_90) + "</p>" + "<p><b>Number of days above 90 degrees with RAPID: </b>" + parseInt(feature.properties.rapid_90) + "</p>";
 
     //bind the popup to the circle marker
-    punishmentLayer.bindPopup(popupContent);
+    // punishmentLayer.bindPopup(popupContent);
 
     //return the circle marker to the L.geoJson pointToLayer option
     return punishmentLayer;
@@ -353,11 +382,11 @@ function punishmentPointToLayer(feature, latlng) {
 function onEachPunishmentFeature(feature, layer) {
 
     //build popup content string
-    var popupContent = "<p><b>Institution Name: </b> " + feature.properties.name + "</p><p><b> Incarcerated Population Capacity: </b> " + feature.properties[attribute] + "</p>" + "<p><b>Historical number of days above 90 degrees: </b>" + parseInt(feature.properties.historical_90) + "</p>" + "<p><b>Number of days above 90 degrees with NO climate action: </b>" + parseInt(feature.properties.no_90) + "</p>" + "<p><b>Number of days above 90 degrees with SLOW climate action: </b>" + parseInt(feature.properties.slow_90) + "</p>" + "<p><b>Number of days above 90 degrees with RAPID: </b>" + parseInt(feature.properties.rapid_90) + "</p>";
+    var popupContent = "<p><b>Institution Name: </b> " + feature.properties.name + "</p><p><b> Incarcerated Population Capacity: </b> " + feature.properties.capacity + "</p>" + "<p><b>Historical number of days above 90 degrees: </b>" + parseInt(feature.properties.historical_90) + "</p>" + "<p><b>Number of days above 90 degrees with NO climate action: </b>" + parseInt(feature.properties.no_90) + "</p>" + "<p><b>Number of days above 90 degrees with SLOW climate action: </b>" + parseInt(feature.properties.slow_90) + "</p>" + "<p><b>Number of days above 90 degrees with RAPID: </b>" + parseInt(feature.properties.rapid_90) + "</p>";
 
     layer.on({
         click: function populate() {
-            document.getElementById("sidepanelRetrieve").innerHTML = popupContent
+            document.getElementById("retrieve").innerHTML = popupContent
         }
     })
 }
@@ -424,7 +453,7 @@ function createPsychPropSymbols(data) {
     //creating the geojson layer for the state data
     psychLayer = L.geoJson(data, {
         pointToLayer: psychPointToLayer
-    }); console.log(psychPointToLayer);
+    });
 }
 
 //fetch the punishment dataset
@@ -467,8 +496,8 @@ function joinPunishmentShapefile(shapefileLayer, stateLayer) {
     };
 };
 
-function filterByFacility(feature, name, id) {
-    if (feature.properties[name] != id) {
+function filterByFacility(feature) {
+    if (feature.properties[facilityColumn] != facilityType) {
         return "rgba(0,0,0,0)"
     }
     else {
@@ -476,8 +505,8 @@ function filterByFacility(feature, name, id) {
     }
 }
 
-function filterByFacilityStroke(feature, name, id) {
-    if (feature.properties[name] != id) {
+function filterByFacilityStroke(feature) {
+    if (feature.properties[facilityColumn] != facilityType) {
         return "rgba(0,0,0,0)"
     }
     else {
@@ -513,22 +542,30 @@ function toggleMainLayers() {
         }
     });
 
-    facilityFilter = ["COUNTY", "STATE", "FEDERAL", "Y"]
+    facilityFilter = ["COUNTY", "STATE", "FEDERAL", "Y", "psych_facility"]
 
-
+    var facilityClicked
     //adding event listeners to the buttons facility type
     // document.querySelectorAll(".facility").forEach(function(facilityFilter){
     facilityFilter.forEach(function (item) {
         var facility = document.getElementById(item)
         console.log(facility)
         facility.addEventListener('click', function (e) {
-
+            if (facility.id == "psych_facility") {
+                if (!map.hasLayer(psychLayer)) {
+                    psychLayer.addTo(map)
+                    map.removeLayer(punishmentLayer)
+                }
+            } else
+                facilityType = e.target.id
+            facilityColumn = e.target.name
             punishmentLayer.setStyle(function (feature) {
                 return {
-                    fillColor: filterByFacility(feature, e.target.name, e.target.id),
-                    color: filterByFacilityStroke(feature, e.target.name, e.target.id)
+                    fillColor: filterByFacility(feature),
+                    color: filterByFacilityStroke(feature)
                 }
             })
+            return facilityClicked
         })
     })
 
@@ -542,31 +579,41 @@ function toggleMainLayers() {
                 radio.checked = false
             })
             e.target.checked = true;
-            // if (this.checked == true)
+
             stateLayer.setStyle(function (feature) {
                 return {
-                    fillColor: heatIndexColorScale(feature, radio.id),
+                    fillColor: heatIndexColorScale(feature),
                 }
             })
             punishmentLayer.setStyle(function (feature) {
-                return {
-                    fillColor: heatIndexColorScale(feature, radio.id),
+                if (feature != facilityClicked) {
+                    return {
+                        fillColor: filterByFacility(feature),
+                    }
+                } else {
+                    return {
+                        fillColor: "rgba(0, 0, 0, 1)"
+                    }
                 }
             })
             psychLayer.setStyle(function (feature) {
                 return {
-                    fillColor: heatIndexColorScale(feature, radio.id),
+                    fillColor: filterByFacility(feature),
                 }
             })
             updateLegend(radio.id)
         })
     })
 }
-//build another one for wildfire
-
 
 
 //autocomplete search bar
+
+function addToAutocomplete(inp, arr, json) {
+    for (i = 0; i < json.features.length; i++) {
+        autocompleteArray.push(json.features[i])
+    }
+}
 
 function autocomplete(inp, arr, json) {
     for (i = 0; i < json.features.length; i++) {
