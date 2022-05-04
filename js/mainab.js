@@ -588,24 +588,25 @@ function toggleMainLayers() {
                 }
             })
             punishmentLayer.setStyle(function (feature) {
-                if (feature != facilityClicked) {
+                if (facilityType != "everything") {
                     return {
                         fillColor: filterByFacility(feature),
                     }
                 } else {
                     return {
-                        fillColor: "rgba(0, 0, 0, 1)"
+                        fillColor: heatIndexColorScale(feature, attributeColor)
                     }
                 }
             })
             psychLayer.setStyle(function (feature) {
+
                 return {
                     fillColor: filterByFacility(feature),
                 }
             })
-            updateLegend(radio.id)
-        })
+        updateLegend(radio.id)
     })
+})
 }
 
 
