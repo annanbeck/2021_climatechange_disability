@@ -89,7 +89,7 @@ function createLegend(){
 
     // L.control({ position: "bottomleft" });//how get in sidepanel??
 
-    legend.innerHTML += '<h4 class="legendTitle">Days above 90 degrees in 2070 <span class="legendTemp"> Historical</span></h4>';
+    legend.innerHTML += '<h4 class="legendTitle">Days above 90 degrees in 2100 <span class="legendTemp"> Historical</span></h4>';
     legend.innerHTML += '<i style="background: #ffffb2"></i><span>Fewer than 40</span><br>';
     legend.innerHTML += '<i style="background: #fecc5c"></i><span>40-79</span><br>';
     legend.innerHTML += '<i style="background: #fd8d3c"></i><span>80-119</span><br>';
