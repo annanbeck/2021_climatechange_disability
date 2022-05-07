@@ -59,8 +59,8 @@ function createMap() {
             map.removeLayer(shapefileLayer)
             if (!map.hasLayer(punishmentLayer))
                 punishmentLayer.addTo(map);
-            // if (!map.hasLayer(psychLayer))
-            //     psychLayer.addTo(map);
+            if (!map.hasLayer(psychLayer))
+                 psychLayer.addTo(map);
         }
         else {
             map.addLayer(stateLayer)
@@ -111,6 +111,7 @@ function collapsible() {
     }
 }
 
+///////////////////////////LEGEND////////////////////////////////
 function createLegend(legendTemp) {
     var legend = document.querySelector("#legend")
 
@@ -136,21 +137,6 @@ function updateLegend(attribute) {
 
 }
 
-
-//make color range
-/*function getColor(d, min = 1219, max = 248764, startColor = '#fee5d9', endColor = '#a50f15') {
-    const scale = chroma.scale([startColor, endColor]).domain([min, max]);
-    return scale(d).hex();
-};
-console.log(getColor)*/
-
-//trying to make color range
-// function getColor(d) {
-//     return d > 10000  ? '#d7301f' :
-//            d > 50000   ? '#fc8d59' :
-//            d > 100000   ? '#fdcc8a' :
-//                            '#fef0d9' ;
-//     };
 
 //make state data into a layer
 function statePointToLayer(feature, latlng) {
@@ -182,17 +168,18 @@ function statePointToLayer(feature, latlng) {
     //return the circle marker to the L.geoJson pointToLayer option
     return stateLayer;
 };
-//add if attribute =no_90, etc.
+
+///////////////////////PROP SYMBOL COLOR FUNCTION///////////////////////////////
 function heatIndexColorScale(feature, attributeCurrent) {
 
     if (attributeCurrent == "historical_90" || attributeCurrent == "slow_90" || attributeCurrent == "no_90" || attributeCurrent == "rapid_90") {
-        if (feature.properties[attributeCurrent] <= 39) {
+        if (feature.properties[attributeCurrent] <= 39.999999) {
             return "#ffffb2"
-        } else if (feature.properties[attributeCurrent] >= 40 && feature.properties[attributeCurrent] <= 80) {
+        } else if (feature.properties[attributeCurrent] >= 40 && feature.properties[attributeCurrent] <= 79.999999) {
             return "#fecc5c"
-        } else if (feature.properties[attributeCurrent] >= 81 && feature.properties[attributeCurrent] <= 120) {
+        } else if (feature.properties[attributeCurrent] >= 80 && feature.properties[attributeCurrent] <= 120.999999) {
             return "#fd8d3c"
-        } else if (feature.properties[attributeCurrent] >= 121 && feature.properties[attributeCurrent] <= 160) {
+        } else if (feature.properties[attributeCurrent] >= 121 && feature.properties[attributeCurrent] <= 160.999999) {
             return "#f03b20"
         } else if (feature.properties[attributeCurrent] >= 161) {
             return "#bd0026"
@@ -283,6 +270,32 @@ function onEachShapefileFeature(feature, layer) {
                 interactive: interactivity(punishmentFeature)
             }
         }
+
+        function fillFilter(psychFeature) {
+            if (psychFeature.properties.state == feature.properties.STUSPS) {
+                return 1;
+            }
+            else {
+                return 0;
+            }
+        }
+
+        function interactivity(psychFeature) {
+            if (psychFeature.properties.state == feature.properties.STUSPS) {
+                return true;
+            } else {
+                return false
+            }
+        }
+
+
+        function style(psychFeature) {
+            return {
+                fillOpacity: fillFilter(psychFeature),
+                opacity: fillFilter(psychFeature),
+                interactive: interactivity(psychFeature)
+            }
+        }
     })
 
     function removeStyle() {
@@ -344,6 +357,7 @@ function calcLocalPropRadius(attValue) {
     return radius;
 };
 
+///////////////////////////PUNISHMENT LAYER////////////////////////////////////////
 function punishmentPointToLayer(feature, latlng) {
     //Determine which attribute to visualize with proportional symbols
     var attribute = "capacity"
@@ -413,7 +427,7 @@ function getPunishmentData() {
 
         })
 }
-
+//////////////////////////////PSYCH LAYER/////////////////////////////////
 function psychPointToLayer(feature, latlng) {
     //Determine which attribute to visualize with proportional symbols
     var attribute = "psych_capacity"
@@ -437,10 +451,10 @@ function psychPointToLayer(feature, latlng) {
     var psychLayer = L.circleMarker(latlng, geojsonMarkerOptions);
 
     //build popup content string
-    var popupContent = "<p><b>State: </b> " + feature.properties.STATE + "</p><p><b> Number of psychiatric inpatients: </b> " + feature.properties[attribute] + "</p>";
+    //var popupContent = "<p><b>State: </b> " + feature.properties.state + "</p><p><b> Number of psychiatric inpatients: </b> " + feature.properties[attribute] + "</p>";
 
     //bind the popup to the circle marker
-    psychLayer.bindPopup(popupContent);
+    //psychLayer.bindPopup(popupContent);
 
     //return the circle marker to the L.geoJson pointToLayer option
     return psychLayer;
@@ -452,8 +466,19 @@ function createPsychPropSymbols(data) {
         pointToLayer: psychPointToLayer
     });
 }
+function onEachPsychFeature(feature, layer) {
 
-//fetch the punishment dataset
+    //build popup content string
+    var popupContent = "<p><b>Institution Name: </b> " + feature.properties.name + "</p><p><b> Number of psychiatric inpatients: </b> " + feature.properties.capacity + "</p>" + "<p><b>Historical number of days above 90 degrees: </b>" + parseInt(feature.properties.historical_90) + "</p>" + "<p><b>Number of days above 90 degrees with NO climate action: </b>" + parseInt(feature.properties.no_90) + "</p>" + "<p><b>Number of days above 90 degrees with SLOW climate action: </b>" + parseInt(feature.properties.slow_90) + "</p>" + "<p><b>Number of days above 90 degrees with RAPID: </b>" + parseInt(feature.properties.rapid_90) + "</p>";
+
+    layer.on({
+        click: function populate() {
+            document.getElementById("retrieve").innerHTML = popupContent
+        }
+    })
+}
+
+//fetch the psych dataset
 function getPsychData() {
     fetch("data/psych-facilities-heat-wildfire.geojson")
         .then(function (response) {
@@ -461,13 +486,15 @@ function getPsychData() {
         })
         .then(function (json) {
 
-            //project the punishment dataset
+            //project the psych dataset
             createPsychPropSymbols(json);
+            autocomplete(document.getElementById("search"), autocompleteArray, json)
+
         })
 }
 
 
-
+/////////////////JOIN//////////////////
 //trying to shapefile and state point data to be able to get data when we click on shapefile
 function joinPunishmentShapefile(shapefileLayer, stateLayer) {
     for (var i = 0; i < stateLayer.features.length; i++) {
@@ -492,7 +519,7 @@ function joinPunishmentShapefile(shapefileLayer, stateLayer) {
         };
     };
 };
-
+//////////////////RADIO BUTTONS AND FILTERS//////////////////
 function filterByFacility(feature) {
     if (feature.properties[facilityColumn] != facilityType) {
         return "rgba(0,0,0,0)"
@@ -554,7 +581,7 @@ function toggleMainLayers() {
                     map.removeLayer(punishmentLayer)
                 }
             } else
-                if (map.hasLayer(psychLayer)) {
+                if (map.hasLayer(punishmentLayer)) {
                     punishmentLayer.addTo(map)
                     map.removeLayer(psychLayer)
                 }
@@ -599,9 +626,8 @@ function toggleMainLayers() {
                 }
             })
             psychLayer.setStyle(function (feature) {
-
                 return {
-                    fillColor: filterByFacility(feature),
+                    fillColor: heatIndexColorScale(feature, attributeColor),
                 }
             })
         updateLegend(radio.id)
@@ -609,7 +635,7 @@ function toggleMainLayers() {
 })
 }
 
-
+/////////////////SEARCH BAR///////////////////
 //autocomplete search bar
 
 function addToAutocomplete(inp, arr, json) {
