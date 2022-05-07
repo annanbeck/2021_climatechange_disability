@@ -460,22 +460,24 @@ function psychPointToLayer(feature, latlng) {
     return psychLayer;
 };
 
-function createPsychPropSymbols(data) {
-    //creating the geojson layer for the state data
-    psychLayer = L.geoJson(data, {
-        pointToLayer: psychPointToLayer
-    });
-}
 function onEachPsychFeature(feature, layer) {
 
     //build popup content string
-    var popupContent = "<p><b>Institution Name: </b> " + feature.properties.name + "</p><p><b> Number of psychiatric inpatients: </b> " + feature.properties.capacity + "</p>" + "<p><b>Historical number of days above 90 degrees: </b>" + parseInt(feature.properties.historical_90) + "</p>" + "<p><b>Number of days above 90 degrees with NO climate action: </b>" + parseInt(feature.properties.no_90) + "</p>" + "<p><b>Number of days above 90 degrees with SLOW climate action: </b>" + parseInt(feature.properties.slow_90) + "</p>" + "<p><b>Number of days above 90 degrees with RAPID: </b>" + parseInt(feature.properties.rapid_90) + "</p>";
+    var popupContent = "<p><b>Institution Name: </b> " + feature.properties.name + "</p><p><b> State average number of psychiatric inpatients: </b> " + feature.properties.psych_capacity + "</p>" + "<p><b>Historical number of days above 90 degrees: </b>" + parseInt(feature.properties.historical_90) + "</p>" + "<p><b>Number of days above 90 degrees with NO climate action: </b>" + parseInt(feature.properties.no_90) + "</p>" + "<p><b>Number of days above 90 degrees with SLOW climate action: </b>" + parseInt(feature.properties.slow_90) + "</p>" + "<p><b>Number of days above 90 degrees with RAPID: </b>" + parseInt(feature.properties.rapid_90) + "</p>";
 
     layer.on({
         click: function populate() {
             document.getElementById("retrieve").innerHTML = popupContent
         }
     })
+}
+
+function createPsychPropSymbols(data) {
+    //creating the geojson layer for the state data
+    psychLayer = L.geoJson(data, {
+        pointToLayer: psychPointToLayer,
+        onEachFeature: onEachPsychFeature
+    });
 }
 
 //fetch the psych dataset
