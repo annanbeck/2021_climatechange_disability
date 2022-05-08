@@ -592,7 +592,6 @@ function toggleMainLayers() {
 
     facilityFilter = ["COUNTY", "STATE", "FEDERAL", "Y", "psych_facility"]
 
-    var facilityClicked
     //adding event listeners to the buttons facility type
     // document.querySelectorAll(".facility").forEach(function(facilityFilter){
     facilityFilter.forEach(function (item) {

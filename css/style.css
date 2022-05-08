@@ -5,6 +5,7 @@
     width: 100vw;
     right: 0;
     float: right;
+    overflow: scroll;
 }
 
 #sidepanel {
@@ -33,6 +34,23 @@
 
 }
 
+#intro {
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    overflow:scroll
+}
+
+#h1intro {
+    color: white;
+    text-align:center;
+}
+
+#h2intro {
+    color: white;
+    text-align:center;
+}
+
 /* Style the button that is used to open and close the collapsible content */
 .collapsible {
     background-color: #eee;
@@ -45,7 +63,7 @@
     border: none;
     text-align: left;
     left: 0;
-    top: 0;
+    bottom: 0;
     outline: none;
     font-size: 15px;
 }
