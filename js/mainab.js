@@ -1,4 +1,3 @@
-//lol does this work
 var map
 var stateLayer
 var stateDataLayer
@@ -381,6 +380,7 @@ function calcLocalPropRadius(attValue) {
 
 ///////////////////////////PUNISHMENT LAYER////////////////////////////////////////
 function punishmentPointToLayer(feature, latlng) {
+
     //Determine which attribute to visualize with proportional symbols
     var attribute = "capacity"
 
@@ -397,7 +397,27 @@ function punishmentPointToLayer(feature, latlng) {
     var attValue = Number(feature.properties[attribute]);
 
     //Give each feature's circle marker a radius based on its attribute value
-    geojsonMarkerOptions.radius = calcLocalPropRadius(attValue);
+    // geojsonMarkerOptions.radius = calcLocalPropRadius(attValue);
+
+    var radioCapacity = document.getElementById("radioCapacity")
+    var radioPointsOnly = document.getElementById("radioPointsOnly")
+
+    radioCapacity.addEventListener('change', function (){
+        if (this.checked == true){
+            geojsonMarkerOptions.radius = calcLocalPropRadius(attValue)
+            radioPointsOnly.checked = false
+            return geojsonMarkerOptions
+        }
+        
+    })
+
+    radioPointsOnly.addEventListener('change',function(){
+        if (this.checked == true){
+            geojsonMarkerOptions.radius = 100
+            radioCapacity.checked = false
+            return geojsonMarkerOptions
+        }
+    })
 
     //create circle marker layer
     var punishmentLayer = L.circleMarker(latlng, geojsonMarkerOptions);
@@ -577,6 +597,29 @@ function filterByFacilityStroke(feature) {
     else {
         return "#000"
     }
+}
+
+function toggleCapacity(attValue) {
+    //get the checkbox
+    var radioCapacity = document.getElementById("radioCapacity")
+    var radioPointsOnly = document.getElementById("radioPointsOnly")
+
+    radioCapacity.addEventListener('change', function (){
+        if (this.checked == true){
+            geojsonMarkerOptions.radius = calcLocalPropRadius(attValue)
+            radioPointsOnly.checked = false
+        }
+        
+    })
+
+    radioPointsOnly.addEventListener('change',function(){
+        if (this.checked == true){
+            geojsonMarkerOptions.radius = 100
+            radioCapacity.checked = false
+        }
+    })
+
+
 }
 
 

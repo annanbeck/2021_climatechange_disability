@@ -33,7 +33,7 @@
     right: 20px;
     z-index: 10000;
     overflow: scroll;
-    font-size: large
+    font-size: large;
 
 }
 
@@ -47,12 +47,12 @@
 #h1intro {
     color: white;
     text-align:center;
+    font-weight:bold;
 }
 
 #h2intro {
     color: white;
     text-align:center;
-    font-size:small;
 }
 
 /* Style the button that is used to open and close the collapsible content */

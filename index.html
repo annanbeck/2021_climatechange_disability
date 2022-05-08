@@ -137,6 +137,8 @@
 
     </div>
 
+
+
     <button type="button" class="collapsible">Open Legend and Filters</button>
     <div id="sidepanel">
         <form autocomplete="off" action="/action_page.php">
@@ -145,6 +147,19 @@
             </div>
             <input type="submit">
         </form>
+
+        <div>
+            <label class="container">Show Capacity
+                <input type="radio" checked="checked" id="radioCapacity"></input>
+                <span class="checkmark" id="radioCapacity"></span>
+            </label>
+    
+            <label class="container">Show Points
+                <input type="radio" id="radioPointsOnly"></input>
+                <span class="checkmark" id="radioPointsOnly"></span>
+            </label>
+        </div>
+        
         <label class="container">State Data
             <input type="radio" checked="checked" id="radioState"></input>
             <span class="checkmark" id="radioState"></span>
