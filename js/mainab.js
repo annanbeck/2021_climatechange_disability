@@ -544,6 +544,23 @@ function joinPunishmentShapefile(shapefileLayer, stateLayer) {
     };
 };
 //////////////////RADIO BUTTONS AND FILTERS//////////////////
+
+ function increaseFont (){
+        document.getElementById("sidepanel").style.fontSize = "x-large";
+        document.getElementById("retrieve").style.fontSize = "x-large";
+ }
+
+ function decreaseFont (){
+    document.getElementById("sidepanel").style.fontSize = "medium";
+    document.getElementById("retrieve").style.fontSize = "medium";
+}
+
+function normalFont (){
+    document.getElementById("sidepanel").style.fontSize = "large";
+    document.getElementById("retrieve").style.fontSize = "large";
+}
+
+
 function filterByFacility(feature) {
     if (feature.properties[facilityColumn] != facilityType) {
         return "rgba(0,0,0,0)"

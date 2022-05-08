@@ -19,6 +19,7 @@
     padding: 0 18px;
     display: none;
     overflow: hidden;
+    font-size: large;
 }
 
 #retrieve {
@@ -31,6 +32,8 @@
     bottom: 0;
     right: 20px;
     z-index: 10000;
+    overflow: scroll;
+    font-size: large
 
 }
 
@@ -49,6 +52,7 @@
 #h2intro {
     color: white;
     text-align:center;
+    font-size:small;
 }
 
 /* Style the button that is used to open and close the collapsible content */
@@ -101,7 +105,6 @@
     padding-left: 35px;
     margin-bottom: 12px;
     cursor: pointer;
-    font-size: 22px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -137,7 +140,6 @@
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
     transition-duration: 0.4s;
 
 }
@@ -190,7 +192,7 @@
 /*Legend specific*/
 #legend {
     padding: 6px 8px;
-    font: 14px Arial, Helvetica, sans-serif;
+    font: Arial, Helvetica, sans-serif;
 
     /*box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);*/
     /*border-radius: 5px;*/
