@@ -1,3 +1,4 @@
+//lol does this work
 var map
 var stateLayer
 var stateDataLayer
@@ -133,11 +134,21 @@ function collapsible() {
 }
 
 ///////////////////////////LEGEND////////////////////////////////
-function createLegend(legendTemp, attributeCurrent) {
+function createLegend(legendTemp) {
     var legend = document.querySelector("#legend")
 
-    // L.control({ position: "bottomleft" });//how get in sidepanel??
-    if (attributeCurrent == "historical_90" || attributeCurrent == "slow_90" || attributeCurrent == "no_90" || attributeCurrent == "rapid_90") {
+    // L.control({ position: "bottomleft" 9});//how get in sidepanel?? 
+
+
+    if (legendTemp == "WFIR_EALR" ) {
+        legend.innerHTML += '<h4 class="legendTitle">Days above 90 degrees in 2100 <span class="legendTemp">' + legendTemp + '</span></h4>';
+        legend.innerHTML += '<i style="background: #ffffb2"></i><span>LOW RISK</span><br>';
+        legend.innerHTML += '<i style="background: #fecc5c"></i><span>40-79</span><br>';
+        legend.innerHTML += '<i style="background: #fd8d3c"></i><span>80-119</span><br>';
+        legend.innerHTML += '<i style="background: #f03b20"></i><span>120-159</span><br>';
+        legend.innerHTML += '<i style="background: #bd0026"></i><span>More than 159</span><br>';
+        legend.innerHTML += '<i style="background: #ccc"></i><span>No Data</span><br>';
+    } else {
 
         legend.innerHTML += '<h4 class="legendTitle">Days above 90 degrees in 2100 <span class="legendTemp">' + legendTemp + '</span></h4>';
         legend.innerHTML += '<i style="background: #ffffb2"></i><span>Fewer than 40</span><br>';
@@ -146,25 +157,15 @@ function createLegend(legendTemp, attributeCurrent) {
         legend.innerHTML += '<i style="background: #f03b20"></i><span>120-159</span><br>';
         legend.innerHTML += '<i style="background: #bd0026"></i><span>More than 159</span><br>';
         legend.innerHTML += '<i style="background: #ccc"></i><span>No Data</span><br>';
-    }
 
-    else if (attributeCurrent == "WFIR_EALR") {
-        legend.innerHTML += '<h4 class="legendTitle">Days above 90 degrees in 2100 <span class="legendTemp">' + legendTemp + '</span></h4>';
-        legend.innerHTML += '<i style="background: #ffffb2"></i><span>low risk</span><br>';
-        legend.innerHTML += '<i style="background: #fecc5c"></i><span>40-79</span><br>';
-        legend.innerHTML += '<i style="background: #fd8d3c"></i><span>80-119</span><br>';
-        legend.innerHTML += '<i style="background: #f03b20"></i><span>120-159</span><br>';
-        legend.innerHTML += '<i style="background: #bd0026"></i><span>More than 159</span><br>';
-        legend.innerHTML += '<i style="background: #ccc"></i><span>No Data</span><br>';
     }
 }
-
 
 function updateLegend(attribute) {
     document.querySelector("#legend").innerHTML = "";
     var legendTemp = attribute;
 
-    createLegend(legendTemp, attributeCurrent)
+    createLegend(legendTemp)
     //document.querySelector("span.legendTemp").innerHTML = legendTemp;
 
 }
@@ -391,7 +392,6 @@ function calcLocalPropRadius(attValue) {
 
 ///////////////////////////PUNISHMENT LAYER////////////////////////////////////////
 function punishmentPointToLayer(feature, latlng) {
-
     //Determine which attribute to visualize with proportional symbols
     var attribute = "capacity"
 
@@ -408,27 +408,7 @@ function punishmentPointToLayer(feature, latlng) {
     var attValue = Number(feature.properties[attribute]);
 
     //Give each feature's circle marker a radius based on its attribute value
-    // geojsonMarkerOptions.radius = calcLocalPropRadius(attValue);
-
-    var radioCapacity = document.getElementById("radioCapacity")
-    var radioPointsOnly = document.getElementById("radioPointsOnly")
-
-    radioCapacity.addEventListener('change', function (){
-        if (this.checked == true){
-            geojsonMarkerOptions.radius = calcLocalPropRadius(attValue)
-            radioPointsOnly.checked = false
-            return geojsonMarkerOptions
-        }
-        
-    })
-
-    radioPointsOnly.addEventListener('change',function(){
-        if (this.checked == true){
-            geojsonMarkerOptions.radius = 100
-            radioCapacity.checked = false
-            return geojsonMarkerOptions
-        }
-    })
+    geojsonMarkerOptions.radius = calcLocalPropRadius(attValue);
 
     //create circle marker layer
     var punishmentLayer = L.circleMarker(latlng, geojsonMarkerOptions);
@@ -575,23 +555,6 @@ function joinPunishmentShapefile(shapefileLayer, stateLayer) {
     };
 };
 //////////////////RADIO BUTTONS AND FILTERS//////////////////
-
- function increaseFont (){
-        document.getElementById("sidepanel").style.fontSize = "x-large";
-        document.getElementById("retrieve").style.fontSize = "x-large";
- }
-
- function decreaseFont (){
-    document.getElementById("sidepanel").style.fontSize = "medium";
-    document.getElementById("retrieve").style.fontSize = "medium";
-}
-
-function normalFont (){
-    document.getElementById("sidepanel").style.fontSize = "large";
-    document.getElementById("retrieve").style.fontSize = "large";
-}
-
-
 function filterByFacility(feature) {
     if (feature.properties[facilityColumn] != facilityType) {
         return "rgba(0,0,0,0)"
@@ -608,29 +571,6 @@ function filterByFacilityStroke(feature) {
     else {
         return "#000"
     }
-}
-
-function toggleCapacity(attValue) {
-    //get the checkbox
-    var radioCapacity = document.getElementById("radioCapacity")
-    var radioPointsOnly = document.getElementById("radioPointsOnly")
-
-    radioCapacity.addEventListener('change', function (){
-        if (this.checked == true){
-            geojsonMarkerOptions.radius = calcLocalPropRadius(attValue)
-            radioPointsOnly.checked = false
-        }
-        
-    })
-
-    radioPointsOnly.addEventListener('change',function(){
-        if (this.checked == true){
-            geojsonMarkerOptions.radius = 100
-            radioCapacity.checked = false
-        }
-    })
-
-
 }
 
 
@@ -663,6 +603,7 @@ function toggleMainLayers() {
 
     facilityFilter = ["COUNTY", "STATE", "FEDERAL", "Y", "psych_facility"]
 
+    var facilityClicked
     //adding event listeners to the buttons facility type
     // document.querySelectorAll(".facility").forEach(function(facilityFilter){
     facilityFilter.forEach(function (item) {
@@ -724,7 +665,7 @@ function toggleMainLayers() {
                     fillColor: heatIndexColorScale(feature, attributeColor),
                 }
             })
-            updateLegend(radio.id, attrubutColor)
+            updateLegend(radio.id)
         })
     })
 }
