@@ -35,23 +35,23 @@ function createMap() {
         var corners = map._controlCorners,
             l = 'leaflet-',
             container = map._controlContainer;
-    
+
         function createCorner(vSide, hSide) {
             var className = l + vSide + ' ' + l + hSide;
-    
+
             corners[vSide + hSide] = L.DomUtil.create('div', className, container);
         }
-    
+
         createCorner('verticalcenter', 'left');
         createCorner('verticalcenter', 'right');
     }
     addControlPlaceholders(map);
-    
+
     // Change the position of the Zoom Control to a newly created placeholder.
     map.zoomControl.setPosition('verticalcenterright');
-    
+
     // You can also put other controls in the same placeholder.
-    L.control.scale({position: 'verticalcenterright'}).addTo(map);
+    L.control.scale({ position: 'verticalcenterright' }).addTo(map);
 
     /*Legend specific*/
 
@@ -81,7 +81,7 @@ function createMap() {
             if (!map.hasLayer(punishmentLayer))
                 punishmentLayer.addTo(map);
             if (!map.hasLayer(psychLayer))
-                 psychLayer.addTo(map);
+                psychLayer.addTo(map);
         }
         else {
             map.addLayer(stateLayer)
@@ -133,27 +133,38 @@ function collapsible() {
 }
 
 ///////////////////////////LEGEND////////////////////////////////
-function createLegend(legendTemp) {
+function createLegend(legendTemp, attributeCurrent) {
     var legend = document.querySelector("#legend")
 
     // L.control({ position: "bottomleft" });//how get in sidepanel??
+    if (attributeCurrent == "historical_90" || attributeCurrent == "slow_90" || attributeCurrent == "no_90" || attributeCurrent == "rapid_90") {
 
-    legend.innerHTML += '<h4 class="legendTitle">Days above 90 degrees in 2100 <span class="legendTemp">' + legendTemp + '</span></h4>';
-    legend.innerHTML += '<i style="background: #ffffb2"></i><span>Fewer than 40</span><br>';
-    legend.innerHTML += '<i style="background: #fecc5c"></i><span>40-79</span><br>';
-    legend.innerHTML += '<i style="background: #fd8d3c"></i><span>80-119</span><br>';
-    legend.innerHTML += '<i style="background: #f03b20"></i><span>120-159</span><br>';
-    legend.innerHTML += '<i style="background: #bd0026"></i><span>More than 159</span><br>';
-    legend.innerHTML += '<i style="background: #ccc"></i><span>No Data</span><br>';
+        legend.innerHTML += '<h4 class="legendTitle">Days above 90 degrees in 2100 <span class="legendTemp">' + legendTemp + '</span></h4>';
+        legend.innerHTML += '<i style="background: #ffffb2"></i><span>Fewer than 40</span><br>';
+        legend.innerHTML += '<i style="background: #fecc5c"></i><span>40-79</span><br>';
+        legend.innerHTML += '<i style="background: #fd8d3c"></i><span>80-119</span><br>';
+        legend.innerHTML += '<i style="background: #f03b20"></i><span>120-159</span><br>';
+        legend.innerHTML += '<i style="background: #bd0026"></i><span>More than 159</span><br>';
+        legend.innerHTML += '<i style="background: #ccc"></i><span>No Data</span><br>';
+    }
 
-
+    else if (attributeCurrent == "WFIR_EALR") {
+        legend.innerHTML += '<h4 class="legendTitle">Days above 90 degrees in 2100 <span class="legendTemp">' + legendTemp + '</span></h4>';
+        legend.innerHTML += '<i style="background: #ffffb2"></i><span>low risk</span><br>';
+        legend.innerHTML += '<i style="background: #fecc5c"></i><span>40-79</span><br>';
+        legend.innerHTML += '<i style="background: #fd8d3c"></i><span>80-119</span><br>';
+        legend.innerHTML += '<i style="background: #f03b20"></i><span>120-159</span><br>';
+        legend.innerHTML += '<i style="background: #bd0026"></i><span>More than 159</span><br>';
+        legend.innerHTML += '<i style="background: #ccc"></i><span>No Data</span><br>';
+    }
 }
+
 
 function updateLegend(attribute) {
     document.querySelector("#legend").innerHTML = "";
     var legendTemp = attribute;
 
-    createLegend(legendTemp)
+    createLegend(legendTemp, attributeCurrent)
     //document.querySelector("span.legendTemp").innerHTML = legendTemp;
 
 }
@@ -713,9 +724,9 @@ function toggleMainLayers() {
                     fillColor: heatIndexColorScale(feature, attributeColor),
                 }
             })
-        updateLegend(radio.id)
+            updateLegend(radio.id, attrubutColor)
+        })
     })
-})
 }
 
 /////////////////SEARCH BAR///////////////////
