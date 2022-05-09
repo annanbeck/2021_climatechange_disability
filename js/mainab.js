@@ -443,6 +443,27 @@ function punishmentPointToLayer(feature, latlng) {
     //Give each feature's circle marker a radius based on its attribute value
     geojsonMarkerOptions.radius = calcLocalPropRadius(attValue);
 
+    
+    var radioCapacity = document.getElementById("radioCapacity")
+    var radioPointsOnly = document.getElementById("radioPointsOnly")
+
+    radioCapacity.addEventListener('change', function (){
+        if (this.checked == true){
+            geojsonMarkerOptions.radius = calcLocalPropRadius(attValue)
+            radioPointsOnly.checked = false
+            return geojsonMarkerOptions.radius
+        }
+        
+    })
+
+    radioPointsOnly.addEventListener('change',function(){
+        if (this.checked == true){
+            geojsonMarkerOptions.radius = 100
+            radioCapacity.checked = false
+            return geojsonMarkerOptions.radius
+        }
+    })
+
     //create circle marker layer
     var punishmentLayer = L.circleMarker(latlng, geojsonMarkerOptions);
 
