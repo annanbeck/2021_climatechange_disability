@@ -6,7 +6,7 @@
             "properties": {
                 "OID_": 1,
                 "NRI_ID": "S01",
-                "STATE": "Alabama",
+                "name": "Alabama",
                 "STATEABBRV": "AL",
                 "STATEFIPS": 1,
                 "POPULATION": 4779736,
@@ -32,7 +32,7 @@
             "properties": {
                 "OID_": 2,
                 "NRI_ID": "S02",
-                "STATE": "Alaska",
+                "name": "Alaska",
                 "STATEABBRV": "AK",
                 "STATEFIPS": 2,
                 "POPULATION": 710231,
@@ -58,7 +58,7 @@
             "properties": {
                 "OID_": 3,
                 "NRI_ID": "S04",
-                "STATE": "Arizona",
+                "name": "Arizona",
                 "STATEABBRV": "AZ",
                 "STATEFIPS": 4,
                 "POPULATION": 6392017,
@@ -84,7 +84,7 @@
             "properties": {
                 "OID_": 4,
                 "NRI_ID": "S05",
-                "STATE": "Arkansas",
+                "name": "Arkansas",
                 "STATEABBRV": "AR",
                 "STATEFIPS": 5,
                 "POPULATION": 2915918,
@@ -110,7 +110,7 @@
             "properties": {
                 "OID_": 5,
                 "NRI_ID": "S06",
-                "STATE": "California",
+                "name": "California",
                 "STATEABBRV": "CA",
                 "STATEFIPS": 6,
                 "POPULATION": 37253956,
@@ -136,7 +136,7 @@
             "properties": {
                 "OID_": 6,
                 "NRI_ID": "S08",
-                "STATE": "Colorado",
+                "name": "Colorado",
                 "STATEABBRV": "CO",
                 "STATEFIPS": 8,
                 "POPULATION": 5029196,
@@ -162,7 +162,7 @@
             "properties": {
                 "OID_": 7,
                 "NRI_ID": "S09",
-                "STATE": "Connecticut",
+                "name": "Connecticut",
                 "STATEABBRV": "CT",
                 "STATEFIPS": 9,
                 "POPULATION": 3574097,
@@ -188,7 +188,7 @@
             "properties": {
                 "OID_": 8,
                 "NRI_ID": "S10",
-                "STATE": "Delaware",
+                "name": "Delaware",
                 "STATEABBRV": "DE",
                 "STATEFIPS": 10,
                 "POPULATION": 897934,
@@ -214,7 +214,7 @@
             "properties": {
                 "OID_": 9,
                 "NRI_ID": "S11",
-                "STATE": "District of Columbia",
+                "name": "District of Columbia",
                 "STATEABBRV": "DC",
                 "STATEFIPS": 11,
                 "POPULATION": 601723,
@@ -240,7 +240,7 @@
             "properties": {
                 "OID_": 10,
                 "NRI_ID": "S12",
-                "STATE": "Florida",
+                "name": "Florida",
                 "STATEABBRV": "FL",
                 "STATEFIPS": 12,
                 "POPULATION": 18801310,
@@ -266,7 +266,7 @@
             "properties": {
                 "OID_": 11,
                 "NRI_ID": "S13",
-                "STATE": "Georgia",
+                "name": "Georgia",
                 "STATEABBRV": "GA",
                 "STATEFIPS": 13,
                 "POPULATION": 9687653,
@@ -292,7 +292,7 @@
             "properties": {
                 "OID_": 12,
                 "NRI_ID": "S15",
-                "STATE": "Hawaii",
+                "name": "Hawaii",
                 "STATEABBRV": "HI",
                 "STATEFIPS": 15,
                 "POPULATION": 1360301,
@@ -318,7 +318,7 @@
             "properties": {
                 "OID_": 13,
                 "NRI_ID": "S16",
-                "STATE": "Idaho",
+                "name": "Idaho",
                 "STATEABBRV": "ID",
                 "STATEFIPS": 16,
                 "POPULATION": 1567582,
@@ -344,7 +344,7 @@
             "properties": {
                 "OID_": 14,
                 "NRI_ID": "S17",
-                "STATE": "Illinois",
+                "name": "Illinois",
                 "STATEABBRV": "IL",
                 "STATEFIPS": 17,
                 "POPULATION": 12830632,
@@ -370,7 +370,7 @@
             "properties": {
                 "OID_": 15,
                 "NRI_ID": "S18",
-                "STATE": "Indiana",
+                "name": "Indiana",
                 "STATEABBRV": "IN",
                 "STATEFIPS": 18,
                 "POPULATION": 6483802,
@@ -396,7 +396,7 @@
             "properties": {
                 "OID_": 16,
                 "NRI_ID": "S19",
-                "STATE": "Iowa",
+                "name": "Iowa",
                 "STATEABBRV": "IA",
                 "STATEFIPS": 19,
                 "POPULATION": 3046355,
@@ -422,7 +422,7 @@
             "properties": {
                 "OID_": 17,
                 "NRI_ID": "S20",
-                "STATE": "Kansas",
+                "name": "Kansas",
                 "STATEABBRV": "KS",
                 "STATEFIPS": 20,
                 "POPULATION": 2853118,
@@ -448,7 +448,7 @@
             "properties": {
                 "OID_": 18,
                 "NRI_ID": "S21",
-                "STATE": "Kentucky",
+                "name": "Kentucky",
                 "STATEABBRV": "KY",
                 "STATEFIPS": 21,
                 "POPULATION": 4339367,
@@ -474,7 +474,7 @@
             "properties": {
                 "OID_": 19,
                 "NRI_ID": "S22",
-                "STATE": "Louisiana",
+                "name": "Louisiana",
                 "STATEABBRV": "LA",
                 "STATEFIPS": 22,
                 "POPULATION": 4533372,
@@ -500,7 +500,7 @@
             "properties": {
                 "OID_": 20,
                 "NRI_ID": "S23",
-                "STATE": "Maine",
+                "name": "Maine",
                 "STATEABBRV": "ME",
                 "STATEFIPS": 23,
                 "POPULATION": 1328361,
@@ -526,7 +526,7 @@
             "properties": {
                 "OID_": 21,
                 "NRI_ID": "S24",
-                "STATE": "Maryland",
+                "name": "Maryland",
                 "STATEABBRV": "MD",
                 "STATEFIPS": 24,
                 "POPULATION": 5773552,
@@ -552,7 +552,7 @@
             "properties": {
                 "OID_": 22,
                 "NRI_ID": "S25",
-                "STATE": "Massachusetts",
+                "name": "Massachusetts",
                 "STATEABBRV": "MA",
                 "STATEFIPS": 25,
                 "POPULATION": 6547629,
@@ -578,7 +578,7 @@
             "properties": {
                 "OID_": 23,
                 "NRI_ID": "S26",
-                "STATE": "Michigan",
+                "name": "Michigan",
                 "STATEABBRV": "MI",
                 "STATEFIPS": 26,
                 "POPULATION": 9883640,
@@ -604,7 +604,7 @@
             "properties": {
                 "OID_": 24,
                 "NRI_ID": "S27",
-                "STATE": "Minnesota",
+                "name": "Minnesota",
                 "STATEABBRV": "MN",
                 "STATEFIPS": 27,
                 "POPULATION": 5303925,
@@ -630,7 +630,7 @@
             "properties": {
                 "OID_": 25,
                 "NRI_ID": "S28",
-                "STATE": "Mississippi",
+                "name": "Mississippi",
                 "STATEABBRV": "MS",
                 "STATEFIPS": 28,
                 "POPULATION": 2967297,
@@ -656,7 +656,7 @@
             "properties": {
                 "OID_": 26,
                 "NRI_ID": "S29",
-                "STATE": "Missouri",
+                "name": "Missouri",
                 "STATEABBRV": "MO",
                 "STATEFIPS": 29,
                 "POPULATION": 5988927,
@@ -682,7 +682,7 @@
             "properties": {
                 "OID_": 27,
                 "NRI_ID": "S30",
-                "STATE": "Montana",
+                "name": "Montana",
                 "STATEABBRV": "MT",
                 "STATEFIPS": 30,
                 "POPULATION": 989415,
@@ -708,7 +708,7 @@
             "properties": {
                 "OID_": 28,
                 "NRI_ID": "S31",
-                "STATE": "Nebraska",
+                "name": "Nebraska",
                 "STATEABBRV": "NE",
                 "STATEFIPS": 31,
                 "POPULATION": 1826341,
@@ -734,7 +734,7 @@
             "properties": {
                 "OID_": 29,
                 "NRI_ID": "S32",
-                "STATE": "Nevada",
+                "name": "Nevada",
                 "STATEABBRV": "NV",
                 "STATEFIPS": 32,
                 "POPULATION": 2700551,
@@ -760,7 +760,7 @@
             "properties": {
                 "OID_": 30,
                 "NRI_ID": "S33",
-                "STATE": "New Hampshire",
+                "name": "New Hampshire",
                 "STATEABBRV": "NH",
                 "STATEFIPS": 33,
                 "POPULATION": 1316470,
@@ -786,7 +786,7 @@
             "properties": {
                 "OID_": 31,
                 "NRI_ID": "S34",
-                "STATE": "New Jersey",
+                "name": "New Jersey",
                 "STATEABBRV": "NJ",
                 "STATEFIPS": 34,
                 "POPULATION": 8791894,
@@ -812,7 +812,7 @@
             "properties": {
                 "OID_": 32,
                 "NRI_ID": "S35",
-                "STATE": "New Mexico",
+                "name": "New Mexico",
                 "STATEABBRV": "NM",
                 "STATEFIPS": 35,
                 "POPULATION": 2059179,
@@ -838,7 +838,7 @@
             "properties": {
                 "OID_": 33,
                 "NRI_ID": "S36",
-                "STATE": "New York",
+                "name": "New York",
                 "STATEABBRV": "NY",
                 "STATEFIPS": 36,
                 "POPULATION": 19378102,
@@ -864,7 +864,7 @@
             "properties": {
                 "OID_": 34,
                 "NRI_ID": "S37",
-                "STATE": "North Carolina",
+                "name": "North Carolina",
                 "STATEABBRV": "NC",
                 "STATEFIPS": 37,
                 "POPULATION": 9535483,
@@ -890,7 +890,7 @@
             "properties": {
                 "OID_": 35,
                 "NRI_ID": "S38",
-                "STATE": "North Dakota",
+                "name": "North Dakota",
                 "STATEABBRV": "ND",
                 "STATEFIPS": 38,
                 "POPULATION": 672591,
@@ -916,7 +916,7 @@
             "properties": {
                 "OID_": 36,
                 "NRI_ID": "S39",
-                "STATE": "Ohio",
+                "name": "Ohio",
                 "STATEABBRV": "OH",
                 "STATEFIPS": 39,
                 "POPULATION": 11536504,
@@ -942,7 +942,7 @@
             "properties": {
                 "OID_": 37,
                 "NRI_ID": "S40",
-                "STATE": "Oklahoma",
+                "name": "Oklahoma",
                 "STATEABBRV": "OK",
                 "STATEFIPS": 40,
                 "POPULATION": 3751351,
@@ -968,7 +968,7 @@
             "properties": {
                 "OID_": 38,
                 "NRI_ID": "S41",
-                "STATE": "Oregon",
+                "name": "Oregon",
                 "STATEABBRV": "OR",
                 "STATEFIPS": 41,
                 "POPULATION": 3831074,
@@ -994,7 +994,7 @@
             "properties": {
                 "OID_": 39,
                 "NRI_ID": "S42",
-                "STATE": "Pennsylvania",
+                "name": "Pennsylvania",
                 "STATEABBRV": "PA",
                 "STATEFIPS": 42,
                 "POPULATION": 12702379,
@@ -1020,7 +1020,7 @@
             "properties": {
                 "OID_": 40,
                 "NRI_ID": "S44",
-                "STATE": "Rhode Island",
+                "name": "Rhode Island",
                 "STATEABBRV": "RI",
                 "STATEFIPS": 44,
                 "POPULATION": 1052567,
@@ -1046,7 +1046,7 @@
             "properties": {
                 "OID_": 41,
                 "NRI_ID": "S45",
-                "STATE": "South Carolina",
+                "name": "South Carolina",
                 "STATEABBRV": "SC",
                 "STATEFIPS": 45,
                 "POPULATION": 4625364,
@@ -1072,7 +1072,7 @@
             "properties": {
                 "OID_": 42,
                 "NRI_ID": "S46",
-                "STATE": "South Dakota",
+                "name": "South Dakota",
                 "STATEABBRV": "SD",
                 "STATEFIPS": 46,
                 "POPULATION": 814180,
@@ -1098,7 +1098,7 @@
             "properties": {
                 "OID_": 43,
                 "NRI_ID": "S47",
-                "STATE": "Tennessee",
+                "name": "Tennessee",
                 "STATEABBRV": "TN",
                 "STATEFIPS": 47,
                 "POPULATION": 6346105,
@@ -1124,7 +1124,7 @@
             "properties": {
                 "OID_": 44,
                 "NRI_ID": "S48",
-                "STATE": "Texas",
+                "name": "Texas",
                 "STATEABBRV": "TX",
                 "STATEFIPS": 48,
                 "POPULATION": 25145561,
@@ -1150,7 +1150,7 @@
             "properties": {
                 "OID_": 45,
                 "NRI_ID": "S49",
-                "STATE": "Utah",
+                "name": "Utah",
                 "STATEABBRV": "UT",
                 "STATEFIPS": 49,
                 "POPULATION": 2763885,
@@ -1176,7 +1176,7 @@
             "properties": {
                 "OID_": 46,
                 "NRI_ID": "S50",
-                "STATE": "Vermont",
+                "name": "Vermont",
                 "STATEABBRV": "VT",
                 "STATEFIPS": 50,
                 "POPULATION": 625741,
@@ -1202,7 +1202,7 @@
             "properties": {
                 "OID_": 47,
                 "NRI_ID": "S51",
-                "STATE": "Virginia",
+                "name": "Virginia",
                 "STATEABBRV": "VA",
                 "STATEFIPS": 51,
                 "POPULATION": 8001024,
@@ -1228,7 +1228,7 @@
             "properties": {
                 "OID_": 48,
                 "NRI_ID": "S53",
-                "STATE": "Washington",
+                "name": "Washington",
                 "STATEABBRV": "WA",
                 "STATEFIPS": 53,
                 "POPULATION": 6724540,
@@ -1254,7 +1254,7 @@
             "properties": {
                 "OID_": 49,
                 "NRI_ID": "S54",
-                "STATE": "West Virginia",
+                "name": "West Virginia",
                 "STATEABBRV": "WV",
                 "STATEFIPS": 54,
                 "POPULATION": 1852994,
@@ -1280,7 +1280,7 @@
             "properties": {
                 "OID_": 50,
                 "NRI_ID": "S55",
-                "STATE": "Wisconsin",
+                "name": "Wisconsin",
                 "STATEABBRV": "WI",
                 "STATEFIPS": 55,
                 "POPULATION": 5686986,
@@ -1306,7 +1306,7 @@
             "properties": {
                 "OID_": 51,
                 "NRI_ID": "S56",
-                "STATE": "Wyoming",
+                "name": "Wyoming",
                 "STATEABBRV": "WY",
                 "STATEFIPS": 56,
                 "POPULATION": 563626,

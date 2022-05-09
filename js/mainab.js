@@ -29,7 +29,8 @@ function createMap() {
     map = L.map('map', {
         center: [40, -100],
         zoom: 4,
-        layers: [OSM, Esri_WorldImagery, darkBasemap]
+        layers: [OSM, Esri_WorldImagery, darkBasemap],
+        scrollWheelZoom: false
     });
     //repositions the zoom controls so they are visible
     function addControlPlaceholders(map) {
@@ -134,23 +135,22 @@ function collapsible() {
 }
 
 ///////////////////////////LEGEND////////////////////////////////
-function createLegend(legendTemp) {
+function createLegend(legendTemp, attributeColor) {
     var legend = document.querySelector("#legend")
 
     // L.control({ position: "bottomleft" 9});//how get in sidepanel?? 
 
-
     if (legendTemp == "WFIR_EALR") {
-        legend.innerHTML += '<h4 class="legendTitle">Current Wildfire Risk <span class="legendTemp">' + legendTemp + '</span></h4>';
+        legend.innerHTML += '<h4 class="legendTitle">Current Wildfire Risk</h4>';
         legend.innerHTML += '<i style="background: #ffffb2"></i><span>Very Low</span><br>';
         legend.innerHTML += '<i style="background: #fecc5c"></i><span>Relatively Low</span><br>';
         legend.innerHTML += '<i style="background: #fd8d3c"></i><span>Relatively Moderate</span><br>';
         legend.innerHTML += '<i style="background: #f03b20"></i><span>Relatively High</span><br>';
         legend.innerHTML += '<i style="background: #bd0026"></i><span>Very High</span><br>';
         legend.innerHTML += '<i style="background: #ccc"></i><span>No Data</span><br>';
-    } else {
+    } else if (legendTemp == "historical_90") {
 
-        legend.innerHTML += '<h4 class="legendTitle">Days above 90 degrees in 2100 <span class="legendTemp">' + legendTemp + '</span></h4>';
+        legend.innerHTML += '<h4 class="legendTitle"> Average number of days above 90 degrees historically</h4>';
         legend.innerHTML += '<i style="background: #ffffb2"></i><span>Fewer than 40</span><br>';
         legend.innerHTML += '<i style="background: #fecc5c"></i><span>40-79</span><br>';
         legend.innerHTML += '<i style="background: #fd8d3c"></i><span>80-119</span><br>';
@@ -158,6 +158,32 @@ function createLegend(legendTemp) {
         legend.innerHTML += '<i style="background: #bd0026"></i><span>More than 159</span><br>';
         legend.innerHTML += '<i style="background: #ccc"></i><span>No Data</span><br>';
 
+    } else if (legendTemp == "rapid_90") {
+        legend.innerHTML += '<h4 class="legendTitle">Average number of days above 90 degrees with rapid climate action</h4>';
+        legend.innerHTML += '<i style="background: #ffffb2"></i><span>Fewer than 40</span><br>';
+        legend.innerHTML += '<i style="background: #fecc5c"></i><span>40-79</span><br>';
+        legend.innerHTML += '<i style="background: #fd8d3c"></i><span>80-119</span><br>';
+        legend.innerHTML += '<i style="background: #f03b20"></i><span>120-159</span><br>';
+        legend.innerHTML += '<i style="background: #bd0026"></i><span>More than 159</span><br>';
+        legend.innerHTML += '<i style="background: #ccc"></i><span>No Data</span><br>';
+    }
+    else if (legendTemp == "slow_90") {
+        legend.innerHTML += '<h4 class="legendTitle">Average number of days above 90 degrees with slow climate action</h4>';
+        legend.innerHTML += '<i style="background: #ffffb2"></i><span>Fewer than 40</span><br>';
+        legend.innerHTML += '<i style="background: #fecc5c"></i><span>40-79</span><br>';
+        legend.innerHTML += '<i style="background: #fd8d3c"></i><span>80-119</span><br>';
+        legend.innerHTML += '<i style="background: #f03b20"></i><span>120-159</span><br>';
+        legend.innerHTML += '<i style="background: #bd0026"></i><span>More than 159</span><br>';
+        legend.innerHTML += '<i style="background: #ccc"></i><span>No Data</span><br>';
+    }
+    else if (legendTemp == "no_90") {
+        legend.innerHTML += '<h4 class="legendTitle">Average number of days above 90 degrees with no climate action</h4>';
+        legend.innerHTML += '<i style="background: #ffffb2"></i><span>Fewer than 40</span><br>';
+        legend.innerHTML += '<i style="background: #fecc5c"></i><span>40-79</span><br>';
+        legend.innerHTML += '<i style="background: #fd8d3c"></i><span>80-119</span><br>';
+        legend.innerHTML += '<i style="background: #f03b20"></i><span>120-159</span><br>';
+        legend.innerHTML += '<i style="background: #bd0026"></i><span>More than 159</span><br>';
+        legend.innerHTML += '<i style="background: #ccc"></i><span>No Data</span><br>';
     }
 }
 
@@ -165,7 +191,7 @@ function updateLegend(attribute) {
     document.querySelector("#legend").innerHTML = "";
     var legendTemp = attribute;
 
-    createLegend(legendTemp)
+    createLegend(legendTemp, attributeColor)
     //document.querySelector("span.legendTemp").innerHTML = legendTemp;
 
 }
@@ -274,6 +300,12 @@ function onEachShapefileFeature(feature, layer) {
     layer.on("click", function () {
         var bounds = layer.getBounds();
         map.fitBounds(bounds);
+        map.removeLayer(stateLayer)
+        map.removeLayer(shapefileLayer)
+        if (!map.hasLayer(punishmentLayer))
+            punishmentLayer.addTo(map);
+        if (!map.hasLayer(psychLayer))
+            psychLayer.addTo(map);
 
         punishmentLayer.setStyle(style)
         psychLayer.setStyle(style)
@@ -377,6 +409,7 @@ function getShapefileData() {
                 onEachFeature: onEachShapefileFeature
             }).addTo(map);
             createStatePropSymbols(stateDataLayer);
+            autocomplete(document.getElementById("search"), autocompleteArray, stateDataLayer)
 
         })
 }
@@ -625,14 +658,14 @@ function toggleMainLayers() {
         console.log(facility)
         facility.addEventListener('click', function (e) {
             if (facility.id == "psych_facility") {
-                if (!map.hasLayer(psychLayer)) {
+                if (map.hasLayer(psychLayer)) {
                     psychLayer.addTo(map)
                     map.removeLayer(punishmentLayer)
                 }
-            } else
-                if (map.hasLayer(punishmentLayer)) {
+            } else {
                     punishmentLayer.addTo(map)
-                    map.removeLayer(psychLayer)
+                    if (map.hasLayer(psychLayer)) {
+                    map.removeLayer(psychLayer)}
                 }
             facilityType = e.target.id
             facilityColumn = e.target.name
@@ -679,7 +712,7 @@ function toggleMainLayers() {
                     fillColor: heatIndexColorScale(feature, attributeColor),
                 }
             })
-            updateLegend(radio.id)
+            updateLegend(radio.id, attributeColor)
         })
     })
 }
@@ -731,11 +764,12 @@ function autocomplete(inp, arr, json) {
                         lon = geom.split(",")[0],
                         lat = geom.split(",")[1],
                         coords = L.latLng([lat, lon])
+                    /*if then statement for state bounds*/
 
                     /*insert the value for the autocomplete text field:*/
                     inp.value = this.getElementsByTagName("input")[0].value;
 
-                    map.flyTo(coords, 15)
+                    map.flyTo(coords, 10)
                     /*close the list of autocompleted values,
                     (or any other open lists of autocompleted values:*/
                     closeAllLists();
