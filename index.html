@@ -124,15 +124,20 @@
         <h1 id="h1intro">Climate Change and Abolition</h1>
         <h2 id="h2intro"> Investigating wildfire and heat risk on prisons, jails, detention centers, and psychiatric
             facilities</h2>
-
-        <div>
-            <button type="button" id="decreaseFont" onclick="decreaseFont()">Compact Font</button>
+        <div id="fontsize">
+            <div>
+                <button type="button" id="decreaseFont" onclick="decreaseFont()">Compact Font</button>
+            </div>
+            <div>
+                <button type="button" id="decreaseFont" onclick="normalFont()">Regular Font</button>
+            </div>
+            <div>
+                <button type="button" id="increaseFont" onclick="increaseFont()">Large Font</button>
+            </div>
         </div>
-        <div>
-            <button type="button" id="decreaseFont" onclick="normalFont()">Regular Font</button>
-        </div>
-        <div>
-            <button type="button" id="increaseFont" onclick="increaseFont()">Large Font</button>
+        <div id="theme">
+            <span> <button id="darkTheme">Dark Mode</button></span>
+            <span> <button id="lightTheme">Light Mode</button></span>
         </div>
 
     </div>
@@ -153,22 +158,21 @@
                 <input type="radio" checked="checked" id="radioCapacity"></input>
                 <span class="checkmark" id="radioCapacity"></span>
             </label>
-    
+
             <label class="container">Show Points
                 <input type="radio" id="radioPointsOnly"></input>
                 <span class="checkmark" id="radioPointsOnly"></span>
             </label>
         </div>
-        
-        <label class="container">State Data
-            <input type="radio" checked="checked" id="radioState"></input>
-            <span class="checkmark" id="radioState"></span>
-        </label>
 
-        <label class="container">Point Data
+        <div id="showStates">
+            <span><button id="radioState">State Data</button></span>
+        </div>
+
+        <!-- <label class="container">Point Data
             <input type="radio" id="radioPoints"></input>
             <span class="checkmark" id="radioPoints"></span>
-        </label>
+        </label> -->
         <div>
             <button onClick="window.location.reload();"> Refresh Page</button>
         </div>
@@ -204,9 +208,10 @@
 
             <span> <button class="facility" name="type" id="FEDERAL">Federal</button></span>
 
-            <span></span> <button class="facility" name="ice_facility" aria-label="Selects ICE facilities" id="Y">Detention Center</button></span>
-            <span></span> <button class="facility" name="psych_facility" id="psych_facility">Psychiatric
-                Facility</button></span>
+            <span> <button class="facility" name="ice_facility" aria-label="Selects ICE facilities" id="Y">Detention
+                    Center</button></span>
+            <span><button class="facility" name="psych_facility" id="psych_facility">Psychiatric
+                    Facility</button></span>
 
         </div>
         <div id="sidepanelRetrieve">

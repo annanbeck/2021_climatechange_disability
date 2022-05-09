@@ -647,27 +647,18 @@ function toggleMainLayers() {
     var radioState = document.getElementById("radioState");
     var radioPoints = document.getElementById("radioPoints");
 
-    radioState.addEventListener('change', function () {
-        if (this.checked == true) {
+    radioState.addEventListener('click', function () {
+
             map.addLayer(stateLayer)
             map.addLayer(shapefileLayer)
             if (map.hasLayer(punishmentLayer)) {
                 map.removeLayer(punishmentLayer)
+            }            if (map.hasLayer(psychLayer)) {
+                map.removeLayer(psychLayer)
             }
-            radioPoints.checked = false
-        }
+        
     })
 
-    radioPoints.addEventListener('change', function () {
-        if (this.checked == true) {
-            map.removeLayer(stateLayer)
-            map.removeLayer(shapefileLayer)
-            if (!map.hasLayer(punishmentLayer)) {
-                punishmentLayer.addTo(map);
-            }
-            radioState.checked = false
-        }
-    });
 
     facilityFilter = ["COUNTY", "STATE", "FEDERAL", "Y", "psych_facility"]
 

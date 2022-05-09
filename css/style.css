@@ -55,6 +55,10 @@
     text-align:center;
 }
 
+#fontsize{
+    text-align: center;
+}
+
 /* Style the button that is used to open and close the collapsible content */
 .collapsible {
     background-color: #eee;
@@ -131,6 +135,29 @@
     border-radius: 50%;
 }
 
+#radioState {
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.4s;
+}
+
+#radioState:hover {
+    background-color: #4CAF50;
+    /* Green */
+    color: white;
+
+}
+
+
+#radioState:focus {
+    background-color: #4CAF50;
+    color: white;
+}
 
 .facility {
     background-color: white;
