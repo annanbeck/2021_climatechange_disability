@@ -99,8 +99,8 @@ function createMap() {
     getShapefileData();
     getPunishmentData();
     getPsychData();
-    darkMode()
-    lightMode();
+    // darkMode()
+    // lightMode();
 
     toggleMainLayers();
     createLegend("Historical");
