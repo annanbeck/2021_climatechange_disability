@@ -658,10 +658,10 @@ function toggleMainLayers() {
         console.log(facility)
         facility.addEventListener('click', function (e) {
             if (facility.id == "psych_facility") {
-                if (map.hasLayer(psychLayer)) {
+                 
                     psychLayer.addTo(map)
                     map.removeLayer(punishmentLayer)
-                }
+                
             } else {
                     punishmentLayer.addTo(map)
                     if (map.hasLayer(psychLayer)) {
