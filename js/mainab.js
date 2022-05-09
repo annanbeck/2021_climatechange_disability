@@ -99,6 +99,8 @@ function createMap() {
     getShapefileData();
     getPunishmentData();
     getPsychData();
+    darkMode()
+    lightMode();
 
     toggleMainLayers();
     createLegend("Historical");
@@ -443,21 +445,21 @@ function punishmentPointToLayer(feature, latlng) {
     //Give each feature's circle marker a radius based on its attribute value
     geojsonMarkerOptions.radius = calcLocalPropRadius(attValue);
 
-    
+
     var radioCapacity = document.getElementById("radioCapacity")
     var radioPointsOnly = document.getElementById("radioPointsOnly")
 
-    radioCapacity.addEventListener('change', function (){
-        if (this.checked == true){
+    radioCapacity.addEventListener('change', function () {
+        if (this.checked == true) {
             geojsonMarkerOptions.radius = calcLocalPropRadius(attValue)
             radioPointsOnly.checked = false
             return geojsonMarkerOptions.radius
         }
-        
+
     })
 
-    radioPointsOnly.addEventListener('change',function(){
-        if (this.checked == true){
+    radioPointsOnly.addEventListener('change', function () {
+        if (this.checked == true) {
             geojsonMarkerOptions.radius = 100
             radioCapacity.checked = false
             return geojsonMarkerOptions.radius
@@ -623,6 +625,29 @@ function normalFont() {
     document.getElementById("sidepanel").style.fontSize = "large";
     document.getElementById("retrieve").style.fontSize = "large";
 }
+
+function darkMode() {
+    var darkModeButton = document.getElementById("darkMode")
+    darkBasemap = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
+        maxZoom: 20,
+        attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+    })
+    darkModeButton.addEventListener('click', function () {
+        darkBasemap.addTo(map)
+    })
+}
+
+function lightMode() {
+    var lightModeButton = document.getElementById("lightMode")
+    var OSM = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
+    lightModeButton.addEventListener('click', function () {
+        OSM.addTo(map)
+    })
+}
+
 function filterByFacility(feature) {
     if (feature.properties[facilityColumn] != facilityType) {
         return "rgba(0,0,0,0)"
@@ -649,14 +674,14 @@ function toggleMainLayers() {
 
     radioState.addEventListener('click', function () {
 
-            map.addLayer(stateLayer)
-            map.addLayer(shapefileLayer)
-            if (map.hasLayer(punishmentLayer)) {
-                map.removeLayer(punishmentLayer)
-            }            if (map.hasLayer(psychLayer)) {
-                map.removeLayer(psychLayer)
-            }
-        
+        map.addLayer(stateLayer)
+        map.addLayer(shapefileLayer)
+        if (map.hasLayer(punishmentLayer)) {
+            map.removeLayer(punishmentLayer)
+        } if (map.hasLayer(psychLayer)) {
+            map.removeLayer(psychLayer)
+        }
+
     })
 
 
@@ -670,17 +695,20 @@ function toggleMainLayers() {
         console.log(facility)
         facility.addEventListener('click', function (e) {
             if (facility.id == "psych_facility") {
-                    psychLayer.addTo(map)
-                    map.removeLayer(punishmentLayer)
-                    if (map.hasLayer(stateLayer)) {
-                        map.removeLayer(stateLayer)}                
-            } else {
-                    punishmentLayer.addTo(map)
-                    if (map.hasLayer(stateLayer)) {
-                        map.removeLayer(stateLayer)}
-                    if (map.hasLayer(psychLayer)) {
-                    map.removeLayer(psychLayer)}
+                psychLayer.addTo(map)
+                map.removeLayer(punishmentLayer)
+                if (map.hasLayer(stateLayer)) {
+                    map.removeLayer(stateLayer)
                 }
+            } else {
+                punishmentLayer.addTo(map)
+                if (map.hasLayer(stateLayer)) {
+                    map.removeLayer(stateLayer)
+                }
+                if (map.hasLayer(psychLayer)) {
+                    map.removeLayer(psychLayer)
+                }
+            }
             facilityType = e.target.id
             facilityColumn = e.target.name
             punishmentLayer.setStyle(function (feature) {
