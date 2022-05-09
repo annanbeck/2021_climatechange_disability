@@ -234,22 +234,26 @@ function statePointToLayer(feature, latlng) {
 function heatIndexColorScale(feature, attributeCurrent) {
 
     if (attributeCurrent == "historical_90" || attributeCurrent == "slow_90" || attributeCurrent == "no_90" || attributeCurrent == "rapid_90") {
-        if (feature.properties[attributeCurrent] <= 39.999999) {
+        if (feature.properties[attributeCurrent] <= 24.999999) {
             return "#ffffb2"
-        } else if (feature.properties[attributeCurrent] >= 40 && feature.properties[attributeCurrent] <= 79.999999) {
-            return "#fecc5c"
-        } else if (feature.properties[attributeCurrent] >= 80 && feature.properties[attributeCurrent] <= 120.999999) {
+        } else if (feature.properties[attributeCurrent] >= 25 && feature.properties[attributeCurrent] <= 49.999999) {
+            return "#fed976"
+        } else if (feature.properties[attributeCurrent] >= 50 && feature.properties[attributeCurrent] <= 74.999999) {
+            return "#feb24c"
+        } else if (feature.properties[attributeCurrent] >= 75 && feature.properties[attributeCurrent] <= 99.999999) {
             return "#fd8d3c"
-        } else if (feature.properties[attributeCurrent] >= 121 && feature.properties[attributeCurrent] <= 160.999999) {
-            return "#f03b20"
-        } else if (feature.properties[attributeCurrent] >= 161) {
-            return "#bd0026"
+        } else if (feature.properties[attributeCurrent] >= 100 && feature.properties[attributeCurrent] <= 124.999999) {
+            return "#fc4e2a"
+        } else if (feature.properties[attributeCurrent] >= 125 && feature.properties[attributeCurrent] <= 149.999999) {
+            return "#e31a1c"
+        } else if (feature.properties[attributeCurrent] >= 150) {
+            return "#b10026"
         } else return "#ccc"
     } else if (attributeCurrent == "WFIR_EALR") {
         if (feature.properties[attributeCurrent] == "Very Low") {
-            return "#ffffb2"
+            return "#ffffd4"
         } else if (feature.properties[attributeCurrent] == "Relatively Low") {
-            return "#fecc5c"
+            return "#fee391"
         } else if (feature.properties[attributeCurrent] == "Relatively Moderate") {
             return "#fd8d3c"
         } else if (feature.properties[attributeCurrent] == "Relatively High") {
