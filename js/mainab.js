@@ -26,10 +26,19 @@ function createMap() {
             attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
         });
 
+    document.querySelector("#darkTheme").addEventListener('click', function () {
+        map.removeLayer(OSM)    
+        darkBasemap.addTo(map)
+        })
+        document.querySelector("#lightTheme").addEventListener('click', function () {
+            map.removeLayer(darkBasemap)
+            OSM.addTo(map)
+        })
+
     map = L.map('map', {
         center: [40, -100],
         zoom: 4,
-        layers: [OSM, Esri_WorldImagery, darkBasemap],
+        layers: [OSM, darkBasemap],
         scrollWheelZoom: false
     });
     //repositions the zoom controls so they are visible
@@ -660,24 +669,25 @@ function normalFont() {
 
 function darkMode() {
     var darkModeButton = document.getElementById("darkMode")
-    darkBasemap = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
+    darkModeButton 
+   /*darkBasemap = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
         maxZoom: 20,
         attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
     })
     darkModeButton.addEventListener('click', function () {
         darkBasemap.addTo(map)
-    })
+    })*/
 }
 
 function lightMode() {
     var lightModeButton = document.getElementById("lightMode")
-    var OSM = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    /*var OSM = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     })
     lightModeButton.addEventListener('click', function () {
         OSM.addTo(map)
-    })
+    })*/
 }
 
 function filterByFacility(feature) {
