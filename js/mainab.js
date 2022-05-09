@@ -679,12 +679,14 @@ function toggleMainLayers() {
         console.log(facility)
         facility.addEventListener('click', function (e) {
             if (facility.id == "psych_facility") {
-                 
                     psychLayer.addTo(map)
                     map.removeLayer(punishmentLayer)
-                
+                    if (map.hasLayer(stateLayer)) {
+                        map.removeLayer(stateLayer)}                
             } else {
                     punishmentLayer.addTo(map)
+                    if (map.hasLayer(stateLayer)) {
+                        map.removeLayer(stateLayer)}
                     if (map.hasLayer(psychLayer)) {
                     map.removeLayer(psychLayer)}
                 }
