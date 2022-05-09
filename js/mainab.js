@@ -140,13 +140,13 @@ function createLegend(legendTemp) {
     // L.control({ position: "bottomleft" 9});//how get in sidepanel?? 
 
 
-    if (legendTemp == "WFIR_EALR" ) {
-        legend.innerHTML += '<h4 class="legendTitle">Days above 90 degrees in 2100 <span class="legendTemp">' + legendTemp + '</span></h4>';
-        legend.innerHTML += '<i style="background: #ffffb2"></i><span>LOW RISK</span><br>';
-        legend.innerHTML += '<i style="background: #fecc5c"></i><span>40-79</span><br>';
-        legend.innerHTML += '<i style="background: #fd8d3c"></i><span>80-119</span><br>';
-        legend.innerHTML += '<i style="background: #f03b20"></i><span>120-159</span><br>';
-        legend.innerHTML += '<i style="background: #bd0026"></i><span>More than 159</span><br>';
+    if (legendTemp == "WFIR_EALR") {
+        legend.innerHTML += '<h4 class="legendTitle">Current Wildfire Risk <span class="legendTemp">' + legendTemp + '</span></h4>';
+        legend.innerHTML += '<i style="background: #ffffb2"></i><span>Very Low</span><br>';
+        legend.innerHTML += '<i style="background: #fecc5c"></i><span>Relatively Low</span><br>';
+        legend.innerHTML += '<i style="background: #fd8d3c"></i><span>Relatively Moderate</span><br>';
+        legend.innerHTML += '<i style="background: #f03b20"></i><span>Relatively High</span><br>';
+        legend.innerHTML += '<i style="background: #bd0026"></i><span>Very High</span><br>';
         legend.innerHTML += '<i style="background: #ccc"></i><span>No Data</span><br>';
     } else {
 
@@ -555,6 +555,20 @@ function joinPunishmentShapefile(shapefileLayer, stateLayer) {
     };
 };
 //////////////////RADIO BUTTONS AND FILTERS//////////////////
+function increaseFont() {
+    document.getElementById("sidepanel").style.fontSize = "x-large";
+    document.getElementById("retrieve").style.fontSize = "x-large";
+}
+
+function decreaseFont() {
+    document.getElementById("sidepanel").style.fontSize = "medium";
+    document.getElementById("retrieve").style.fontSize = "medium";
+}
+
+function normalFont() {
+    document.getElementById("sidepanel").style.fontSize = "large";
+    document.getElementById("retrieve").style.fontSize = "large";
+}
 function filterByFacility(feature) {
     if (feature.properties[facilityColumn] != facilityType) {
         return "rgba(0,0,0,0)"
