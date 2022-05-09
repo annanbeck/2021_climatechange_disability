@@ -153,38 +153,46 @@ function createLegend(legendTemp, attributeColor) {
     } else if (legendTemp == "historical_90") {
 
         legend.innerHTML += '<h4 class="legendTitle"> Average number of days above 90 degrees historically</h4>';
-        legend.innerHTML += '<i style="background: #ffffb2"></i><span>Fewer than 40</span><br>';
-        legend.innerHTML += '<i style="background: #fecc5c"></i><span>40-79</span><br>';
-        legend.innerHTML += '<i style="background: #fd8d3c"></i><span>80-119</span><br>';
-        legend.innerHTML += '<i style="background: #f03b20"></i><span>120-159</span><br>';
-        legend.innerHTML += '<i style="background: #bd0026"></i><span>More than 159</span><br>';
+        legend.innerHTML += '<i style="background: #ffffb2"></i><span>Fewer than 25</span><br>';
+        legend.innerHTML += '<i style="background: #fecc5c"></i><span>25-50</span><br>';
+        legend.innerHTML += '<i style="background: #fd8d3c"></i><span>50-75</span><br>';
+        legend.innerHTML += '<i style="background: #f03b20"></i><span>75-100</span><br>';
+        legend.innerHTML += '<i style="background: #bd0026"></i><span>100-125</span><br>';
+        legend.innerHTML += '<i style="background: #bd0026"></i><span>125-150</span><br>';
+        legend.innerHTML += '<i style="background: #bd0026"></i><span>More than 150 days</span><br>';
         legend.innerHTML += '<i style="background: #ccc"></i><span>No Data</span><br>';
 
     } else if (legendTemp == "rapid_90") {
         legend.innerHTML += '<h4 class="legendTitle">Average number of days above 90 degrees with rapid climate action</h4>';
-        legend.innerHTML += '<i style="background: #ffffb2"></i><span>Fewer than 40</span><br>';
-        legend.innerHTML += '<i style="background: #fecc5c"></i><span>40-79</span><br>';
-        legend.innerHTML += '<i style="background: #fd8d3c"></i><span>80-119</span><br>';
-        legend.innerHTML += '<i style="background: #f03b20"></i><span>120-159</span><br>';
-        legend.innerHTML += '<i style="background: #bd0026"></i><span>More than 159</span><br>';
+        legend.innerHTML += '<i style="background: #ffffb2"></i><span>Fewer than 25</span><br>';
+        legend.innerHTML += '<i style="background: #fecc5c"></i><span>25-50</span><br>';
+        legend.innerHTML += '<i style="background: #fd8d3c"></i><span>50-75</span><br>';
+        legend.innerHTML += '<i style="background: #f03b20"></i><span>75-100</span><br>';
+        legend.innerHTML += '<i style="background: #bd0026"></i><span>100-125</span><br>';
+        legend.innerHTML += '<i style="background: #bd0026"></i><span>125-150</span><br>';
+        legend.innerHTML += '<i style="background: #bd0026"></i><span>More than 150 days</span><br>';
         legend.innerHTML += '<i style="background: #ccc"></i><span>No Data</span><br>';
     }
     else if (legendTemp == "slow_90") {
         legend.innerHTML += '<h4 class="legendTitle">Average number of days above 90 degrees with slow climate action</h4>';
-        legend.innerHTML += '<i style="background: #ffffb2"></i><span>Fewer than 40</span><br>';
-        legend.innerHTML += '<i style="background: #fecc5c"></i><span>40-79</span><br>';
-        legend.innerHTML += '<i style="background: #fd8d3c"></i><span>80-119</span><br>';
-        legend.innerHTML += '<i style="background: #f03b20"></i><span>120-159</span><br>';
-        legend.innerHTML += '<i style="background: #bd0026"></i><span>More than 159</span><br>';
+        legend.innerHTML += '<i style="background: #ffffb2"></i><span>Fewer than 25</span><br>';
+        legend.innerHTML += '<i style="background: #fecc5c"></i><span>25-50</span><br>';
+        legend.innerHTML += '<i style="background: #fd8d3c"></i><span>50-75</span><br>';
+        legend.innerHTML += '<i style="background: #f03b20"></i><span>75-100</span><br>';
+        legend.innerHTML += '<i style="background: #bd0026"></i><span>100-125</span><br>';
+        legend.innerHTML += '<i style="background: #bd0026"></i><span>125-150</span><br>';
+        legend.innerHTML += '<i style="background: #bd0026"></i><span>More than 150 days</span><br>';
         legend.innerHTML += '<i style="background: #ccc"></i><span>No Data</span><br>';
     }
     else if (legendTemp == "no_90") {
         legend.innerHTML += '<h4 class="legendTitle">Average number of days above 90 degrees with no climate action</h4>';
-        legend.innerHTML += '<i style="background: #ffffb2"></i><span>Fewer than 40</span><br>';
-        legend.innerHTML += '<i style="background: #fecc5c"></i><span>40-79</span><br>';
-        legend.innerHTML += '<i style="background: #fd8d3c"></i><span>80-119</span><br>';
-        legend.innerHTML += '<i style="background: #f03b20"></i><span>120-159</span><br>';
-        legend.innerHTML += '<i style="background: #bd0026"></i><span>More than 159</span><br>';
+        legend.innerHTML += '<i style="background: #ffffb2"></i><span>Fewer than 25</span><br>';
+        legend.innerHTML += '<i style="background: #fecc5c"></i><span>25-50</span><br>';
+        legend.innerHTML += '<i style="background: #fd8d3c"></i><span>50-75</span><br>';
+        legend.innerHTML += '<i style="background: #f03b20"></i><span>75-100</span><br>';
+        legend.innerHTML += '<i style="background: #bd0026"></i><span>100-125</span><br>';
+        legend.innerHTML += '<i style="background: #bd0026"></i><span>125-150</span><br>';
+        legend.innerHTML += '<i style="background: #bd0026"></i><span>More than 150 days</span><br>';
         legend.innerHTML += '<i style="background: #ccc"></i><span>No Data</span><br>';
     }
 }
@@ -253,13 +261,13 @@ function heatIndexColorScale(feature, attributeCurrent) {
         if (feature.properties[attributeCurrent] == "Very Low") {
             return "#ffffd4"
         } else if (feature.properties[attributeCurrent] == "Relatively Low") {
-            return "#fee391"
+            return "#fed98e"
         } else if (feature.properties[attributeCurrent] == "Relatively Moderate") {
-            return "#fd8d3c"
+            return "#fe9929"
         } else if (feature.properties[attributeCurrent] == "Relatively High") {
-            return "#f03b20"
+            return "#d95f0e"
         } else if (feature.properties[attributeCurrent] == "Very High") {
-            return "#bd0026"
+            return "#993404"
         } else return "#ccc"
     }
 }
