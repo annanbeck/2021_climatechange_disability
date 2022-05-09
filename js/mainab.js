@@ -99,14 +99,41 @@ function createMap() {
     getShapefileData();
     getPunishmentData();
     getPsychData();
-    darkMode()
-    lightMode();
+    // darkMode()
+    // lightMode();
 
     toggleMainLayers();
     createLegend("Historical");
     collapsible()
 
+    var radioCapacity = document.getElementById("radioCapacity")
+    var radioPointsOnly = document.getElementById("radioPointsOnly")
 
+    console.log(radioPointsOnly)
+
+
+    radioCapacity.addEventListener('change', function () {
+        //if (this.checked == true) {
+            radioPointsOnly.checked = false
+            punishmentLayer.setStyle(function(feature){
+                return {
+                    radius:calcLocalPropRadius(feature.properties.capacity)
+                }
+            })
+        //}
+
+    })
+
+    radioPointsOnly.addEventListener('change', function () {
+        //if (this.checked == true) {
+            radioCapacity.checked = false
+            punishmentLayer.setStyle(function(feature){
+                return {
+                    radius:8
+                }
+            })
+        //}
+    })
 
 
     var baseMaps = {
@@ -458,25 +485,7 @@ function punishmentPointToLayer(feature, latlng) {
     geojsonMarkerOptions.radius = calcLocalPropRadius(attValue);
 
 
-    var radioCapacity = document.getElementById("radioCapacity")
-    var radioPointsOnly = document.getElementById("radioPointsOnly")
-
-    radioCapacity.addEventListener('change', function () {
-        if (this.checked == true) {
-            geojsonMarkerOptions.radius = calcLocalPropRadius(attValue)
-            radioPointsOnly.checked = false
-            return geojsonMarkerOptions.radius
-        }
-
-    })
-
-    radioPointsOnly.addEventListener('change', function () {
-        if (this.checked == true) {
-            geojsonMarkerOptions.radius = 100
-            radioCapacity.checked = false
-            return geojsonMarkerOptions.radius
-        }
-    })
+    
 
     //create circle marker layer
     var punishmentLayer = L.circleMarker(latlng, geojsonMarkerOptions);
@@ -510,7 +519,18 @@ function createPunishmentPropSymbols(data) {
         onEachFeature: onEachPunishmentFeature
     });
 }
-
+/*
+    punishmentLayer.setStyle(feature){
+        return {
+            radius:calcLocalPropRadius(feature.properties.capacity)
+        }
+    }
+    punishmentLayer.setStyle(feature){
+        return {
+            radius:8
+        }
+    }
+*/ 
 //lol does this work?
 
 //fetch the punishment dataset
