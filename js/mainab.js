@@ -141,6 +141,10 @@ function createMap() {
 
     })
 
+    document.querySelector(".leaflet-tile-pane").on('click',function(){
+        document.querySelector("#retrieve").style.display = "none"
+    })
+
     var baseMaps = {
         "Open Street Map": OSM,
         "Esri World Imagery": Esri_WorldImagery,
