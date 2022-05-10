@@ -12,6 +12,10 @@ var attributeColor = "historical_90"
 var facilityType = "everything"
 var facilityColumn = "everything"
 var intro = document.querySelector("#intro")
+var maxBounds = [
+    [5.499550, -167.276413], //Southwest
+    [83.162102, -52.233040]  //Northeast
+]
 
 function createMap() {
 
@@ -44,8 +48,13 @@ function createMap() {
         center: [40, -100],
         zoom: 4,
         layers: [OSM, darkBasemap],
-        scrollWheelZoom: false
+        scrollWheelZoom: false,
+        minZoom: 4,
+        maxBounds: maxBounds
     });
+
+
+
     //repositions the zoom controls so they are visible
     function addControlPlaceholders(map) {
         var corners = map._controlCorners,
@@ -115,7 +124,9 @@ function createMap() {
     getPsychData();
     toggleMainLayers();
     createLegend("historical_90");
-    collapsible()
+    collapsible();
+    refresh();
+
 
     var radioCapacity = document.getElementById("radioCapacity")
     var radioPointsOnly = document.getElementById("radioPointsOnly")
@@ -141,12 +152,6 @@ function createMap() {
 
     })
 
-    document.querySelectorAll(".leaflet-tile").forEach(function (item) {
-        item.addEventListener('click', function () {
-            document.querySelector("#retrieve").style.visibility = "hidden"
-        })
-    })
-
     map.on('move', function () {
         document.querySelector("#retrieve").style.visibility = "hidden"
 
@@ -160,6 +165,7 @@ function createMap() {
 
     layerControl = L.control.layers(baseMaps, null);
     map.addControl(layerControl)
+
 }
 
 function collapsible() {
@@ -178,6 +184,14 @@ function collapsible() {
         });
     }
 }
+
+function refresh() {
+    document.getElementById("refresh-button").addEventListener('click', function () { 
+        map.fitWorld(); 
+        shapefileLayer.setStyle(borderStyle);
+    })
+}
+
 
 ///////////////////////////LEGEND////////////////////////////////
 function createLegend(legendTemp, attributeColor) {
