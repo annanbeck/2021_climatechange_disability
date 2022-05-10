@@ -343,17 +343,6 @@ var borderStyle = {
 function onEachShapefileFeature(feature, layer) {
     attribute = "incarcerated_20"
 
-    var hoverStyle = {
-        "color": "black",
-    }
-
-    layer.on("mouseover", function () {
-        layer.setStyle(hoverStyle)
-    })
-    layer.on("mouseout", function () {
-        layer.setStyle(borderStyle)
-    })
-
     layer.on("click", function () {
         var bounds = layer.getBounds();
         map.fitBounds(bounds);
@@ -366,7 +355,6 @@ function onEachShapefileFeature(feature, layer) {
 
         punishmentLayer.setStyle(style)
         psychLayer.setStyle(style)
-        highlightFeature();
 
         function fillFilter(punishmentFeature) {
             if (punishmentFeature.properties.state == feature.properties.STUSPS) {
@@ -449,9 +437,19 @@ function onEachShapefileFeature(feature, layer) {
     layer.on({
         click:
             function populate() {
-
                 document.getElementById("retrieve").innerHTML = popupContent
             }
+    })
+
+    var hoverStyle = {
+        "color": "black",
+    }
+
+    layer.on("mouseover", function () {
+        layer.setStyle(hoverStyle)
+    })
+    layer.on("mouseout", function () {
+        layer.setStyle(borderStyle)
     })
 }
 
