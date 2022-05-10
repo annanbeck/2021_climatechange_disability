@@ -493,7 +493,7 @@ function onEachShapefileFeature(feature, layer) {
     ". With worsening climate change, the number of days with dangerous levels of heat will only intensify. If there is no action taken against climate change there will be: " + parseInt(feature.properties.no_90) + 
     " days above 90 degrees. And with slow action taken against climate change there will be: " + parseInt(feature.properties.slow_90) + " days above 90 degrees." +
     " Even with rapid action taken against climate change there will be: " + parseInt(feature.properties.rapid_90) + " days above 90 degrees." + "</p>" 
-    + "<p> These risks aren't limited to heat. As climate change intensifies, large parts of the U.S. landscape will be under increased threat of wildfire. The current wildfire risk for this state is " + feature.properties.WFIR_EALS + ".</p>"
+    + "<p> These risks aren't limited to heat. As climate change intensifies, large parts of the U.S. landscape will be under increased threat of wildfire. The current wildfire risk for this state is " + feature.properties.WFIR_EALS + " out of 100.</p>"
 
     //bind the popup to the circle marker
     layer.on({
