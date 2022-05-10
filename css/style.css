@@ -71,14 +71,14 @@
     background-color: #eee;
     color: #444;
     cursor: pointer;
-    position: absolute;
+    position:relative;
     z-index: 10000;
     padding: 18px;
     width: 28vw;
     border: none;
     text-align: left;
     left: 0;
-    bottom: 0;
+    top: 0;
     outline: none;
 }
 
@@ -87,6 +87,18 @@
 .collapsible:hover {
     background-color: #ccc;
 }
+
+.collapsible:after {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: white;
+    float: right;
+    margin-left: 5px;
+  }
+  
+  .active:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+  }
 
 .temp-buttons-title {
     font-weight:bold;
