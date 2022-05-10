@@ -16,7 +16,7 @@
     left: 0;
     z-index: 10000;
     padding: 0 18px;
-    display: none;
+    display:hidden;
     overflow: scroll;
     font-size: large;
 }
@@ -33,6 +33,7 @@
     z-index: 10000;
     overflow: scroll;
     font-size: large;
+    display:none;
 
 }
 
