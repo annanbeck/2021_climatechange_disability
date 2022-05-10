@@ -147,110 +147,113 @@
 
 
 
-    <button type="button" class="collapsible">Open Legend and Filters</button>
-    <div id="sidepanel">
-        <form autocomplete="off" action="/action_page.php">
-            <div class="autocomplete" style="width:300px;">
-                <input id="search" type="text" name="incarcerationPoints" placeholder="Search">
-            </div>
-            <input type="submit">
-        </form>
 
-        <div>
-            <label class="container">Show Capacity
-                <input type="radio" checked="checked"
-                    aria-label="Returns the facility points sized for incarceration rates" id="radioCapacity"></input>
-                <span class="checkmark" id="radioCapacity"></span>
-            </label>
 
-            <label class="container">Show Points
-                <input type="radio" aria-label="Returns the facility points without sizing for incarceration rates"
-                    id="radioPointsOnly"></input>
-                <span class="checkmark" id="radioPointsOnly"></span>
-            </label>
-        </div>
-
-        <div id="showStates">
-            <span><button id="radioState">State Data</button></span>
-        </div>
-
-        <!-- <label class="container">Point Data
-            <input type="radio" id="radioPoints"></input>
-            <span class="checkmark" id="radioPoints"></span>
-        </label> -->
-
-        <div id="legend">
-        </div>
-        <div id="temp-buttons">
-            <div class="temp-buttons-title">Heat Risk
-                <label class="container">Historical average
-                    <input type="checkbox" class="temp"
-                        aria-label="Shows the historical average number of days over 90 degrees" id="historical_90"
-                        checked></input>
-                    <span class="checkmark"></span>
+    <div id="map">
+        <button type="button" class="collapsible">Open Legend and Filters</button>
+        <div id="sidepanel">
+            <form autocomplete="off" action="/action_page.php">
+                <div class="autocomplete" style="width:300px;">
+                    <input id="search" type="text" name="incarcerationPoints" placeholder="Search">
+                </div>
+                <input type="submit">
+            </form>
+    
+            <div>
+                <label class="container">Show Capacity
+                    <input type="radio" checked="checked"
+                        aria-label="Returns the facility points sized for incarceration rates" id="radioCapacity"></input>
+                    <span class="checkmark" id="radioCapacity"></span>
                 </label>
-                <label class="container">No response
-                    <input type="checkbox" class="temp"
-                        aria-label="Shows the number of days over 90 degrees if there is no climate response"
-                        id="no_90"></input>
-                    <span class="checkmark"></span>
-                </label>
-                <label class="container">Slow response
-                    <input type="checkbox" class="temp"
-                        aria-label="Shows the number of days over 90 degrees if there is a slow climate response"
-                        id="slow_90"></input>
-                    <span class="checkmark"></span>
-                </label>
-                <label class="container">Rapid response
-                    <input type="checkbox" class="temp"
-                        aria-label="Shows the number of days over 90 degrees if there is a rapid climate response"
-                        id="rapid_90"></input>
-                    <span class="checkmark"></span>
+    
+                <label class="container">Show Points
+                    <input type="radio" aria-label="Returns the facility points without sizing for incarceration rates"
+                        id="radioPointsOnly"></input>
+                    <span class="checkmark" id="radioPointsOnly"></span>
                 </label>
             </div>
-
-            <div class="temp-buttons-title">Wilfire Risk
-                <label class="container">Wildfire Risk
-                    <input type="checkbox" class="temp" aria-label="Shows the current wildfire risk"
-                        id="WFIR_EALR"></input>
-                    <span class="checkmark"></span>
-                </label>
+    
+            <div id="showStates">
+                <span><button id="radioState">State Data</button></span>
             </div>
+    
+            <!-- <label class="container">Point Data
+                <input type="radio" id="radioPoints"></input>
+                <span class="checkmark" id="radioPoints"></span>
+            </label> -->
+    
+            <div id="legend">
+            </div>
+            <div id="temp-buttons">
+                <div class="temp-buttons-title">Heat Risk
+                    <label class="container">Historical average
+                        <input type="checkbox" class="temp"
+                            aria-label="Shows the historical average number of days over 90 degrees" id="historical_90"
+                            checked></input>
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">No response
+                        <input type="checkbox" class="temp"
+                            aria-label="Shows the number of days over 90 degrees if there is no climate response"
+                            id="no_90"></input>
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">Slow response
+                        <input type="checkbox" class="temp"
+                            aria-label="Shows the number of days over 90 degrees if there is a slow climate response"
+                            id="slow_90"></input>
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">Rapid response
+                        <input type="checkbox" class="temp"
+                            aria-label="Shows the number of days over 90 degrees if there is a rapid climate response"
+                            id="rapid_90"></input>
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+    
+                <div class="temp-buttons-title">Wilfire Risk
+                    <label class="container">Wildfire Risk
+                        <input type="checkbox" class="temp" aria-label="Shows the current wildfire risk"
+                            id="WFIR_EALR"></input>
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+            </div>
+    
+            <div id="facility-type"> Filter by type of facility
+                <span> <button class="facility" name="type" aria-label="Selects local and county detention facilities"
+                        id="COUNTY">Local/County</button></span>
+    
+                <span> <button class="facility" name="type" aria-label="Selects State detention facilities"
+                        id="STATE">State</button></span>
+    
+                <span> <button class="facility" name="type" aria-label="Selects Federal detention facilities"
+                        id="FEDERAL">Federal</button></span>
+    
+                <span> <button class="facility" name="ice_facility" aria-label="Selects ICE facilities" id="Y">Detention
+                        Center</button></span>
+                <span><button class="facility" name="psych_facility"
+                        aria-label="Selects all psychiatric inpatient facilities" id="psych_facility">Psychiatric
+                        Facility</button></span>
+    
+            </div>
+            <div>
+                <button onClick="window.location.reload();" id="refresh-button"> Refresh Page</button>
+            </div>
+            <div id="sidepanelRetrieve">
+    
+            </div>
+    
         </div>
-
-        <div id="facility-type"> Filter by type of facility
-            <span> <button class="facility" name="type" aria-label="Selects local and county detention facilities"
-                    id="COUNTY">Local/County</button></span>
-
-            <span> <button class="facility" name="type" aria-label="Selects State detention facilities"
-                    id="STATE">State</button></span>
-
-            <span> <button class="facility" name="type" aria-label="Selects Federal detention facilities"
-                    id="FEDERAL">Federal</button></span>
-
-            <span> <button class="facility" name="ice_facility" aria-label="Selects ICE facilities" id="Y">Detention
-                    Center</button></span>
-            <span><button class="facility" name="psych_facility"
-                    aria-label="Selects all psychiatric inpatient facilities" id="psych_facility">Psychiatric
-                    Facility</button></span>
-
-        </div>
-        <div>
-            <button onClick="window.location.reload();" id="refresh-button"> Refresh Page</button>
-        </div>
-        <div id="sidepanelRetrieve">
-
-        </div>
-
+        <div id="retrieve" class="col-md-3">
     </div>
 
-    <div id="map"></div>
 
 
 
 
 
-    <div id="retrieve" class="col-md-3">
 
     </div>
 
