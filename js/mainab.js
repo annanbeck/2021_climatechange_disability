@@ -599,6 +599,10 @@ function onEachPunishmentFeature(feature, layer) {
         document.querySelector("#retrieve").style.visibility = "visible"
     })
 
+    layer.on("click", function (feature) {
+        document.querySelector("#retrieve").style.visibility = "visible"
+    })
+
     layer.on({
         click: function populate() {
             document.getElementById("retrieve").innerHTML = popupContent
