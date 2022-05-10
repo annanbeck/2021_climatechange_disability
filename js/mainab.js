@@ -895,7 +895,7 @@ function autocomplete(inp, arr, json) {
                     /*insert the value for the autocomplete text field:*/
                     inp.value = this.getElementsByTagName("input")[0].value;
 
-                    map.flyTo(coords, 10)
+                    map.flyTo(coords, 6)
                     /*close the list of autocompleted values,
                     (or any other open lists of autocompleted values:*/
                     closeAllLists();
