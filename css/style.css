@@ -42,6 +42,8 @@
     background-color: black;
     overflow:scroll;
     color: white;
+    font-family: Garamond, serif;
+      
 }
 
 #h1intro {
@@ -58,6 +60,7 @@
 #fontsize{
     text-align: center;
 }
+
 
 #theme{
     text-align:center;
@@ -77,7 +80,6 @@
     left: 0;
     bottom: 0;
     outline: none;
-    font-size: 15px;
 }
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
@@ -94,7 +96,7 @@
 /*Leaflet popup css */
 .leaflet-popup-content p {
     margin: 0;
-    font: 11px Verdana, sans-serif;
+    font-family: Garamond, serif;
 }
 
 /* .accordian .collapsible {
