@@ -80,6 +80,7 @@
     left: 0;
     top: 0;
     outline: none;
+    font-size: 15px;
 }
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
@@ -102,13 +103,12 @@
 
 .temp-buttons-title {
     font-weight:bold;
-
 }
 
 /*Leaflet popup css */
 .leaflet-popup-content p {
     margin: 0;
-    font-family: Garamond, serif;
+    font-family: 11px Verdana, sans-serif;
 }
 
 /* .accordian .collapsible {
@@ -316,6 +316,7 @@
 
 body {
     font: 16px Arial;
+
 }
 
 .autocomplete {
