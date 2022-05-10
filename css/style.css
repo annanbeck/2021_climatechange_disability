@@ -5,7 +5,6 @@
     width: 100vw;
     right: 0;
     float: right;
-    overflow: scroll;
 }
 
 #sidepanel {
@@ -18,7 +17,7 @@
     z-index: 10000;
     padding: 0 18px;
     display: none;
-    overflow: hidden;
+    overflow: scroll;
     font-size: large;
 }
 
