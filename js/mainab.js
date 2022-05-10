@@ -717,19 +717,19 @@ function joinPunishmentShapefile(shapefileLayer, stateLayer) {
 function increaseFont() {
     document.getElementById("sidepanel").style.fontSize = "x-large";
     document.getElementById("retrieve").style.fontSize = "x-large";
-    document.querySelector("#h3intro").style.fontSize = "xx-large";
+    document.querySelector(".h3intro").style.fontSize = "xx-large";
 }
 
 function decreaseFont() {
     document.getElementById("sidepanel").style.fontSize = "medium";
     document.getElementById("retrieve").style.fontSize = "medium";
-    document.querySelector("#h3intro").style.fontSize = "large";
+    document.querySelector(".h3intro").style.fontSize = "large";
 }
 
 function normalFont() {
     document.getElementById("sidepanel").style.fontSize = "large";
     document.getElementById("retrieve").style.fontSize = "large";
-    document.querySelector("#h3intro").style.fontSize = "x-large";
+    document.querySelector(".h3intro").style.fontSize = "x-large";
 }
 
 function filterByFacility(feature) {

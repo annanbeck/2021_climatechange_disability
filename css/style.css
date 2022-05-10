@@ -62,6 +62,10 @@
     padding-right: 250px;
 }
 
+#introText{
+    font-size:x-large
+}
+
 #h1intro {
     font-size: 55pt;
     padding: 55px;
@@ -75,8 +79,8 @@
     font-size: x-large;
 }
 
-#h3intro {
-    text-align: center;
+.h3intro {
+    text-align: justify;
     padding: 25px;
 
 }
