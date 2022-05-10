@@ -199,26 +199,26 @@
             <div id="legend">
             </div>
             <div id="temp-buttons">
-                <div class="temp-buttons-title">Heat Risk
+                <div class="temp-buttons-title">Heat Risk (days over 90 degrees)
                     <label class="container">Historical average
                         <input type="checkbox" class="temp"
                             aria-label="Shows the historical average number of days over 90 degrees" id="historical_90"
                             checked></input>
                         <span class="checkmark"></span>
                     </label>
-                    <label class="container">No response
+                    <label class="container">No response to climate change
                         <input type="checkbox" class="temp"
                             aria-label="Shows the number of days over 90 degrees if there is no climate response"
                             id="no_90"></input>
                         <span class="checkmark"></span>
                     </label>
-                    <label class="container">Slow response
+                    <label class="container">Slow response to climate change
                         <input type="checkbox" class="temp"
                             aria-label="Shows the number of days over 90 degrees if there is a slow climate response"
                             id="slow_90"></input>
                         <span class="checkmark"></span>
                     </label>
-                    <label class="container">Rapid response
+                    <label class="container">Rapid response to climate change
                         <input type="checkbox" class="temp"
                             aria-label="Shows the number of days over 90 degrees if there is a rapid climate response"
                             id="rapid_90"></input>
@@ -226,7 +226,7 @@
                     </label>
                 </div>
     
-                <div class="temp-buttons-title">Wilfire Risk
+                <div class="temp-buttons-title">Wilfire Risk (current)
                     <label class="container">Wildfire Risk
                         <input type="checkbox" class="temp" aria-label="Shows the current wildfire risk"
                             id="WFIR_EALR"></input>
@@ -235,25 +235,26 @@
                 </div>
             </div>
     
-            <div id="facility-type"> Filter by type of facility
+            <div id="facility-type">Filter by type of facility
+
                 <span> <button class="facility" name="type" aria-label="Selects local and county detention facilities"
-                        id="COUNTY">Local/County</button></span>
+                        id="COUNTY">Local & County Prisons</button></span>
     
-                <span> <button class="facility" name="type" aria-label="Selects State detention facilities"
-                        id="STATE">State</button></span>
+                <span> <button class="facility" name="type" aria-label="Selects state detention facilities"
+                        id="STATE">State Prisons</button></span>
     
                 <span> <button class="facility" name="type" aria-label="Selects Federal detention facilities"
-                        id="FEDERAL">Federal</button></span>
+                        id="FEDERAL">Federal Prisons</button></span>
     
                 <span> <button class="facility" name="ice_facility" aria-label="Selects ICE facilities" id="Y">Detention
-                        Center</button></span>
+                        Centers</button></span>
                 <span><button class="facility" name="psych_facility"
                         aria-label="Selects all psychiatric inpatient facilities" id="psych_facility">Psychiatric
-                        Facility</button></span>
+                        Facilities</button></span>
     
             </div>
-            <div>
-                <button onClick="window.location.reload();" id="refresh-button"> Refresh Page</button>
+            <div>Refresh the page
+                <button onClick="window.location.reload();" id="refresh-button"> Refresh Map</button>
             </div>
             <div id="sidepanelRetrieve">
     
