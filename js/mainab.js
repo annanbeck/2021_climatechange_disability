@@ -114,7 +114,7 @@ function createMap() {
     getPunishmentData();
     getPsychData();
     toggleMainLayers();
-    createLegend("Historical");
+    createLegend("historical_90");
     collapsible()
 
     var radioCapacity = document.getElementById("radioCapacity")
@@ -141,8 +141,15 @@ function createMap() {
 
     })
 
-    document.querySelector(".leaflet-tile-pane").on('click',function(){
-        document.querySelector("#retrieve").style.display = "none"
+    document.querySelectorAll(".leaflet-tile").forEach(function (item) {
+        item.addEventListener('click', function () {
+            document.querySelector("#retrieve").style.visibility = "hidden"
+        })
+    })
+
+    map.on('move', function () {
+        document.querySelector("#retrieve").style.visibility = "hidden"
+
     })
 
     var baseMaps = {
@@ -348,6 +355,7 @@ function onEachShapefileFeature(feature, layer) {
     attribute = "incarcerated_20"
 
     layer.on("click", function () {
+        document.querySelector("#retrieve").style.visibility = "visible"
         var bounds = layer.getBounds();
         map.fitBounds(bounds);
         map.removeLayer(stateLayer)
@@ -356,6 +364,7 @@ function onEachShapefileFeature(feature, layer) {
             punishmentLayer.addTo(map);
         if (!map.hasLayer(psychLayer))
             psychLayer.addTo(map);
+
 
         punishmentLayer.setStyle(style)
         psychLayer.setStyle(style)
@@ -434,23 +443,24 @@ function onEachShapefileFeature(feature, layer) {
         }
     }
 
+
+
     //build popup content string
     var popupContent = "<p><b>State: </b> " + feature.properties.NAME + "</p><p><b> Incarcerated Population: </b> " + feature.properties[attribute] + "</p>" + "<p><b>Historical number of days above 90 degrees: </b>" + parseInt(feature.properties.historical_90) + "</p>" + "<p><b>Number of days above 90 degrees with NO climate action: </b>" + parseInt(feature.properties.no_90) + "</p>" + "<p><b>Number of days above 90 degrees with SLOW climate action: </b>" + parseInt(feature.properties.slow_90) + "</p>" + "<p><b>Number of days above 90 degrees with RAPID: </b>" + parseInt(feature.properties.rapid_90) + "</p>";
 
     //bind the popup to the circle marker
     layer.on({
         click:
-            document.getElementById("retrieve").style.display = "block",
-        click:
             function populate() {
                 document.getElementById("retrieve").innerHTML = popupContent
             }
     })
 
+
     var hoverStyle = {
         color: "red",
         weight: 5,
-        }
+    }
 
     layer.on("mouseover", function () {
         layer.setStyle(hoverStyle)
@@ -521,8 +531,14 @@ function punishmentPointToLayer(feature, latlng) {
 
 function onEachPunishmentFeature(feature, layer) {
 
+
+
     //build popup content string
     var popupContent = "<p><b>Institution Name: </b> " + feature.properties.name + "</p><p><b> Incarcerated Population Capacity: </b> " + feature.properties.capacity + "</p>" + "<p><b>Historical number of days above 90 degrees: </b>" + parseInt(feature.properties.historical_90) + "</p>" + "<p><b>Number of days above 90 degrees with NO climate action: </b>" + parseInt(feature.properties.no_90) + "</p>" + "<p><b>Number of days above 90 degrees with SLOW climate action: </b>" + parseInt(feature.properties.slow_90) + "</p>" + "<p><b>Number of days above 90 degrees with RAPID: </b>" + parseInt(feature.properties.rapid_90) + "</p>";
+
+    layer.on("click", function () {
+        document.querySelector("#retrieve").style.visibility = "visible"
+    })
 
     layer.on({
         click: function populate() {
@@ -603,6 +619,9 @@ function psychPointToLayer(feature, latlng) {
 
 function onEachPsychFeature(feature, layer) {
 
+    layer.on("click", function () {
+        document.querySelector("#retrieve").style.visibility = "visible"
+    })
     //build popup content string
     var popupContent = "<p><b>Institution Name: </b> " + feature.properties.name + "</p><p><b> State average number of psychiatric inpatients: </b> " + feature.properties.psych_capacity + "</p>" + "<p><b>Historical number of days above 90 degrees: </b>" + parseInt(feature.properties.historical_90) + "</p>" + "<p><b>Number of days above 90 degrees with NO climate action: </b>" + parseInt(feature.properties.no_90) + "</p>" + "<p><b>Number of days above 90 degrees with SLOW climate action: </b>" + parseInt(feature.properties.slow_90) + "</p>" + "<p><b>Number of days above 90 degrees with RAPID: </b>" + parseInt(feature.properties.rapid_90) + "</p>";
 
