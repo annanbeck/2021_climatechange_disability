@@ -11,6 +11,7 @@ var attribute
 var attributeColor = "historical_90"
 var facilityType = "everything"
 var facilityColumn = "everything"
+var intro = document.querySelector("#intro")
 
 function createMap() {
 
@@ -28,11 +29,15 @@ function createMap() {
 
     document.querySelector("#darkTheme").addEventListener('click', function () {
         map.removeLayer(OSM)
-        darkBasemap.addTo(map)
+        darkBasemap.addTo(map);
+        intro.style.backgroundColor = "black";
+        intro.style.color = "#F2EFEB"
     })
     document.querySelector("#lightTheme").addEventListener('click', function () {
         map.removeLayer(darkBasemap)
         OSM.addTo(map)
+        intro.style.backgroundColor = "#F2EFEB";
+        intro.style.color = "black"
     })
 
     map = L.map('map', {
