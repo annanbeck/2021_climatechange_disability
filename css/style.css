@@ -33,7 +33,7 @@
     z-index: 10000;
     overflow: scroll;
     font-size: large;
-    display:none;
+    visibility:hidden;
 
 }
 

@@ -26,7 +26,7 @@
 <body>
     <style>
 
-        </style>
+    </style>
     <!--put your initial page content here-->
 
 
@@ -128,26 +128,26 @@
         <h2 id="h2intro"> Investigating wildfire and heat risk on prisons, jails, detention centers, and psychiatric
             facilities</h2>
         <div id="fontsize">
-            
+
             <div>
-                <button type="button" class="fontSize" id="decreaseFont" aria-label="Returns a compact font size for all text"
-                    onclick="decreaseFont()">Compact Font</button>
-            
-            
-                <button type="button" class="fontSize" id="normalFont" aria-label="Returns a medium font size for all text"
-                    onclick="normalFont()">Regular Font</button>
-            
-           
-                <button type="button" class="fontSize" id="increaseFont" aria-label="Returns a large font size for all text"
-                    onclick="increaseFont()">Large Font</button>
+                <button type="button" class="fontSize" id="decreaseFont"
+                    aria-label="Returns a compact font size for all text" onclick="decreaseFont()">Compact Font</button>
+
+
+                <button type="button" class="fontSize" id="normalFont"
+                    aria-label="Returns a medium font size for all text" onclick="normalFont()">Regular Font</button>
+
+
+                <button type="button" class="fontSize" id="increaseFont"
+                    aria-label="Returns a large font size for all text" onclick="increaseFont()">Large Font</button>
             </div>
-       
+
         </div>
         <div id="theme">
             <span> <button id="darkTheme">Dark Mode</button></span>
             <span> <button id="lightTheme">Light Mode</button></span>
         </div>
-    
+
 
     </div>
 
@@ -164,30 +164,31 @@
                 </div>
                 <input type="submit">
             </form>
-    
+
             <div>
                 <label class="container">Show Capacity
                     <input type="radio" checked="checked"
-                        aria-label="Returns the facility points sized for incarceration rates" id="radioCapacity"></input>
+                        aria-label="Returns the facility points sized for incarceration rates"
+                        id="radioCapacity"></input>
                     <span class="checkmark" id="radioCapacity"></span>
                 </label>
-    
+
                 <label class="container">Show Points
                     <input type="radio" aria-label="Returns the facility points without sizing for incarceration rates"
                         id="radioPointsOnly"></input>
                     <span class="checkmark" id="radioPointsOnly"></span>
                 </label>
             </div>
-    
+
             <div id="showStates">
                 <span><button id="radioState">State Data</button></span>
             </div>
-    
+
             <!-- <label class="container">Point Data
                 <input type="radio" id="radioPoints"></input>
                 <span class="checkmark" id="radioPoints"></span>
             </label> -->
-    
+
             <div id="legend">
             </div>
             <div id="temp-buttons">
@@ -217,7 +218,7 @@
                         <span class="checkmark"></span>
                     </label>
                 </div>
-    
+
                 <div class="temp-buttons-title">Wilfire Risk
                     <label class="container">Wildfire Risk
                         <input type="checkbox" class="temp" aria-label="Shows the current wildfire risk"
@@ -226,33 +227,31 @@
                     </label>
                 </div>
             </div>
-    
+
             <div id="facility-type"> Filter by type of facility
                 <span> <button class="facility" name="type" aria-label="Selects local and county detention facilities"
                         id="COUNTY">Local/County</button></span>
-    
+
                 <span> <button class="facility" name="type" aria-label="Selects State detention facilities"
                         id="STATE">State</button></span>
-    
+
                 <span> <button class="facility" name="type" aria-label="Selects Federal detention facilities"
                         id="FEDERAL">Federal</button></span>
-    
+
                 <span> <button class="facility" name="ice_facility" aria-label="Selects ICE facilities" id="Y">Detention
                         Center</button></span>
                 <span><button class="facility" name="psych_facility"
                         aria-label="Selects all psychiatric inpatient facilities" id="psych_facility">Psychiatric
                         Facility</button></span>
-    
+
             </div>
             <div>
                 <button onClick="window.location.reload();" id="refresh-button"> Refresh Page</button>
             </div>
-            <div id="sidepanelRetrieve">
-    
-            </div>
-    
+
         </div>
-        <div id="retrieve" class="col-md-3">
+        <div id="retrieve">
+        </div>
     </div>
 
 
