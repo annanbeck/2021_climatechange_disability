@@ -16,7 +16,7 @@
     left: 0;
     z-index: 10000;
     padding: 0 40px;
-    display:hidden;
+    display: hidden;
     overflow: scroll;
     font-size: large;
 }
@@ -33,62 +33,66 @@
     z-index: 10000;
     overflow: scroll;
     font-size: large;
-    visibility:hidden;
+    visibility: hidden;
 
 }
 
-#intro {
+.intro {
     height: 100vh;
     width: 100vw;
     background-color: #222222;
-    overflow:scroll;
+    overflow: scroll;
     color: #f1f1f1;
     font-family: Garamond, serif;
-      
+
+
 }
 
 #h1intro {
 
-    text-align:center;
-    font-weight:bold;
+    text-align: center;
+    font-weight: bold;
 }
 
-#h4intro{
-    text-align:left;
-    color: #f1f1f1;
+#h4intro {
+    text-align: center;
     padding: 10px 20px;
+    font-size: x-large;
 }
 
-#h3intro{
-    text-align:center;
+#h3intro {
+    text-align: center;
     padding: 20px;
+
 }
 
 #h2intro {
 
-    text-align:center;
-}
-
-#fontsize{
     text-align: center;
- padding: 10px;
 }
 
-#decreaseFont{
+#fontsize {
+    text-align: center;
+    padding: 10px;
+}
+
+#decreaseFont {
     font-size: medium;
-    
+
 }
-#increaseFont{
+
+#increaseFont {
     font-size: larger;
-   
+
 }
-#normalFont{
+
+#normalFont {
     font-size: large;
-    
+
 
 }
 
-.fontSize{
+.fontSize {
     background-color: #f1f1f1;
     color: black;
     border: 2px solid #184c52;
@@ -113,7 +117,7 @@
     color: #f1f1f1;
 }
 
-#darkTheme{
+#darkTheme {
     background-color: #222222;
     color: #f1f1f1;
     border: 2px solid #184c52;
@@ -124,18 +128,20 @@
     width: 200px;
     height: 50px;
 }
+
 #darkTheme:hover {
     background-color: #184c52;
     /* Green */
     color: #f1f1f1;
 
 }
+
 #darkTheme:focus {
     background-color: #01929c;
     color: #f1f1f1;
 }
 
-#lightTheme{
+#lightTheme {
     background-color: #f1f1f1;
     color: black;
     border: 2px solid #184c52;
@@ -146,12 +152,14 @@
     width: 200px;
     height: 50px;
 }
+
 #lightTheme:hover {
     background-color: #184c52;
     /* Green */
     color: #f1f1f1;
 
 }
+
 #lightTheme:focus {
     background-color: #01929c;
     color: #f1f1f1;
@@ -159,8 +167,8 @@
 
 
 
-#theme{
-    text-align:center;
+#theme {
+    text-align: center;
 }
 
 /* Style the button that is used to open and close the collapsible content */
@@ -168,7 +176,7 @@
     background-color: #eee;
     color: #444;
     cursor: pointer;
-    position:relative;
+    position: relative;
     z-index: 10000;
     padding: 18px;
     width: 28vw;
@@ -187,19 +195,21 @@
 }
 
 .collapsible:after {
-    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    content: '\02795';
+    /* Unicode character for "plus" sign (+) */
     font-size: 13px;
     color: #f1f1f1;
     float: right;
     margin-left: 5px;
-  }
-  
-  .active:after {
-    content: "\2796"; /* Unicode character for "minus" sign (-) */
-  }
+}
+
+.active:after {
+    content: "\2796";
+    /* Unicode character for "minus" sign (-) */
+}
 
 .temp-buttons-title {
-    font-weight:bold;
+    font-weight: bold;
 }
 
 /*Leaflet popup css */
@@ -229,7 +239,7 @@
     padding-left: 35px;
     margin-bottom: 12px;
     cursor: pointer;
-    font-weight:normal;
+    font-weight: normal;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -256,12 +266,12 @@
     border-radius: 50%;
 }
 
-#refresh{
-    font-weight:bold;
+#refresh {
+    font-weight: bold;
     padding: 20px 0px;
 }
 
-#refresh-button{
+#refresh-button {
     background-color: #f1f1f1;
     color: black;
     border: 2px solid #184c52;
@@ -285,10 +295,10 @@
     color: #f1f1f1;
 }
 
-#showStates{
+#showStates {
     padding-top: 20px;
     padding-bottom: 20px;
-    font-weight:bold;
+    font-weight: bold;
 }
 
 #radioState {
@@ -315,10 +325,10 @@
     color: #f1f1f1;
 }
 
-#facility-type{
+#facility-type {
     padding-top: 20px;
     padding-bottom: 20px;
-    font-weight:bold;
+    font-weight: bold;
 }
 
 .facility {
@@ -488,7 +498,8 @@ input[type=submit] {
     position: absolute;
     z-index: 1000;
     pointer-events: none;
-    top: 8%; /* possible because the placeholder's parent is the map */
+    top: 8%;
+    /* possible because the placeholder's parent is the map */
     /*transform: translateY(100%); /* using the CSS3 Transform technique */
     padding-top: 10px;
 }

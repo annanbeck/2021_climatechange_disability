@@ -11,7 +11,7 @@ var attribute
 var attributeColor = "historical_90"
 var facilityType = "everything"
 var facilityColumn = "everything"
-var intro = document.querySelector("#intro")
+var intro = document.querySelector(".intro")
 var maxBounds = [
     [5.499550, -167.276413], //Southwest
     [83.162102, -52.233040]  //Northeast
@@ -54,14 +54,14 @@ function createMap() {
     document.querySelector("#darkTheme").addEventListener('click', function () {
         map.removeLayer(OSM)
         darkBasemap.addTo(map);
-        intro.style.backgroundColor = "black";
+        intro.style.backgroundColor = "#222222";
         intro.style.color = "#F2EFEB"
     })
     document.querySelector("#lightTheme").addEventListener('click', function () {
         map.removeLayer(darkBasemap)
         OSM.addTo(map)
         intro.style.backgroundColor = "#F2EFEB";
-        intro.style.color = "black"
+        intro.style.color = "#222222"
     })
 
     map = L.map('map', {
@@ -158,6 +158,11 @@ function createMap() {
                 radius: calcLocalPropRadius(feature.properties.capacity)
             }
         })
+        psychLayer.setStyle(function (feature) {
+            return {
+                radius: calcPropRadius(feature.properties.psych_capacity)
+            }
+        })
 
     })
 
@@ -165,6 +170,11 @@ function createMap() {
 
         radioCapacity.checked = false
         punishmentLayer.setStyle(function (feature) {
+            return {
+                radius: 8
+            }
+        })
+        psychLayer.setStyle(function (feature) {
             return {
                 radius: 8
             }
@@ -230,7 +240,6 @@ function refresh() {
         facilityColumn = "everything"
 
         console.log(facilityType)
-
 
         psychLayer.setStyle(function (feature) {
             return {
@@ -735,16 +744,19 @@ function joinPunishmentShapefile(shapefileLayer, stateLayer) {
 function increaseFont() {
     document.getElementById("sidepanel").style.fontSize = "x-large";
     document.getElementById("retrieve").style.fontSize = "x-large";
+    document.querySelector("#h3intro").style.fontSize = "xx-large";
 }
 
 function decreaseFont() {
     document.getElementById("sidepanel").style.fontSize = "medium";
     document.getElementById("retrieve").style.fontSize = "medium";
+    document.querySelector("#h3intro").style.fontSize = "large";
 }
 
 function normalFont() {
     document.getElementById("sidepanel").style.fontSize = "large";
     document.getElementById("retrieve").style.fontSize = "large";
+    document.querySelector("#h3intro").style.fontSize = "x-large";
 }
 
 function filterByFacility(feature) {
