@@ -17,6 +17,26 @@ var maxBounds = [
     [83.162102, -52.233040]  //Northeast
 ]
 
+function removeStyle() {
+    psychLayer.setStyle(function () {
+        return {
+            fillOpacity: 1,
+            opacity: 1,
+            interactive: true
+        }
+
+    })
+    punishmentLayer.setStyle(function () {
+        return {
+            fillOpacity: 1,
+            opacity: 1,
+            interactive: true
+        }
+
+    })
+
+}
+
 function createMap() {
 
     var darkBasemap = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
@@ -186,12 +206,49 @@ function collapsible() {
 }
 
 function refresh() {
-    document.getElementById("refresh-button").addEventListener('click', function () { 
-        map.fitWorld(); 
+    document.getElementById("refresh-button").addEventListener('click', function () {
+        map.fitWorld();
         shapefileLayer.setStyle(borderStyle);
-    })
-}
 
+        if (!map.hasLayer(stateLayer)) {
+            map.addLayer(stateLayer)
+        }
+        if (!map.hasLayer(shapefileLayer)) {
+            map.addLayer(shapefileLayer)
+        }
+        if (map.hasLayer(punishmentLayer)) {
+            map.removeLayer(punishmentLayer)
+        };
+        if (map.hasLayer(psychLayer)) {
+            map.removeLayer(psychLayer)
+        };
+
+
+        removeStyle();
+
+        facilityType = "everything"
+        facilityColumn = "everything"
+
+        console.log(facilityType)
+
+
+        psychLayer.setStyle(function (feature) {
+            return {
+                fillColor: heatIndexColorScale(feature, attributeColor),
+                color: "#000"
+            }
+        })
+
+        punishmentLayer.setStyle(function (feature) {
+            return {
+                fillColor: heatIndexColorScale(feature, attributeColor),
+                color: "#000"
+            }
+
+        })
+    }
+    )
+}
 
 ///////////////////////////LEGEND////////////////////////////////
 function createLegend(legendTemp, attributeColor) {
@@ -436,26 +493,7 @@ function onEachShapefileFeature(feature, layer) {
         }
     })
 
-    function removeStyle() {
-        if (map.getZoom() > 6) {
-            psychLayer.setStyle(function () {
-                return {
-                    fillOpacity: 1,
-                    opacity: 1,
-                    interative: true
-                }
 
-            })
-            punishmentLayer.setStyle(function () {
-                return {
-                    fillOpacity: 1,
-                    opacity: 1,
-                    interative: true
-                }
-
-            })
-        }
-    }
 
 
 
