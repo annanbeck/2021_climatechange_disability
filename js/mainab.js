@@ -405,7 +405,7 @@ function onEachShapefileFeature(feature, layer) {
             return {
                 fillOpacity: fillFilter(punishmentFeature),
                 opacity: fillFilter(punishmentFeature),
-                interactive: interactivity(punishmentFeature)
+                // interactive: interactivity(punishmentFeature)
             }
         }
 
@@ -431,7 +431,7 @@ function onEachShapefileFeature(feature, layer) {
             return {
                 fillOpacity: fillFilter(psychFeature),
                 opacity: fillFilter(psychFeature),
-                interactive: interactivity(psychFeature)
+                // interactive: interactivity(psychFeature)
             }
         }
     })
@@ -472,7 +472,7 @@ function onEachShapefileFeature(feature, layer) {
 
 
     var hoverStyle = {
-        color: "red",
+        color: "green",
         weight: 5,
     }
 
@@ -544,8 +544,6 @@ function punishmentPointToLayer(feature, latlng) {
 };
 
 function onEachPunishmentFeature(feature, layer) {
-
-
 
     //build popup content string
     var popupContent = "<p><b>Institution Name: </b> " + feature.properties.name + "</p><p><b> Incarcerated Population Capacity: </b> " + feature.properties.capacity + "</p>" + "<p><b>Historical number of days above 90 degrees: </b>" + parseInt(feature.properties.historical_90) + "</p>" + "<p><b>Number of days above 90 degrees with NO climate action: </b>" + parseInt(feature.properties.no_90) + "</p>" + "<p><b>Number of days above 90 degrees with SLOW climate action: </b>" + parseInt(feature.properties.slow_90) + "</p>" + "<p><b>Number of days above 90 degrees with RAPID: </b>" + parseInt(feature.properties.rapid_90) + "</p>";
