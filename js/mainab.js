@@ -141,6 +141,10 @@ function createMap() {
 
     })
 
+    document.querySelector(".leaflet-tile-pane").on('click',function(){
+        document.querySelector("#retrieve").style.display = "none"
+    })
+
     var baseMaps = {
         "Open Street Map": OSM,
         "Esri World Imagery": Esri_WorldImagery,
@@ -436,14 +440,17 @@ function onEachShapefileFeature(feature, layer) {
     //bind the popup to the circle marker
     layer.on({
         click:
+            document.getElementById("retrieve").style.display = "block",
+        click:
             function populate() {
                 document.getElementById("retrieve").innerHTML = popupContent
             }
     })
 
     var hoverStyle = {
-        "color": "black",
-    }
+        color: "red",
+        weight: 5,
+        }
 
     layer.on("mouseover", function () {
         layer.setStyle(hoverStyle)
