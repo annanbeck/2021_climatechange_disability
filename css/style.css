@@ -507,3 +507,11 @@ input[type=submit] {
 .leaflet-verticalcenter .leaflet-control {
     margin-bottom: 10px;
 }
+
+.h1retrieve {
+    font-weight: bold;
+    font-size:medium;
+    text-align: center;
+    background-color: #01929c;
+    color: white
+}

@@ -295,7 +295,7 @@ function createLegend(legendTemp, attributeColor) {
         legend.innerHTML += '<i style="background: #e31a1c"></i><span>125-150</span><br>';
         legend.innerHTML += '<i style="background: #b10026"></i><span>More than 150 days</span><br>';
         legend.innerHTML += '<i style="background: #ccc"></i><span>No Data</span><br>';
-    }   
+    }
     else if (legendTemp == "slow_90") {
         legend.innerHTML += '<h4 class="legendTitle">Average number of days above 90 degrees with slow climate action</h4>';
         legend.innerHTML += '<i style="background: #ffffb2"></i><span>Fewer than 25</span><br>';
@@ -507,7 +507,13 @@ function onEachShapefileFeature(feature, layer) {
 
 
     //build popup content string
-    var popupContent = "<p><b>State: </b> " + feature.properties.NAME + "</p><p><b> Incarcerated Population: </b> " + feature.properties[attribute] + "</p>" + "<p><b>Historical number of days above 90 degrees: </b>" + parseInt(feature.properties.historical_90) + "</p>" + "<p><b>Number of days above 90 degrees with NO climate action: </b>" + parseInt(feature.properties.no_90) + "</p>" + "<p><b>Number of days above 90 degrees with SLOW climate action: </b>" + parseInt(feature.properties.slow_90) + "</p>" + "<p><b>Number of days above 90 degrees with RAPID: </b>" + parseInt(feature.properties.rapid_90) + "</p>";
+    var popupContent = "<h1 class='h1retrieve'>" + feature.properties.NAME + "</h1> <p>At  " + feature.properties.NAME +
+    " the approximate number of people incarcerated in this state is " + feature.properties.incarcerated_20 + ".</p>" +
+    "<p>On average the current number of days over 90 degrees is " + parseInt(feature.properties.historical_90) +
+    ". With worsening climate change, the number of days with dangerous levels of heat will only intensify. If there is no action taken against climate change there will be: " + parseInt(feature.properties.no_90) + 
+    " days above 90 degrees. And with slow action taken against climate change there will be: " + parseInt(feature.properties.slow_90) + " days above 90 degrees." +
+    " Even with rapid action taken against climate change there will be: " + parseInt(feature.properties.rapid_90) + " days above 90 degrees." + "</p>" 
+    + "<p> These risks aren't limited to heat. As climate change intensifies, large parts of the U.S. landscape will be under increased threat of wildfire. The current wildfire risk for this state is " + String(feature.properties.WFIR_EALR) + ".</p>"
 
     //bind the popup to the circle marker
     layer.on({
@@ -581,7 +587,7 @@ function punishmentPointToLayer(feature, latlng) {
     var punishmentLayer = L.circleMarker(latlng, geojsonMarkerOptions);
 
     //build popup content string
-    var popupContent = "<p><b>Institution Name: </b> " + feature.properties.name + "</p><p><b> Incarcerated Population Capacity: </b> " + feature.properties[attribute] + "</p>" + "<p><b>Historical number of days above 90 degrees: </b>" + parseInt(feature.properties.historical_90) + "</p>" + "<p><b>Number of days above 90 degrees with NO climate action: </b>" + parseInt(feature.properties.no_90) + "</p>" + "<p><b>Number of days above 90 degrees with SLOW climate action: </b>" + parseInt(feature.properties.slow_90) + "</p>" + "<p><b>Number of days above 90 degrees with RAPID: </b>" + parseInt(feature.properties.rapid_90) + "</p>";
+    var popupContent = "<h1 class='h1retrieve'>" + feature.properties.name + "</h1><p><b> Incarcerated Population Capacity: </b> " + feature.properties[attribute] + "</p>" + "<p><b>Historical number of days above 90 degrees: </b>" + parseInt(feature.properties.historical_90) + "</p>" + "<p><b>Number of days above 90 degrees with NO climate action: </b>" + parseInt(feature.properties.no_90) + "</p>" + "<p><b>Number of days above 90 degrees with SLOW climate action: </b>" + parseInt(feature.properties.slow_90) + "</p>" + "<p><b>Number of days above 90 degrees with RAPID: </b>" + parseInt(feature.properties.rapid_90) + "</p>";
 
     //bind the popup to the circle marker
     // punishmentLayer.bindPopup(popupContent);
@@ -593,11 +599,13 @@ function punishmentPointToLayer(feature, latlng) {
 function onEachPunishmentFeature(feature, layer) {
 
     //build popup content string
-    var popupContent = "<p><b>Institution Name: </b> " + feature.properties.name + "</p><p><b> Incarcerated Population Capacity: </b> " + feature.properties.capacity + "</p>" + "<p><b>Historical number of days above 90 degrees: </b>" + parseInt(feature.properties.historical_90) + "</p>" + "<p><b>Number of days above 90 degrees with NO climate action: </b>" + parseInt(feature.properties.no_90) + "</p>" + "<p><b>Number of days above 90 degrees with SLOW climate action: </b>" + parseInt(feature.properties.slow_90) + "</p>" + "<p><b>Number of days above 90 degrees with RAPID: </b>" + parseInt(feature.properties.rapid_90) + "</p>";
-
-    layer.on("click", function () {
-        document.querySelector("#retrieve").style.visibility = "visible"
-    })
+    var popupContent = "<h1 class='h1retrieve'>" + feature.properties.name + "</h1> <p>At  " + feature.properties.name +
+        " the number of people incarcerated is " + feature.properties.capacity + ".</p>" +
+        "<p>On average the current number of days over 90 degrees is " + parseInt(feature.properties.historical_90) +
+        ". With worsening climate change, the number of days with dangerous levels of heat will only intensify. If there is no action taken against climate change there will be: " + parseInt(feature.properties.no_90) + 
+        " days above 90 degrees. And with slow action taken against climate change there will be: " + parseInt(feature.properties.slow_90) + " days above 90 degrees." +
+        " Even with rapid action taken against climate change there will be: " + parseInt(feature.properties.rapid_90) + " days above 90 degrees." + "</p>" 
+        + "<p> These risks aren't limited to heat. As climate change intensifies, large parts of the U.S. landscape will be under increased threat of wildfire. The current wildfire risk for this location is " + String(feature.properties.WFIR_EALR) + ".</p>"
 
     layer.on("click", function (feature) {
         document.querySelector("#retrieve").style.visibility = "visible"
@@ -686,7 +694,13 @@ function onEachPsychFeature(feature, layer) {
         document.querySelector("#retrieve").style.visibility = "visible"
     })
     //build popup content string
-    var popupContent = "<p><b>Institution Name: </b> " + feature.properties.name + "</p><p><b> State average number of psychiatric inpatients: </b> " + feature.properties.psych_capacity + "</p>" + "<p><b>Historical number of days above 90 degrees: </b>" + parseInt(feature.properties.historical_90) + "</p>" + "<p><b>Number of days above 90 degrees with NO climate action: </b>" + parseInt(feature.properties.no_90) + "</p>" + "<p><b>Number of days above 90 degrees with SLOW climate action: </b>" + parseInt(feature.properties.slow_90) + "</p>" + "<p><b>Number of days above 90 degrees with RAPID: </b>" + parseInt(feature.properties.rapid_90) + "</p>";
+    var popupContent = "<h1 class='h1retrieve'>" + feature.properties.name + "</h1> <p>At  " + feature.properties.name +
+    " the average number of people incarcerated in psychiatric facilities in the state is " + feature.properties.psych_capacity + ".</p>" +
+    "<p>On average the current number of days over 90 degrees is " + parseInt(feature.properties.historical_90) +
+    ". With worsening climate change, the number of days with dangerous levels of heat will only intensify. If there is no action taken against climate change there will be: " + parseInt(feature.properties.no_90) + 
+    " days above 90 degrees. And with slow action taken against climate change there will be: " + parseInt(feature.properties.slow_90) + " days above 90 degrees." +
+    " Even with rapid action taken against climate change there will be: " + parseInt(feature.properties.rapid_90) + " days above 90 degrees." + "</p>" 
+    + "<p> These risks aren't limited to heat. As climate change intensifies, large parts of the U.S. landscape will be under increased threat of wildfire. The current wildfire risk for this location is " + String(feature.properties.WFIR_EALR) + ".</p>";
 
     layer.on({
         click: function populate() {
