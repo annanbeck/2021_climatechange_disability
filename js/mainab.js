@@ -266,16 +266,16 @@ function createLegend(legendTemp, attributeColor) {
     // L.control({ position: "bottomleft" 9});//how get in sidepanel?? 
 
     if (legendTemp == "WFIR_EALR") {
-        legend.innerHTML += '<h4 class="legendTitle">Current Wildfire Risk</h4>';
-        legend.innerHTML += '<i style="background: #ffffb2"></i><span>Very Low</span><br>';
-        legend.innerHTML += '<i style="background: #fecc5c"></i><span>Relatively Low</span><br>';
-        legend.innerHTML += '<i style="background: #fd8d3c"></i><span>Relatively Moderate</span><br>';
-        legend.innerHTML += '<i style="background: #f03b20"></i><span>Relatively High</span><br>';
-        legend.innerHTML += '<i style="background: #bd0026"></i><span>Very High</span><br>';
+        legend.innerHTML += '<p class="legendTitle">Current Wildfire Risk</p>';
+        legend.innerHTML += '<i style="background: #ffffd4"></i><span>Very Low</span><br>';
+        legend.innerHTML += '<i style="background: #fed98e"></i><span>Relatively Low</span><br>';
+        legend.innerHTML += '<i style="background: #fe9929"></i><span>Relatively Moderate</span><br>';
+        legend.innerHTML += '<i style="background: #d95f0e"></i><span>Relatively High</span><br>';
+        legend.innerHTML += '<i style="background: #993404"></i><span>Very High</span><br>';
         legend.innerHTML += '<i style="background: #ccc"></i><span>No Data</span><br>';
     } else if (legendTemp == "historical_90") {
 
-        legend.innerHTML += '<h4 class="legendTitle"> Average number of days above 90 degrees historically</h4>';
+        legend.innerHTML += '<p class="legendTitle"> Average number of days above 90 degrees historically</p>';
         legend.innerHTML += '<i style="background: #ffffb2"></i><span>Fewer than 25</span><br>';
         legend.innerHTML += '<i style="background: #fed976"></i><span>25-50</span><br>';
         legend.innerHTML += '<i style="background: #feb24c"></i><span>50-75</span><br>';
@@ -286,7 +286,7 @@ function createLegend(legendTemp, attributeColor) {
         legend.innerHTML += '<i style="background: #ccc"></i><span>No Data</span><br>';
 
     } else if (legendTemp == "rapid_90") {
-        legend.innerHTML += '<h4 class="legendTitle">Average number of days above 90 degrees with rapid climate action</h4>';
+        legend.innerHTML += '<p class="legendTitle">Average number of days above 90 degrees with rapid climate action</p>';
         legend.innerHTML += '<i style="background: #ffffb2"></i><span>Fewer than 25</span><br>';
         legend.innerHTML += '<i style="background: #fed976"></i><span>25-50</span><br>';
         legend.innerHTML += '<i style="background: #feb24c"></i><span>50-75</span><br>';
@@ -297,7 +297,7 @@ function createLegend(legendTemp, attributeColor) {
         legend.innerHTML += '<i style="background: #ccc"></i><span>No Data</span><br>';
     }
     else if (legendTemp == "slow_90") {
-        legend.innerHTML += '<h4 class="legendTitle">Average number of days above 90 degrees with slow climate action</h4>';
+        legend.innerHTML += '<p class="legendTitle">Average number of days above 90 degrees with slow climate action</p>';
         legend.innerHTML += '<i style="background: #ffffb2"></i><span>Fewer than 25</span><br>';
         legend.innerHTML += '<i style="background: #fed976"></i><span>25-50</span><br>';
         legend.innerHTML += '<i style="background: #feb24c"></i><span>50-75</span><br>';
@@ -308,7 +308,7 @@ function createLegend(legendTemp, attributeColor) {
         legend.innerHTML += '<i style="background: #ccc"></i><span>No Data</span><br>';
     }
     else if (legendTemp == "no_90") {
-        legend.innerHTML += '<h4 class="legendTitle">Average number of days above 90 degrees with no climate action</h4>';
+        legend.innerHTML += '<p class="legendTitle">Average number of days above 90 degrees with no climate action</p>';
         legend.innerHTML += '<i style="background: #ffffb2"></i><span>Fewer than 25</span><br>';
         legend.innerHTML += '<i style="background: #fed976"></i><span>25-50</span><br>';
         legend.innerHTML += '<i style="background: #feb24c"></i><span>50-75</span><br>';
@@ -507,13 +507,13 @@ function onEachShapefileFeature(feature, layer) {
 
 
     //build popup content string
-    var popupContent = "<h1 class='h1retrieve'>" + feature.properties.NAME + "</h1> <p>At  " + feature.properties.NAME +
-    " the approximate number of people incarcerated in this state is " + feature.properties.incarcerated_20 + ".</p>" +
+    var popupContent = "<h1 class='h1retrieve'>" + feature.properties.NAME + "</h1> <p>In  " + feature.properties.NAME +
+    " the approximate number of people incarcerated is " + feature.properties.incarcerated_20 + ".</p>" +
     "<p>On average the current number of days over 90 degrees is " + parseInt(feature.properties.historical_90) +
     ". With worsening climate change, the number of days with dangerous levels of heat will only intensify. If there is no action taken against climate change there will be: " + parseInt(feature.properties.no_90) + 
     " days above 90 degrees. And with slow action taken against climate change there will be: " + parseInt(feature.properties.slow_90) + " days above 90 degrees." +
     " Even with rapid action taken against climate change there will be: " + parseInt(feature.properties.rapid_90) + " days above 90 degrees." + "</p>" 
-    + "<p> These risks aren't limited to heat. As climate change intensifies, large parts of the U.S. landscape will be under increased threat of wildfire. The current wildfire risk for this state is " + String(feature.properties.WFIR_EALR) + ".</p>"
+    + "<p> These risks aren't limited to heat. As climate change intensifies, large parts of the U.S. landscape will be under increased threat of wildfire. The current wildfire risk for this state is " + feature.properties.WFIR_EALS + ".</p>"
 
     //bind the popup to the circle marker
     layer.on({
