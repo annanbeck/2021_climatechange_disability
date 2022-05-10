@@ -177,20 +177,6 @@
                 <button onClick="window.location.reload();" id="refresh-button"> Refresh Map</button>
             </div>
     
-            <div>
-                <label class="container">Show Capacity
-                    <input type="radio" checked="checked"
-                        aria-label="Returns the facility points sized for incarceration rates"
-                        id="radioCapacity"></input>
-                    <span class="checkmark" id="radioCapacity"></span>
-                </label>
-
-                <label class="container">Show Points
-                    <input type="radio" aria-label="Returns the facility points without sizing for incarceration rates"
-                        id="radioPointsOnly"></input>
-                    <span class="checkmark" id="radioPointsOnly"></span>
-                </label>
-            </div>
     
             <!-- <label class="container">Point Data
                 <input type="radio" id="radioPoints"></input>
@@ -253,6 +239,21 @@
                         aria-label="Selects all psychiatric inpatient facilities" id="psych_facility">Psychiatric
                         Facilities</button></span>
     
+            </div>
+
+            <div>
+                <label class="container">Show facilities sized for number of detainees
+                    <input type="radio" checked="checked"
+                        aria-label="Returns the facility points sized for incarceration rates"
+                        id="radioCapacity"></input>
+                    <span class="checkmark" id="radioCapacity"></span>
+                </label>
+
+                <label class="container">Show facilities as points
+                    <input type="radio" aria-label="Returns the facility points without sizing for incarceration rates"
+                        id="radioPointsOnly"></input>
+                    <span class="checkmark" id="radioPointsOnly"></span>
+                </label>
             </div>
 
             <div id="showStates">Show state data
