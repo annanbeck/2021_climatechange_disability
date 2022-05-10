@@ -27,13 +27,13 @@ function createMap() {
         });
 
     document.querySelector("#darkTheme").addEventListener('click', function () {
-        map.removeLayer(OSM)    
+        map.removeLayer(OSM)
         darkBasemap.addTo(map)
-        })
-        document.querySelector("#lightTheme").addEventListener('click', function () {
-            map.removeLayer(darkBasemap)
-            OSM.addTo(map)
-        })
+    })
+    document.querySelector("#lightTheme").addEventListener('click', function () {
+        map.removeLayer(darkBasemap)
+        OSM.addTo(map)
+    })
 
     map = L.map('map', {
         center: [40, -100],
@@ -122,25 +122,23 @@ function createMap() {
 
 
     radioCapacity.addEventListener('change', function () {
-        //if (this.checked == true) {
-            radioPointsOnly.checked = false
-            punishmentLayer.setStyle(function(feature){
-                return {
-                    radius:calcLocalPropRadius(feature.properties.capacity)
-                }
-            })
-        //}
+        radioPointsOnly.checked = false
+        punishmentLayer.setStyle(function (feature) {
+            return {
+                radius: calcLocalPropRadius(feature.properties.capacity)
+            }
+        })
 
     })
 
     radioPointsOnly.addEventListener('change', function () {
         //if (this.checked == true) {
-            radioCapacity.checked = false
-            punishmentLayer.setStyle(function(feature){
-                return {
-                    radius:8
-                }
-            })
+        radioCapacity.checked = false
+        punishmentLayer.setStyle(function (feature) {
+            return {
+                radius: 8
+            }
+        })
         //}
     })
 
@@ -347,6 +345,17 @@ var borderStyle = {
 function onEachShapefileFeature(feature, layer) {
     attribute = "incarcerated_20"
 
+    var hoverStyle = {
+        "color": "black",
+    }
+
+    layer.on("mouseover", function () {
+        layer.setStyle(hoverStyle)
+    })
+    layer.on("mouseout", function () {
+        layer.setStyle(borderStyle)
+    })
+
     layer.on("click", function () {
         var bounds = layer.getBounds();
         map.fitBounds(bounds);
@@ -359,6 +368,7 @@ function onEachShapefileFeature(feature, layer) {
 
         punishmentLayer.setStyle(style)
         psychLayer.setStyle(style)
+        highlightFeature();
 
         function fillFilter(punishmentFeature) {
             if (punishmentFeature.properties.state == feature.properties.STUSPS) {
@@ -493,9 +503,6 @@ function punishmentPointToLayer(feature, latlng) {
     //Give each feature's circle marker a radius based on its attribute value
     geojsonMarkerOptions.radius = calcLocalPropRadius(attValue);
 
-
-    
-
     //create circle marker layer
     var punishmentLayer = L.circleMarker(latlng, geojsonMarkerOptions);
 
@@ -519,6 +526,7 @@ function onEachPunishmentFeature(feature, layer) {
             document.getElementById("retrieve").innerHTML = popupContent
         }
     })
+
 }
 
 function createPunishmentPropSymbols(data) {
@@ -539,7 +547,7 @@ function createPunishmentPropSymbols(data) {
             radius:8
         }
     }
-*/ 
+*/
 //lol does this work?
 
 //fetch the punishment dataset
@@ -669,14 +677,14 @@ function normalFont() {
 
 function darkMode() {
     var darkModeButton = document.getElementById("darkMode")
-    darkModeButton 
-   /*darkBasemap = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
-        maxZoom: 20,
-        attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
-    })
-    darkModeButton.addEventListener('click', function () {
-        darkBasemap.addTo(map)
-    })*/
+    darkModeButton
+    /*darkBasemap = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
+         maxZoom: 20,
+         attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+     })
+     darkModeButton.addEventListener('click', function () {
+         darkBasemap.addTo(map)
+     })*/
 }
 
 function lightMode() {

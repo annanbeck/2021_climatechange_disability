@@ -86,6 +86,11 @@
     background-color: #ccc;
 }
 
+.temp-buttons-title {
+    font-weight:bold;
+
+}
+
 /*Leaflet popup css */
 .leaflet-popup-content p {
     margin: 0;
@@ -113,6 +118,7 @@
     padding-left: 35px;
     margin-bottom: 12px;
     cursor: pointer;
+    font-weight:normal;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -139,6 +145,29 @@
     border-radius: 50%;
 }
 
+#refresh-button{
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.4s;
+}
+
+#refresh-button:hover {
+    background-color: #4CAF50;
+    /* Green */
+    color: white;
+
+}
+
+#refresh-button:focus {
+    background-color: #4CAF50;
+    color: white;
+}
+
 #radioState {
     background-color: white;
     color: black;
@@ -161,6 +190,12 @@
 #radioState:focus {
     background-color: #4CAF50;
     color: white;
+}
+
+#facility-type{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-weight:bold;
 }
 
 .facility {
