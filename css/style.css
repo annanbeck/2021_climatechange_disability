@@ -59,6 +59,10 @@
     text-align: center;
 }
 
+#theme{
+    text-align:center;
+}
+
 /* Style the button that is used to open and close the collapsible content */
 .collapsible {
     background-color: #eee;
