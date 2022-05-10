@@ -59,7 +59,48 @@
 
 #fontsize{
     text-align: center;
+ padding: 25px;
 }
+
+#decreaseFont{
+    font-size: medium;
+    
+}
+#increaseFont{
+    font-size: larger;
+   
+}
+#normalFont{
+    font-size: large;
+    
+
+}
+
+.fontSize{
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    transition-duration: 0.4s;
+    width: 300px;
+    height: 50px;
+}
+
+.fontSize:hover {
+    background-color: #4CAF50;
+    /* Green */
+    color: white;
+
+}
+
+
+.fontSize:focus {
+    background-color: #4CAF50;
+    color: white;
+}
+
 
 
 #theme{
