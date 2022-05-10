@@ -11,6 +11,7 @@ var attributeColor = "historical_90"
 var facilityType = "everything"
 var facilityColumn = "everything"
 var intro = document.querySelector(".intro")
+var intro2 = document.querySelector(".intro2")
 var maxBounds = [
     [5.499550, -167.276413], //Southwest
     [83.162102, -52.233040]  //Northeast
@@ -55,12 +56,16 @@ function createMap() {
         darkBasemap.addTo(map);
         intro.style.backgroundColor = "#222222";
         intro.style.color = "#F2EFEB"
+        intro2.style.backgroundColor = "#222222";
+        intro2.style.color = "#F2EFEB"
     })
     document.querySelector("#lightTheme").addEventListener('click', function () {
         map.removeLayer(darkBasemap)
         OSM.addTo(map)
         intro.style.backgroundColor = "#F2EFEB";
         intro.style.color = "#222222"
+        intro2.style.backgroundColor = "#F2EFEB";
+        intro2.style.color = "#222222"
     })
 
     map = L.map('map', {
@@ -500,7 +505,7 @@ function onEachShapefileFeature(feature, layer) {
 
 
     var hoverStyle = {
-        color: "red",
+        color: "#01929c",
         weight: 5,
     }
 
