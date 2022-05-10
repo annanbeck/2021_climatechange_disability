@@ -38,6 +38,7 @@
 }
 
 .intro {
+    padding-top: 100px;
     height: 100vh;
     width: 100vw;
     background-color: #222222;
@@ -49,7 +50,8 @@
 }
 
 #h1intro {
-
+    font-size: 55pt;
+    padding: 55px;
     text-align: center;
     font-weight: bold;
 }
