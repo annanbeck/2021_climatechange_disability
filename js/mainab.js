@@ -108,18 +108,12 @@ function createMap() {
     getShapefileData();
     getPunishmentData();
     getPsychData();
-    // darkMode()
-    // lightMode();
-
     toggleMainLayers();
     createLegend("Historical");
     collapsible()
 
     var radioCapacity = document.getElementById("radioCapacity")
     var radioPointsOnly = document.getElementById("radioPointsOnly")
-
-    console.log(radioPointsOnly)
-
 
     radioCapacity.addEventListener('change', function () {
         radioPointsOnly.checked = false
@@ -132,16 +126,15 @@ function createMap() {
     })
 
     radioPointsOnly.addEventListener('change', function () {
-        //if (this.checked == true) {
+
         radioCapacity.checked = false
         punishmentLayer.setStyle(function (feature) {
             return {
                 radius: 8
             }
         })
-        //}
-    })
 
+    })
 
     var baseMaps = {
         "Open Street Map": OSM,
@@ -673,29 +666,6 @@ function decreaseFont() {
 function normalFont() {
     document.getElementById("sidepanel").style.fontSize = "large";
     document.getElementById("retrieve").style.fontSize = "large";
-}
-
-function darkMode() {
-    var darkModeButton = document.getElementById("darkMode")
-    darkModeButton
-    /*darkBasemap = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
-         maxZoom: 20,
-         attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
-     })
-     darkModeButton.addEventListener('click', function () {
-         darkBasemap.addTo(map)
-     })*/
-}
-
-function lightMode() {
-    var lightModeButton = document.getElementById("lightMode")
-    /*var OSM = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    })
-    lightModeButton.addEventListener('click', function () {
-        OSM.addTo(map)
-    })*/
 }
 
 function filterByFacility(feature) {
