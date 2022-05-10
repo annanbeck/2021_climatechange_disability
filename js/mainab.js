@@ -1,4 +1,3 @@
-//lol does this work
 var map
 var stateLayer
 var stateDataLayer
@@ -73,8 +72,6 @@ function createMap() {
         maxBounds: maxBounds
     });
 
-
-
     //repositions the zoom controls so they are visible
     function addControlPlaceholders(map) {
         var corners = map._controlCorners,
@@ -97,26 +94,6 @@ function createMap() {
 
     // You can also put other controls in the same placeholder.
     L.control.scale({ position: 'verticalcenterright' }).addTo(map);
-
-    /*Legend specific*/
-
-    // legend.addTo(map);
-    //add legend
-    /*.addControl(new L.Legend({
-        'position': 'topleft',
-        'content': PunishmentData  
-    })).on('click', function (e) {
-    
-        // use reference on mapinstance
-        this.legend.setContent(new data);
-    
-    });*/
-
-    // L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
-    //     maxZoom: 20,
-    //     attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
-    // }).addTo(map);
-
 
     //at a particular zoom level, this will add the point files and remove the state level data
     map.on('zoomend', function () {
@@ -147,7 +124,7 @@ function createMap() {
     collapsible();
     refresh();
 
-
+    //radio buttons for points and prop symbol
     var radioCapacity = document.getElementById("radioCapacity")
     var radioPointsOnly = document.getElementById("radioPointsOnly")
 
@@ -198,6 +175,7 @@ function createMap() {
 
 }
 
+//function for legend dropdown
 function collapsible() {
     var coll = document.getElementsByClassName("collapsible");
     var i;
@@ -215,6 +193,7 @@ function collapsible() {
     }
 }
 
+//instructs refresh button
 function refresh() {
     document.getElementById("refresh-button").addEventListener('click', function () {
         map.fitWorld();
@@ -262,8 +241,6 @@ function refresh() {
 ///////////////////////////LEGEND////////////////////////////////
 function createLegend(legendTemp, attributeColor) {
     var legend = document.querySelector("#legend")
-
-    // L.control({ position: "bottomleft" 9});//how get in sidepanel?? 
 
     if (legendTemp == "WFIR_EALR") {
         legend.innerHTML += '<p class="legendTitle">Current Wildfire Risk</p>';
@@ -471,7 +448,6 @@ function onEachShapefileFeature(feature, layer) {
             return {
                 fillOpacity: fillFilter(punishmentFeature),
                 opacity: fillFilter(punishmentFeature),
-                // interactive: interactivity(punishmentFeature)
             }
         }
 
@@ -497,7 +473,6 @@ function onEachShapefileFeature(feature, layer) {
             return {
                 fillOpacity: fillFilter(psychFeature),
                 opacity: fillFilter(psychFeature),
-                // interactive: interactivity(psychFeature)
             }
         }
     })
@@ -586,13 +561,7 @@ function punishmentPointToLayer(feature, latlng) {
     //create circle marker layer
     var punishmentLayer = L.circleMarker(latlng, geojsonMarkerOptions);
 
-    //build popup content string
-    var popupContent = "<h1 class='h1retrieve'>" + feature.properties.name + "</h1><p><b> Incarcerated Population Capacity: </b> " + feature.properties[attribute] + "</p>" + "<p><b>Historical number of days above 90 degrees: </b>" + parseInt(feature.properties.historical_90) + "</p>" + "<p><b>Number of days above 90 degrees with NO climate action: </b>" + parseInt(feature.properties.no_90) + "</p>" + "<p><b>Number of days above 90 degrees with SLOW climate action: </b>" + parseInt(feature.properties.slow_90) + "</p>" + "<p><b>Number of days above 90 degrees with RAPID: </b>" + parseInt(feature.properties.rapid_90) + "</p>";
-
-    //bind the popup to the circle marker
-    // punishmentLayer.bindPopup(popupContent);
-
-    //return the circle marker to the L.geoJson pointToLayer option
+     //return the circle marker to the L.geoJson pointToLayer option
     return punishmentLayer;
 };
 
@@ -626,19 +595,6 @@ function createPunishmentPropSymbols(data) {
         onEachFeature: onEachPunishmentFeature
     });
 }
-/*
-    punishmentLayer.setStyle(feature){
-        return {
-            radius:calcLocalPropRadius(feature.properties.capacity)
-        }
-    }
-    punishmentLayer.setStyle(feature){
-        return {
-            radius:8
-        }
-    }
-*/
-//lol does this work?
 
 //fetch the punishment dataset
 function getPunishmentData() {
@@ -677,12 +633,6 @@ function psychPointToLayer(feature, latlng) {
 
     //create circle marker layer
     var psychLayer = L.circleMarker(latlng, geojsonMarkerOptions);
-
-    //build popup content string
-    //var popupContent = "<p><b>State: </b> " + feature.properties.state + "</p><p><b> Number of psychiatric inpatients: </b> " + feature.properties[attribute] + "</p>";
-
-    //bind the popup to the circle marker
-    //psychLayer.bindPopup(popupContent);
 
     //return the circle marker to the L.geoJson pointToLayer option
     return psychLayer;
@@ -1010,21 +960,5 @@ function autocomplete(inp, arr, json) {
         }
     });
 }
-
-//visualize point data
-//1. fetch data (DONE)
-//1.1  visualize State data (DONE)
-//3. pointToLayer (should be easy?) (DONE)
-//3.1 set up onEachFeature + Zoom (Zoom to bounding box)
-//1.2  visualize point data
-//3. pointToLayer (for point data)
-//4. proportionalize circles
-
-
-//add filters
-//1. add filters for each type of jail to remove points
-
-//add overlays
-//1. add overlays to visualize each attribute data
 
 document.addEventListener('DOMContentLoaded', createMap);

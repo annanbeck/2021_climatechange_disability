@@ -22,6 +22,7 @@
 }
 
 #retrieve {
+    border: 8px solid #184c52;
     height: 40vh;
     width: 28vw;
     float: right;
@@ -45,8 +46,8 @@
     overflow: scroll;
     color: #f1f1f1;
     font-family: Garamond, serif;
-
-
+    padding-left: 250px;
+    padding-right: 250px;
 }
 
 #h1intro {
@@ -64,7 +65,7 @@
 
 #h3intro {
     text-align: center;
-    padding: 20px;
+    padding: 75px;
 
 }
 
@@ -462,7 +463,7 @@ input[type=text] {
 }
 
 input[type=submit] {
-    background-color: DodgerBlue;
+    background-color: #184c52;
     color: #fff;
 }
 
@@ -492,7 +493,7 @@ input[type=submit] {
 
 .autocomplete-active {
     /*when navigating through the items using the arrow keys:*/
-    background-color: DodgerBlue !important;
+    background-color: #184c52 !important;
     color: #ffffff;
 }
 
@@ -515,6 +516,6 @@ input[type=submit] {
     font-weight: bold;
     font-size:medium;
     text-align: center;
-    background-color: #01929c;
+    background-color: #184c52;
     color: white
 }
