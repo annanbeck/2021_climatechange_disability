@@ -519,7 +519,7 @@ function onEachShapefileFeature(feature, layer) {
 
 
     var hoverStyle = {
-        color: "green",
+        color: "red",
         weight: 5,
     }
 
