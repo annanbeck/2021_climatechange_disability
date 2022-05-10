@@ -55,7 +55,7 @@
 
 #h4intro{
     text-align:left;
-    color: #01929c;
+    color: #f1f1f1;
     padding: 10px 20px;
 }
 
@@ -92,7 +92,7 @@
     background-color: #f1f1f1;
     color: black;
     border: 2px solid #184c52;
-    padding: 15px 32px;
+    padding: 12px 32px;
     text-align: center;
     text-decoration: none;
     transition-duration: 0.4s;
@@ -117,7 +117,7 @@
     background-color: black;
     color: #f1f1f1;
     border: 2px solid #184c52;
-    padding: 15px 32px;
+    padding: 12px 32px;
     text-align: center;
     text-decoration: none;
     transition-duration: 0.4s;
@@ -139,7 +139,7 @@
     background-color: #f1f1f1;
     color: black;
     border: 2px solid #184c52;
-    padding: 15px 32px;
+    padding: 12px 32px;
     text-align: center;
     text-decoration: none;
     transition-duration: 0.4s;
@@ -256,50 +256,62 @@
     border-radius: 50%;
 }
 
+#refresh{
+    font-weight:bold;
+    padding: 20px 0px;
+}
+
 #refresh-button{
     background-color: #f1f1f1;
     color: black;
-    border: 2px solid #4CAF50;
-    padding: 15px 32px;
+    border: 2px solid #184c52;
+    padding: 12px 32px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     transition-duration: 0.4s;
+    width: 300px;
+    height: 50px;
 }
 
 #refresh-button:hover {
-    background-color: #4CAF50;
+    background-color: #184c52;
     /* Green */
     color: #f1f1f1;
 
 }
 
 #refresh-button:focus {
-    background-color: #4CAF50;
+    background-color: #01929c;
     color: #f1f1f1;
+}
+
+#showStates{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-weight:bold;
 }
 
 #radioState {
     background-color: #f1f1f1;
     color: black;
-    border: 2px solid #4CAF50;
-    padding: 15px 32px;
+    border: 2px solid #184c52;
+    padding: 12px 32px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     transition-duration: 0.4s;
+    width: 300px;
+    height: 50px;
 }
 
 #radioState:hover {
-    background-color: #4CAF50;
+    background-color: #184c52;
     /* Green */
     color: #f1f1f1;
 
 }
 
-
 #radioState:focus {
-    background-color: #4CAF50;
+    background-color: #01929c;
     color: #f1f1f1;
 }
 
@@ -313,7 +325,7 @@
     background-color: #f1f1f1;
     color: black;
     border: 2px solid #184c52;
-    padding: 15px 32px;
+    padding: 12px 32px;
     text-align: center;
     text-decoration: none;
     transition-duration: 0.4s;
@@ -421,6 +433,7 @@ body {
     /*the container must be positioned relative:*/
     position: relative;
     display: inline-block;
+    padding: 20px 0px;
 }
 
 input {

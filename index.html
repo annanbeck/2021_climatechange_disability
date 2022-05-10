@@ -173,6 +173,10 @@
                 <input type="submit">
             </form>
 
+            <div id ="refresh">Refresh the page
+                <button onClick="window.location.reload();" id="refresh-button"> Refresh Map</button>
+            </div>
+    
             <div>
                 <label class="container">Show Capacity
                     <input type="radio" checked="checked"
@@ -187,11 +191,7 @@
                     <span class="checkmark" id="radioPointsOnly"></span>
                 </label>
             </div>
-
-            <div id="showStates">
-                <span><button id="radioState">State Data</button></span>
-            </div>
-
+    
             <!-- <label class="container">Point Data
                 <input type="radio" id="radioPoints"></input>
                 <span class="checkmark" id="radioPoints"></span>
@@ -239,7 +239,7 @@
             <div id="facility-type">Filter by type of facility
 
                 <span> <button class="facility" name="type" aria-label="Selects local and county detention facilities"
-                        id="COUNTY">Local & County Prisons</button></span>
+                        id="COUNTY">County Prisons</button></span>
     
                 <span> <button class="facility" name="type" aria-label="Selects state detention facilities"
                         id="STATE">State Prisons</button></span>
@@ -254,12 +254,16 @@
                         Facilities</button></span>
     
             </div>
-            <div>Refresh the page
-                <button id="refresh-button"> Refresh Map</button>
+
+            <div id="showStates">Show state data
+                <span><button id="radioState">State Data</button></span>
             </div>
 
-        </div>
-        <div id="retrieve">
+        
+            <div id="sidepanelRetrieve">
+    
+            </div>
+    
         </div>
     </div>
 
