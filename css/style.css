@@ -42,7 +42,7 @@
     width: 100vw;
     background-color: black;
     overflow:scroll;
-    color: white;
+    color: #f1f1f1;
     font-family: Garamond, serif;
       
 }
@@ -53,6 +53,17 @@
     font-weight:bold;
 }
 
+#h4intro{
+    text-align:left;
+    color: #01929c;
+    padding: 10px 20px;
+}
+
+#h3intro{
+    text-align:center;
+    padding: 20px;
+}
+
 #h2intro {
 
     text-align:center;
@@ -60,7 +71,7 @@
 
 #fontsize{
     text-align: center;
- padding: 25px;
+ padding: 10px;
 }
 
 #decreaseFont{
@@ -78,9 +89,9 @@
 }
 
 .fontSize{
-    background-color: white;
+    background-color: #f1f1f1;
     color: black;
-    border: 2px solid #4CAF50;
+    border: 2px solid #184c52;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -90,16 +101,60 @@
 }
 
 .fontSize:hover {
-    background-color: #4CAF50;
+    background-color: #184c52;
     /* Green */
-    color: white;
+    color: #f1f1f1;
 
 }
 
 
 .fontSize:focus {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #01929c;
+    color: #f1f1f1;
+}
+
+#darkTheme{
+    background-color: black;
+    color: #f1f1f1;
+    border: 2px solid #184c52;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    transition-duration: 0.4s;
+    width: 300px;
+    height: 50px;
+}
+#darkTheme:hover {
+    background-color: #184c52;
+    /* Green */
+    color: #f1f1f1;
+
+}
+#darkTheme:focus {
+    background-color: #01929c;
+    color: #f1f1f1;
+}
+
+#lightTheme{
+    background-color: #f1f1f1;
+    color: black;
+    border: 2px solid #184c52;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    transition-duration: 0.4s;
+    width: 300px;
+    height: 50px;
+}
+#lightTheme:hover {
+    background-color: #184c52;
+    /* Green */
+    color: #f1f1f1;
+
+}
+#lightTheme:focus {
+    background-color: #01929c;
+    color: #f1f1f1;
 }
 
 
@@ -134,7 +189,7 @@
 .collapsible:after {
     content: '\02795'; /* Unicode character for "plus" sign (+) */
     font-size: 13px;
-    color: white;
+    color: #f1f1f1;
     float: right;
     margin-left: 5px;
   }
@@ -202,7 +257,7 @@
 }
 
 #refresh-button{
-    background-color: white;
+    background-color: #f1f1f1;
     color: black;
     border: 2px solid #4CAF50;
     padding: 15px 32px;
@@ -215,17 +270,17 @@
 #refresh-button:hover {
     background-color: #4CAF50;
     /* Green */
-    color: white;
+    color: #f1f1f1;
 
 }
 
 #refresh-button:focus {
     background-color: #4CAF50;
-    color: white;
+    color: #f1f1f1;
 }
 
 #radioState {
-    background-color: white;
+    background-color: #f1f1f1;
     color: black;
     border: 2px solid #4CAF50;
     padding: 15px 32px;
@@ -238,14 +293,14 @@
 #radioState:hover {
     background-color: #4CAF50;
     /* Green */
-    color: white;
+    color: #f1f1f1;
 
 }
 
 
 #radioState:focus {
     background-color: #4CAF50;
-    color: white;
+    color: #f1f1f1;
 }
 
 #facility-type{
@@ -255,7 +310,7 @@
 }
 
 .facility {
-    background-color: white;
+    background-color: #f1f1f1;
     color: black;
     border: 2px solid #4CAF50;
     padding: 15px 32px;
@@ -269,14 +324,14 @@
 .facility:hover {
     background-color: #4CAF50;
     /* Green */
-    color: white;
+    color: #f1f1f1;
 
 }
 
 
 .facility:focus {
     background-color: #4CAF50;
-    color: white;
+    color: #f1f1f1;
 }
 
 /* On mouse-over, add a grey background color */
@@ -308,7 +363,7 @@
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: white;
+    background: #f1f1f1;
 }
 
 /*Legend specific*/
